@@ -165,7 +165,7 @@ $$(document).on('pageInit', function (e) {
 					item += '</div>';
 
 					$('.actions').html(item);
-					swal("Deleted!", "Your imaginary file has been deleted.", "success");
+					swal("Usado!", "Seu benefício foi gerado com sucesso.", "success");
 				});
 			});
 		}
