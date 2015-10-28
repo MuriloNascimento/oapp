@@ -156,15 +156,25 @@
     <script type="text/javascript" src="js/email.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
-            $('.user_nicename').text(window.localStorage.getItem('user_nicename'));
-            $('.user_email').text(window.localStorage.getItem('user_email'));
-            $('.user_name').text(window.localStorage.getItem('user_name'));
-            $('.user_plan').text(window.localStorage.getItem('membership'));
+        $('.user_nicename').text(window.localStorage.getItem('user_nicename'));
+        $('.user_email').text(window.localStorage.getItem('user_email'));
+        $('.user_name').text(window.localStorage.getItem('user_name'));
+        $('.user_plan').text(window.localStorage.getItem('membership'));
 
-            $('#logout').on('click',function(e){
+        $('#logout').on('click',function(e){
             window.localStorage.clear();
+            $.ajax({
+                type: 'get',
+                data: {'destroy': true},
+                method: 'get',
+                url: 'http://revista.grupoair.com.br/wp-admin/admin-ajax.php?action=login',
+                crossDomain: true, // enable this
+                dataType: 'json',
+                success: function(data){
+                    window.location.href = './login.html';
+                }
+            });
 
-            window.location.href = './login.html';
         });
     </script>
 </body>

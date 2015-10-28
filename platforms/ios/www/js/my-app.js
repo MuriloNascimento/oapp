@@ -46,10 +46,6 @@ $$(document).on('pageInit', function (e) {
 		var base = 'images/icons/black/';
     	var favEvents = [];
 
-    	if (window.localStorage.getItem('fav_events') != null) {
-    		favEvents = window.localStorage.getItem('fav_events').split(',')
-    	}
-		
     	switch(file){
     		case 'index.html':
 				pageEvents();
@@ -65,25 +61,14 @@ $$(document).on('pageInit', function (e) {
 				break;
     	}
 
-		function pageIndex () {
-			if (window.localStorage.getItem('user_profile') != '' && window.localStorage.getItem('user_profile') != undefined) {
-				$('#user_profile').attr('src', window.localStorage.getItem('user_profile'));
-			}
-            $('#card_number').text(window.localStorage.getItem('card_number'));
-            $('#user_email').text(window.localStorage.getItem('user_email'));
-            $('.user_name').text(window.localStorage.getItem('user_name'));
-            $('#user_profile').attr('src', window.localStorage.getItem('user_profile'));
-            $('#qr_code').html(window.localStorage.getItem('qr_code'));
-		}
-
 		function pageEvents () {
 			var app = {
 			    initialize: function() {
 				    this.bindEvents();
-				},         
+				},
 				bindEvents: function() {
 				    document.addEventListener('deviceready', this.onDeviceReady, false);
-				},         
+				},
 				onDeviceReady: function() {
 				    app.receivedEvent('deviceready');
 				},
@@ -94,7 +79,7 @@ $$(document).on('pageInit', function (e) {
 
 			$('.load_').css('display', 'block');
 			$.ajax({
-		        url: host + "/app/benefits"
+		        url: host + "/app/benefits/" + window.localStorage.getItem('membership')
 		    }).done(function(results) {
 				var $this = $("#benefitsList").empty();
 
@@ -103,7 +88,7 @@ $$(document).on('pageInit', function (e) {
 		    		var item = '<div class="accordion-item">';
 
 		    		item += '<div class="ev_logo">';
-					item += '<img class="logo_brand" src="http://beta.funpassorlando.com/wp-content/uploads/2015/05/walt-disney-world-resort-maps-1024x937-150x150.jpg" alt="" title="" border="0">';
+					item += '<img class="logo_brand" src="'+value.establishment.image+'" alt="" title="" border="0">';
 					item += '</div>';
 
 					item += '<div class="ev_content">';
@@ -149,7 +134,7 @@ $$(document).on('pageInit', function (e) {
                     var actions = btn.parent().parent();
                     swal({
                         title: "Atenção!",
-                        text: "Este benefício só pode ser utilizado uma única vez.<br/>Usar Agora?",
+                        text: "Este benefício só pode ser utilizado uma única vez.\nUsar Agora?",
                         type: "warning",
                         showCancelButton: true,
                         confirmButtonColor: "#AEF4B3",
@@ -164,7 +149,7 @@ $$(document).on('pageInit', function (e) {
                             type: 'post',
                             data: form.serialize(),
                             method: 'post',
-                            crossDomain: true, // enable this
+                            crossDomain: true,
                             dataType: 'json',
                             url: host + "/app/use-code"
                         }).done(function(results) {

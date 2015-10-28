@@ -1510,7 +1510,7 @@ padding:0px 15px;
   height:60px;
   }
   .nav_left_logo a img{
-    max-width: 25%;
+    max-width: 50%;
     padding: 3px 0 0 0;
   }
   .nav_right_button a{
@@ -1716,6 +1716,9 @@ ul.events li img{
   width: 100%;
   height:100%;
   /*position:absolute;*/
+}
+.load_{
+  z-index: 100000;
 }
 .container_load{
   position: absolute;
