@@ -12,6 +12,7 @@ var myApp = new Framework7({
     template7Pages: true
 });
 
+var host = 'http://checklist.grupoair.com.br'
 
 // Export selectors engine
 var $$ = Dom7;
@@ -93,7 +94,7 @@ $$(document).on('pageInit', function (e) {
 
 			$('.load_').css('display', 'block');
 			$.ajax({
-		        url: "http://api.orvipclub.app/app/benefits"
+		        url: host + "/app/benefits"
 		    }).done(function(results) {
 				var $this = $("#benefitsList").empty();
 
@@ -165,7 +166,7 @@ $$(document).on('pageInit', function (e) {
                             method: 'post',
                             crossDomain: true, // enable this
                             dataType: 'json',
-                            url: "http://api.orvipclub.app/app/use-code"
+                            url: host + "/app/use-code"
                         }).done(function(results) {
 
                             if (results.success) {
@@ -213,7 +214,7 @@ $$(document).on('pageInit', function (e) {
 		$('.load_').css('display', 'block');
 
 		$.ajax({
-			url: "http://api.orvipclub.app/app/transactions/84"
+			url: host + "/app/transactions/84"
 		}).done(function(results) {
 			var $this = $("#historyList").empty();
 
