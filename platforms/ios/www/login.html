@@ -106,8 +106,9 @@
                     window.localStorage.setItem('user_nicename', data.user.data.user_nicename);
                     window.localStorage.setItem('user_email', data.user.data.user_email);
                     window.localStorage.setItem('user_name', data.user.data.display_name);
+					window.localStorage.setItem('membership', data.user.data.membership);
 
-                    window.location.href = './index.html';
+					window.location.href = './index.html';
 				}
 				$('#load').css('display', 'none');
 				$('#login').removeAttr("disabled");

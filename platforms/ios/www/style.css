@@ -49,7 +49,7 @@ position: relative;
 height: 100%;
 width: 100%;
 overflow-x: hidden;
-background: #197aca;
+background: #000;
 }
 body {
 font-family: 'Source Sans Pro', sans-serif;
@@ -1617,7 +1617,7 @@ ul.events li img{
   transition: all 0.1s linear;
 }
 .lb-header .active{
-  color: #197aca;
+  color: #000;
   font-size: 18px;
 }
 .social-login{
@@ -1687,7 +1687,7 @@ ul.events li img{
 }
 .u-form-group button{
   width:50%;
-  background-color: #197aca;
+  background-color: #000;
   border: none;
   outline: none;
   color: #fff;
