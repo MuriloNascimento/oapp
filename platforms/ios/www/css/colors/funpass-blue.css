@@ -1,0 +1,116 @@
+/*==============================================
+[Magenta color stylesheet magenta.css]
+
+Author:	SINDEVO.COM - Smart Internet Development
+Template:	Mobix - Mobile Web APP Template
+================================================*/
+
+/*===============================================*/
+/* MAIN COLOR */
+/*===============================================*/	
+a, blockquote span {
+color: #13659D;
+}
+a.button_full, a.button_small, .call_button a{
+background-color:#13659D; 
+}
+.button {
+border: 1px solid #13659D;
+color: #13659D;
+}
+.button.active {
+background: #13659D;
+}
+#pages_maincontent h3{
+color:#13659D;
+}
+.photo-categories a.active{
+background-color:#13659D;
+}
+.post_date{
+color:#13659D;
+}
+.list-block .swipeout-actions-left a,
+.list-block .swipeout-actions-right a {
+background: #13659D;
+}
+.contactform input.form_submit, .loginform input.form_submit, .commentform input.form_submit{ 
+background-color:#13659D;
+}
+/*===============================================*/
+/* HOME BG AND PAGES HEADER BG */
+/*===============================================*/	
+.homepage{
+background: url(../../images/card/bg.jpg) no-repeat center center;
+background-attachment:fixed;
+-webkit-background-size: 100%; 
+-moz-background-size: 100%;
+-o-background-size: 100%;
+background-size: 100%;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover; 
+background-size: cover;
+}
+.navbarpages{
+/*background:url(../../images/colors/magenta/header.jpg) no-repeat center center;*/
+background: #197aca;
+}
+/*===============================================*/
+/* MAIN NAV LINKS */
+/*===============================================*/	
+.main-nav ul li{
+background: #13659D;
+/*border-bottom:1px #383647 solid;*/
+}
+.main-nav ul li a{
+color:#fff;
+}
+/*===============================================*/
+/* POPUPS AND TOOLBAR */
+/*===============================================*/	
+.popup{
+background: ;
+}
+.popup-login, .popup-signup, .popup-forgot{
+background-color:#263239;
+}
+.toolbar:before {
+  background-color: #3498DB;
+}
+/*===============================================*/
+/* LEFT AND RIGHT SLIDE PANEL */
+/*===============================================*/	
+.panel {
+background:#13659D;
+}
+.user-nav ul li, ul.popular_posts li{
+border-bottom:1px #9290A1 solid;
+}
+/* MENU OPENER ICON */
+ul.toolbar_icons li.menuicon{
+background-color:#13659D;
+}
+
+/* PANEL CLOSE BUTTON */
+.close_popup_button a{
+background-color:#13659D;
+}
+.login-page{
+	background: #D2D2D2;
+}
+a.register{
+	background-color: #8D9DA3;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	width: 45%;
+	padding: 10px 0;
+	display: inline-block;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: 700;
+}
+.popup.modal-in, .login-screen.modal-in{
+	background: #3498DB;
+}
