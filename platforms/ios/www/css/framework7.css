@@ -3653,6 +3653,7 @@ html.ios-gt-6.pixel-ratio-3 .popover .picker-modal .toolbar:after {
   height: 100%;
   background: #000;
   opacity: 0;
+    color: #C9C9C9;
   z-index: 5999;
   display: none;
 }
@@ -4023,7 +4024,7 @@ html.with-statusbar-overlay body .panel {
   padding-top: 20px;
 }
 .statusbar-overlay {
-  background: #191919;
+  background: #000;
   z-index: 10000;
   position: absolute;
   left: 0;
@@ -4032,7 +4033,7 @@ html.with-statusbar-overlay body .panel {
   font-size: 80%;
   width: 100%;
   display: none;
-  color: rgba(201, 201, 201, 1);
+  color: #C9C9C9;
   -webkit-transition-duration: 400ms;
   transition-duration: 400ms;
 }
