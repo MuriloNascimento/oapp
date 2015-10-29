@@ -47,7 +47,9 @@ $$(document).on('pageInit', function (e) {
     	var favEvents = [];
 
     	switch(file){
-    		case 'index.html':
+            case '':
+            case '/':
+            case 'index.html':
 				pageEvents();
     			break;
     		case 'events.html':
@@ -87,29 +89,24 @@ $$(document).on('pageInit', function (e) {
 
 		    		var item = '<div class="accordion-item">';
 
-		    		item += '<div class="ev_logo">';
 					item += '<img class="logo_brand" src="'+value.establishment.image+'" alt="" title="" border="0">';
-					item += '</div>';
-
+					item += '<div class="be_content">';
 					item += '<div class="ev_content">';
+					item +=	'<p class="title_category">'+value.establishment.category+'</p>';
+					item += '<p class="title_benefit">'+value.description+'</p>';
 					item += '<p class="title_brand">'+value.establishment.name+'</p>';
-					item +=	'<p class="title_brand">'+value.establishment.category+'</p>';
-					item += '<p class="title_brand">'+value.description+'</p></div>';
+					item += '</div>';
 
 					item += '<div class="ev_fav">';
 					item += '<div class="accordion-item-toggle">';
 					item += '<img src="images/load_posts.png" alt="" title="" border="0">';
 					item += '</div>';
 					item += '</div>';
+					item += '</div>';
 
 					item += '<div class="accordion-item-content">';
-					item += '<p>'+value.establishment.name+'</p>';
 					item += '<p>'+value.establishment.address+'</p>';
-
 					item += '<p>'+value.establishment.description+'</p>';
-
-                    item += '<input type="hidden" name="benefit_id" value="'+value.id+'">';
-                    item += '<input type="hidden" name="client_id" value="'+window.localStorage.getItem('user_id')+'>';
 
                     item += '<div class="actions">';
                     item += '<form>';
@@ -141,8 +138,7 @@ $$(document).on('pageInit', function (e) {
                         confirmButtonText: "Sim, usar.",
                         closeOnConfirm: false
                     }, function(){
-                        $('.load_').css('display', 'block');
-
+						$('.sweet-alert button').attr("disabled", "disabled");
                         var form = actions.find('form');
                         console.log(form.serialize());
                         $.ajax({
@@ -157,7 +153,7 @@ $$(document).on('pageInit', function (e) {
                             if (results.success) {
                                 var barcode = '<div class="barcode">';
                                 barcode += '<img src="'+results.barcode+'">';
-                                barcode += '<p>'+results.number+'</p>';
+                                barcode += '<p class="code_number">'+results.number+'</p>';
                                 barcode += '</div>';
 
                                 actions.html(barcode);
@@ -168,7 +164,7 @@ $$(document).on('pageInit', function (e) {
 
 
                         }).always(function(){
-                            $('.load_').css('display', 'none');
+							$('.sweet-alert button').removeAttr("disabled");
                         });;
 
                     });
@@ -199,7 +195,7 @@ $$(document).on('pageInit', function (e) {
 		$('.load_').css('display', 'block');
 
 		$.ajax({
-			url: host + "/app/transactions/84"
+			url: host + "/app/transactions/"+window.localStorage.getItem('user_id')
 		}).done(function(results) {
 			var $this = $("#historyList").empty();
 

@@ -589,6 +589,22 @@ width:90%;
 padding:0 5%;
 margin:10px 0 20px 0;
 }
+.establishment{
+  width:100%;
+  padding: 0;
+  margin: 0;
+}
+.establishment .event_row{
+  padding: 0;
+  margin: 0;
+  border-bottom: none;
+}
+.establishment .accordion-item-content{
+  margin-top: 66px;
+}
+.establishment .accordion-item-toggle > img{
+  margin: 0;
+}
 h2.page_title{
 width:90%;
 padding:10px 5%;
@@ -618,7 +634,7 @@ display:block;
 clear:both;
 }
 #pages_maincontent p{
-padding:0 0 15px 5px;
+padding:0 0 0 5px;
 margin:0px;
 clear:both;
 color: #000;
@@ -995,7 +1011,7 @@ text-align:center;
 .post_hour{
     padding-top: 10px;
     /*color: #3498DB;*/
-    color: #13659D;
+    color: #000;
 }
 span.day{
   font-size:55px;
@@ -1455,8 +1471,12 @@ padding:0px 15px;
   width: 100%;
 }
 .actions{
-    margin-top: 50px;
-    text-align: center;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: block;
+  float: left;
+  width: 100%;
 }
 .actions img{
     display: block;
@@ -1510,8 +1530,8 @@ padding:0px 15px;
   height:60px;
   }
   .nav_left_logo a img{
-    max-width: 50%;
-    padding: 3px 0 0 0;
+    max-width: 35%;
+    padding: 10px 0 0 0;
   }
   .nav_right_button a{
   width:30px;
@@ -1567,16 +1587,16 @@ ul.events li img{
   margin: 0;
 }
 .ev_content{
-  width: 50%;
+  width: 85%;
   display: inline-block;
   float: left;
-  padding-top: 25px;
+  padding-top: 0px;
 }
 .ev_fav{
   width: 10%;
   display: inline-block;
   float: left;
-  padding-top: 30px;
+  /*padding-top: 30px;*/
 }
 .tp-0{
   top: 0 !important;
@@ -1837,7 +1857,11 @@ ul.events li img{
 }
 
 .title_brand{
-  font-size: 24px;
+  font-size: 100%;
+  font-weight: bold;
+}
+.title_brand, .title_category, .title_benefit{
+  color: #ffffff !important;
 }
 
 .google-maps {
@@ -1859,4 +1883,17 @@ height: 0;
     padding: 0;
     width: 100%;
     height: 100%;
+}
+.code_number{
+  font-size: 40px;
+}
+
+.logo_brand{
+  width: 100%;
+  margin: 0 !important;
+}
+.be_content{
+  width: 100%;
+  position: relative;
+  margin-top: -65px;
 }
