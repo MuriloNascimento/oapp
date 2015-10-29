@@ -88,7 +88,7 @@ $$(document).on('pageInit', function (e) {
 		    	$.each(results, function(i, value) {
 
 		    		var item = '<div class="accordion-item">';
-
+					item += '<div class="accordion-item-toggle">';
 					item += '<img class="logo_brand" src="'+value.establishment.image+'" alt="" title="" border="0">';
 					item += '<div class="be_content">';
 					item += '<div class="ev_content">';
@@ -98,15 +98,15 @@ $$(document).on('pageInit', function (e) {
 					item += '</div>';
 
 					item += '<div class="ev_fav">';
-					item += '<div class="accordion-item-toggle">';
+
 					item += '<img src="images/load_posts.png" alt="" title="" border="0">';
 					item += '</div>';
 					item += '</div>';
 					item += '</div>';
 
 					item += '<div class="accordion-item-content">';
+					item += '<p class="content_desc">'+value.establishment.description+'</p>';
 					item += '<p>'+value.establishment.address+'</p>';
-					item += '<p>'+value.establishment.description+'</p>';
 
                     item += '<div class="actions">';
                     item += '<form>';
@@ -114,7 +114,7 @@ $$(document).on('pageInit', function (e) {
                     item += '<input type="hidden" name="client_id" value="'+window.localStorage.getItem('user_id')+'">';
                     item += '</form>';
                     item += '<div class="call_button btn-45"><a href="#" class="">Mapa</a></div>';
-                    item += '<div class="call_button btn-45"><a href="#" class="use">Usar</a></div>';
+                    item += '<div class="call_button btn-45 btn-use"><a href="#" data-single-use="'+value.single_use+'" class="use">Usar</a></div>';
 					item += '</div>';
 					item += '</div>';
 
@@ -125,49 +125,58 @@ $$(document).on('pageInit', function (e) {
 					li.html(item).appendTo($this);
 
 				});
+                function useCode(actions){
+                    var form = actions.find('form');
+                    $.ajax({
+                        type: 'post',
+                        data: form.serialize(),
+                        method: 'post',
+                        crossDomain: true,
+                        dataType: 'json',
+                        url: host + "/app/use-code"
+                    }).done(function(results) {
+
+                        if (results.success) {
+                            var barcode = '<div class="barcode">';
+                            barcode += '<img src="'+results.barcode+'">';
+                            barcode += '<p class="code_number">'+results.number+'</p>';
+                            barcode += '</div>';
+
+                            actions.html(barcode);
+                            swal("Sucesso!", "Apresente este código ao caixa.", "success");
+                        } else {
+                            swal("Erro!", results.error, "error");
+                        }
+
+
+                    }).always(function(){
+                        $('.sweet-alert button').removeAttr("disabled");
+                    });
+                }
 
                 $('.use').on('click', function(){
                     var btn = $(this);
                     var actions = btn.parent().parent();
-                    swal({
-                        title: "Atenção!",
-                        text: "Este benefício só pode ser utilizado uma única vez.\nUsar Agora?",
-                        type: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#AEF4B3",
-                        confirmButtonText: "Sim, usar.",
-                        closeOnConfirm: false
-                    }, function(){
-						$('.sweet-alert button').attr("disabled", "disabled");
-                        var form = actions.find('form');
-                        console.log(form.serialize());
-                        $.ajax({
-                            type: 'post',
-                            data: form.serialize(),
-                            method: 'post',
-                            crossDomain: true,
-                            dataType: 'json',
-                            url: host + "/app/use-code"
-                        }).done(function(results) {
+                    console.log(btn.attr('data-single-use'));
+                    if (btn.attr('data-single-use') == 1) {
+                        swal({
+                            title: "Atenção!",
+                            text: "Este benefício só pode ser utilizado uma única vez.\nUsar Agora?",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#239E38",
+                            confirmButtonText: "Sim, usar.",
+                            closeOnConfirm: false
+                        }, function(){
+                            $('.sweet-alert button').attr("disabled", "disabled");
 
-                            if (results.success) {
-                                var barcode = '<div class="barcode">';
-                                barcode += '<img src="'+results.barcode+'">';
-                                barcode += '<p class="code_number">'+results.number+'</p>';
-                                barcode += '</div>';
+                            useCode(actions);
 
-                                actions.html(barcode);
-                                swal("Usado!", "Seu benefício foi gerado com sucesso.", "success");
-                            } else {
-                                swal("Erro!", results.error, "error");
-                            }
+                        });
+                    } else {
+                        useCode(actions);
+                    }
 
-
-                        }).always(function(){
-							$('.sweet-alert button').removeAttr("disabled");
-                        });;
-
-                    });
                 });
 
 			}).fail(function() {
@@ -212,11 +221,10 @@ $$(document).on('pageInit', function (e) {
 				item += '<span class="month" style="margin-top: 8px">'+hour[0]+':'+hour[1]+'</span>';
 				item += '</div>';
 				item += '<div class="post_title">';
-				item += '<h2>'+value.establishment.name+'</h2>';
-				item += '</div>';
-				item += '<div class="post_benefit">';
-				item += '<h2>'+value.benefit.description+'</h2>';
-				item += '</div>';
+				item += '<h2>'+value.establishment.category+'</h2>';
+                item += '<h2>'+value.benefit.description+'</h2>';
+                item += '<h2><b>'+value.establishment.name+'</b></h2>';
+                item += '</div>';
 				item += '</div>';
 
 				var li = $("<li />");

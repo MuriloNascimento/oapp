@@ -602,8 +602,14 @@ margin:10px 0 20px 0;
 .establishment .accordion-item-content{
   margin-top: 66px;
 }
-.establishment .accordion-item-toggle > img{
-  margin: 0;
+.establishment .ev_fav > img{
+  margin: 10px 0 0 0;
+}
+.ev_content p{
+  font-size: 120%;
+}
+.accordion-item-content p{
+  font-size: 110%;
 }
 h2.page_title{
 width:90%;
@@ -1014,15 +1020,17 @@ text-align:center;
     color: #000;
 }
 span.day{
-  font-size:55px;
+  font-size:190%;
   font-weight:700;
   line-height:30px;
 }
 span.month{
   float: left;
-  font-size:20px;
+  font-size:100%;
   font-weight:300;
   line-height:10px;
+  width: 100%;
+  text-align: center;
 }
 span.hour{
   font-size:30px;
@@ -1046,10 +1054,10 @@ margin:0 0 0 5%;
     margin:0 0 0 5%;
 }
 .post_title h2, .post_benefit h2{
-font-size:24px;
+font-size:120%;
 line-height:26px;
 font-weight:300;
-margin:0px 0 10px 0;
+margin:0px 0 0 0;
 padding:0px;
 }
 .post_title h2 a, .post_benefit h2 a{
@@ -1471,7 +1479,7 @@ padding:0px 15px;
   width: 100%;
 }
 .actions{
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 20px;
   text-align: center;
   display: block;
@@ -1481,11 +1489,13 @@ padding:0px 15px;
 .actions img{
     display: block;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
 }
-
+.btn-use a{
+  background: #239E38 !important;
+}
 .event_row:last-child{
-    margin-bottom: 80px;
+    /*margin-bottom: 80px;*/
 }
 /*===============================================*/
 /* 14. MEDIA QUERIES */
@@ -1543,15 +1553,15 @@ padding:0px 15px;
   .post_date{
   width:20%;
   }
-  .post_title{
-  width:70%;
+  .post_title, .post_benefit{
+    width:75%;
   }
-  .post_title h2{
-  font-size:18px;
-  line-height:22px;
+  .post_title h2, .post_benefit{
+  font-size:100%;
+  line-height:20px;
   }
   .post_title_single h2{
-  font-size:24px;
+  font-size:110%;
   padding:15px;
   line-height:28px;
   }
@@ -1896,4 +1906,8 @@ height: 0;
   width: 100%;
   position: relative;
   margin-top: -65px;
+}
+.content_desc{
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
 }
