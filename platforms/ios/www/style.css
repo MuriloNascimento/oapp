@@ -1495,7 +1495,7 @@ padding:0px 15px;
   background: #239E38 !important;
 }
 .event_row:last-child{
-    /*margin-bottom: 80px;*/
+    margin-bottom: 80px;
 }
 /*===============================================*/
 /* 14. MEDIA QUERIES */

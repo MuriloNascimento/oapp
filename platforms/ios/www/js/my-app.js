@@ -93,7 +93,7 @@ $$(document).on('pageInit', function (e) {
 					item += '<div class="be_content">';
 					item += '<div class="ev_content">';
 					item +=	'<p class="title_category">'+value.establishment.category+'</p>';
-					item += '<p class="title_benefit">'+value.description+'</p>';
+					item += '<p class="title_brand">'+value.description+'</p>';
 					item += '<p class="title_brand">'+value.establishment.name+'</p>';
 					item += '</div>';
 
@@ -222,7 +222,7 @@ $$(document).on('pageInit', function (e) {
 				item += '</div>';
 				item += '<div class="post_title">';
 				item += '<h2>'+value.establishment.category+'</h2>';
-                item += '<h2>'+value.benefit.description+'</h2>';
+                item += '<h2><b>'+value.benefit.description+'</b></h2>';
                 item += '<h2><b>'+value.establishment.name+'</b></h2>';
                 item += '</div>';
 				item += '</div>';
