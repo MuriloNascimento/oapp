@@ -49,7 +49,7 @@ $$(document).on('pageInit', function (e) {
         case '':
         case '/':
         case 'index.html':
-            pageEvents();
+
             break;
         case 'events.html':
             pageEvents();
@@ -266,6 +266,7 @@ function pageEvents () {
         $('.map').on('click', function(e){
             e.preventDefault();
             var address = $(this).attr('data-map');
+            //window.open("http://maps.apple.com/?q="+address, '_blank', 'location=no');
             window.open("maps://?q="+address, '_system', 'location=no');
         });
         $('.use').on('click', function(){
@@ -298,3 +299,20 @@ function pageEvents () {
         $('.load_').css('display', 'none');
     });
 }
+
+
+$('#logout').on('click',function(e){
+    window.localStorage.clear();
+    $.ajax({
+        type: 'get',
+        data: {'destroy': true},
+        method: 'get',
+        url: 'http://revista.grupoair.com.br/wp-admin/admin-ajax.php?action=login',
+        crossDomain: true, // enable this
+        dataType: 'json',
+        success: function(data){
+            window.location.href = './login.html';
+        }
+    });
+
+});

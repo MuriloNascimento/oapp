@@ -39,8 +39,8 @@
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		CA14B7E6EAEA4D21ACF9806A /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4B711C4A35455483954F06 /* CDVInAppBrowser.m */; };
-		FADA65FD4CC343D185CAD97F /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 81ABFCF57DC94CB0A3CDB2D5 /* CDVStatusBar.m */; };
+		624075F2FDDB43388C306D02 /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E223257501C458D892B48B7 /* CDVInAppBrowser.m */; };
+		2948144748DB473C9BCF03DE /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F524594BF7942B3A81C0A16 /* CDVStatusBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,10 +106,10 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "OR VIP CLUB/config.xml"; sourceTree = "<group>"; };
-		AE4B711C4A35455483954F06 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		E76956160B8E458E97675F86 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
-		81ABFCF57DC94CB0A3CDB2D5 /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "org.apache.cordova.statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		2B14281908CA4841AEA8A31D /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		6E223257501C458D892B48B7 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		75DA4233AF6D4502884E3F82 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "cordova-plugin-inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
+		1F524594BF7942B3A81C0A16 /* CDVStatusBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVStatusBar.m"; path = "org.apache.cordova.statusbar/CDVStatusBar.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		DCBC86F346524668836D016B /* CDVStatusBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVStatusBar.h"; path = "org.apache.cordova.statusbar/CDVStatusBar.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,10 +208,10 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
-				AE4B711C4A35455483954F06 /* CDVInAppBrowser.m */,
-				E76956160B8E458E97675F86 /* CDVInAppBrowser.h */,
-				81ABFCF57DC94CB0A3CDB2D5 /* CDVStatusBar.m */,
-				2B14281908CA4841AEA8A31D /* CDVStatusBar.h */,
+				6E223257501C458D892B48B7 /* CDVInAppBrowser.m */,
+				75DA4233AF6D4502884E3F82 /* CDVInAppBrowser.h */,
+				1F524594BF7942B3A81C0A16 /* CDVStatusBar.m */,
+				DCBC86F346524668836D016B /* CDVStatusBar.h */,
 			);
 			name = Plugins;
 			path = "OR VIP CLUB/Plugins";
@@ -396,8 +396,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
-				CA14B7E6EAEA4D21ACF9806A /* CDVInAppBrowser.m in Sources */,
-				FADA65FD4CC343D185CAD97F /* CDVStatusBar.m in Sources */,
+				624075F2FDDB43388C306D02 /* CDVInAppBrowser.m in Sources */,
+				2948144748DB473C9BCF03DE /* CDVStatusBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

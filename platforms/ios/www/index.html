@@ -159,22 +159,7 @@
         $('.user_email').text(window.localStorage.getItem('user_email'));
         $('.user_name').text(window.localStorage.getItem('user_name'));
         $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
-
-        $('#logout').on('click',function(e){
-            window.localStorage.clear();
-            $.ajax({
-                type: 'get',
-                data: {'destroy': true},
-                method: 'get',
-                url: 'http://revista.grupoair.com.br/wp-admin/admin-ajax.php?action=login',
-                crossDomain: true, // enable this
-                dataType: 'json',
-                success: function(data){
-                    window.location.href = './login.html';
-                }
-            });
-
-        });
+        
         pageEvents();
     </script>
 </body>

@@ -4024,15 +4024,15 @@ html.with-statusbar-overlay body .panel {
   padding-top: 20px;
 }
 .statusbar-overlay {
-  background: #3f3f3f;
+  background: #000;
   z-index: 10000;
   position: absolute;
   left: 0;
   top: 0;
   height: 18px;
-  font-size: 70%;
+  font-size: 80%;
   width: 100%;
-  display: block;
+  display: none;
   color: #C9C9C9 !important;
   -webkit-transition-duration: 400ms;
   transition-duration: 400ms;
