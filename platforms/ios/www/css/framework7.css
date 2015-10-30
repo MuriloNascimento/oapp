@@ -4029,10 +4029,10 @@ html.with-statusbar-overlay body .panel {
   position: absolute;
   left: 0;
   top: 0;
-  height: 16px;
+  height: 18px;
   font-size: 70%;
   width: 100%;
-  display: none;
+  display: block;
   color: #C9C9C9 !important;
   -webkit-transition-duration: 400ms;
   transition-duration: 400ms;
