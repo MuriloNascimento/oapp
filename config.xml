@@ -54,7 +54,7 @@
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
     <preference name="StatusBarOverlaysWebView" value="false" />
-    <preference name="StatusBarStyle" value="darkcontent" />
+    <preference name="StatusBarStyle" value="lightcontent" />
 
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="icon.png" />
