@@ -45,6 +45,10 @@
     <gap:plugin name="org.apache.cordova.splashscreen" />
     <gap:plugin name="org.apache.cordova.vibration" />
     <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+        <param name="android-package" value="org.apache.cordova.InAppBrowser" />
+    </feature>
     <icon src="icon.png" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="icon.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="icon.png" />
