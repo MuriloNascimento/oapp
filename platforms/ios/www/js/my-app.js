@@ -172,10 +172,6 @@ function pageHistory () {
         });
     });
 }
-function ucFirst(string) {
-    return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
-}
-
 function pageEvents () {
     var app = {
         initialize: function() {
@@ -264,8 +260,7 @@ function pageEvents () {
             });
         }
 
-        $('.map').on('click', function(e){
-            e.preventDefault();
+        $('.map').on('click', function(){
             var address = $(this).attr('data-map');
             window.open("http://maps.apple.com/?q="+address, '_blank', 'location=yes');
         });
