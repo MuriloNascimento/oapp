@@ -223,7 +223,7 @@ function pageEvents () {
             item += '<input type="hidden" name="benefit_id" value="'+value.id+'">';
             item += '<input type="hidden" name="client_id" value="'+window.localStorage.getItem('user_id')+'">';
             item += '</form>';
-            item += '<div class="call_button btn-45 btn-map"><a href="maps://?q='+value.establishment.address+'" data-map="'+value.establishment.address+'" class="">Mapa</a></div>';
+            item += '<div class="call_button btn-45 btn-map"><a href="#" data-map="'+value.establishment.address+'" class="map">Mapa</a></div>';
             item += '<div class="call_button btn-45 btn-use"><a href="#" data-single-use="'+value.single_use+'" class="use">Usar</a></div>';
             item += '</div>';
             item += '</div>';
@@ -266,7 +266,7 @@ function pageEvents () {
         $('.map').on('click', function(e){
             e.preventDefault();
             var address = $(this).attr('data-map');
-            window.open("http://maps.apple.com/?q="+address, '_system', 'location=no');
+            window.open("maps://?q="+address, '_system', 'location=no');
         });
         $('.use').on('click', function(){
             var btn = $(this);
