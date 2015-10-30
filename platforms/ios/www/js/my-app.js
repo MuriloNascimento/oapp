@@ -266,7 +266,7 @@ function pageEvents () {
         $('.map').on('click', function(e){
             e.preventDefault();
             var address = $(this).attr('data-map');
-            window.open("http://maps.apple.com/?q="+address, '_blank', 'location=yes');
+            window.open("http://maps.apple.com/?q="+address, '_blank', 'location=no');
         });
         $('.use').on('click', function(){
             var btn = $(this);
