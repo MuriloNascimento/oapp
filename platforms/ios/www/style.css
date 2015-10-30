@@ -50,6 +50,7 @@ height: 100%;
 width: 100%;
 overflow-x: hidden;
 background: #000;
+  color: #c6c6c6;
 }
 body {
 font-family: 'Source Sans Pro', sans-serif;
