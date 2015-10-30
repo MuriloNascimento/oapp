@@ -151,26 +151,6 @@ function pageHistory () {
     }).always(function(){
         $('.load_').css('display', 'none');
     });
-
-    $('.use').on('click', function(){
-        swal({
-            title: "Atenção!",
-            text: "Este benefício só pode ser utilizado uma única vez. Usar Agora?",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#AEF4B3",
-            confirmButtonText: "Sim, usar.",
-            closeOnConfirm: false
-        }, function(){
-            var item = '<div class="barcode">';
-            item += '<img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcR-oWO3DuY6mKxpeLGiHgzwWFxOiUtvNgjPD0hGfv9gYtMzsMRx">';
-            item += '<p>8885288 988959 565265</p>';
-            item += '</div>';
-
-            $('.actions').html(item);
-            swal("Usado!", "Seu benefício foi gerado com sucesso.", "success");
-        });
-    });
 }
 function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
@@ -246,13 +226,13 @@ function pageEvents () {
             }).done(function(results) {
 
                 if (results.success) {
+                    swal("Sucesso!", "Apresente este código ao caixa.", "success");
+
                     var barcode = '<div class="barcode">';
                     barcode += '<img src="'+results.barcode+'">';
                     barcode += '<p class="code_number">'+results.number+'</p>';
                     barcode += '</div>';
-
                     actions.html(barcode);
-                    swal("Sucesso!", "Apresente este código ao caixa.", "success");
                 } else {
                     swal("Erro!", results.error, "error");
                 }
