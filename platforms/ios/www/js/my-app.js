@@ -262,7 +262,7 @@ function pageEvents () {
 
         $('.map').on('click', function(){
             var address = $(this).attr('data-map');
-            window.open("http://maps.apple.com/?q="+address, '_system');
+            window.open("http://maps.apple.com/?q="+address, '_blank');
         });
         $('.use').on('click', function(){
             var btn = $(this);
