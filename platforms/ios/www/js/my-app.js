@@ -220,7 +220,7 @@ function pageEvents () {
             item += '<input type="hidden" name="benefit_id" value="'+value.id+'">';
             item += '<input type="hidden" name="client_id" value="'+window.localStorage.getItem('user_id')+'">';
             item += '</form>';
-            item += '<div class="call_button btn-45"><a href="http://maps.google.com/?q='+value.establishment.address+'" class="">Mapa</a></div>';
+            item += '<div class="call_button btn-45 btn-map"><a href="#" data-map="'+value.establishment.address+'" class="map">Mapa</a></div>';
             item += '<div class="call_button btn-45 btn-use"><a href="#" data-single-use="'+value.single_use+'" class="use">Usar</a></div>';
             item += '</div>';
             item += '</div>';
@@ -260,6 +260,10 @@ function pageEvents () {
             });
         }
 
+        $('.map').on('click', function(){
+            var address = $(this).attr('data-map');
+            window.open("http://maps.apple.com/?q="+address, '_system');
+        });
         $('.use').on('click', function(){
             var btn = $(this);
             var actions = btn.parent().parent();
