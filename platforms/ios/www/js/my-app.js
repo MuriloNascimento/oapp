@@ -50,7 +50,7 @@ $$(document).on('pageInit', function (e) {
         case '':
         case '/':
         case 'index.html':
-            //pageEvents();
+            pageEvents();
             break;
         case 'map.html':
             pageMap();
@@ -399,9 +399,7 @@ $('#logout').on('click',function(e){
     });
 });
 
-$(".navLink").on('tap', function (e) {
-    //Prevents Default Behavior
-    e.preventDefault();
-    // Calls Your Function with the URL from the custom data attribute
-    openUrl($(this).data('url'), '_system');
-});
+function openPage(url) {
+    var caption = 'Fechar' // get translation from i18n
+    window.open(url, '_blank', 'location=no,closebuttoncaption='+caption+',presentationstyle=pagesheet');
+}
