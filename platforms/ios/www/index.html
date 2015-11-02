@@ -57,15 +57,15 @@
         <h3>Dúvidas</h3>
         <ul class="popular_posts">
             <li>
-                <a href="#" onclick="window.open('http://help.orvipclub.com', '_system');" class="close-panel external"><img src="images/photos/photo1.jpg" alt="" title="" /></a>
+                <a href="#" onclick="window.open(encodeURI('http://www.google.com/'), '_blank')" class="close-panel"><img src="images/photos/photo1.jpg" alt="" title="" /></a>
                 <span>
-                    <a href="#" openclick="window.location.href='https://www.google.com/'" class="close-panel external">Como usar o sistema?</a>
+                    <a href="#" openclick="window.location.href='https://www.google.com/'" class="close-panel">Como usar o sistema?</a>
                 </span>
             </li>
             <li>
-                <a href="#" onclick="window.open(encodeURI('http://www.google.com/'), '_system')" class="close-panel external"><img src="images/photos/photo1.jpg" alt="" title="" /></a>
+                <a href="#" onclick="window.open(encodeURI('http://www.google.com/'), '_system')" class="close-panel"><img src="images/photos/photo1.jpg" alt="" title="" /></a>
                 <span>
-                    <a href="http://help.orvipclub.com" class="close-panel external">Meu cartão não foi aceito em algum estabelecimento. Como proceder?</a>
+                    <a href="#" class="close-panel navlink">Meu cartão não foi aceito em algum estabelecimento. Como proceder?</a>
                 </span>
             </li>
             <li>
@@ -168,6 +168,13 @@
         $('.user_name').text(window.localStorage.getItem('user_name'));
         $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
         pageEvents();
+
+        $(".navLink").on('tap', function (e) {
+            //Prevents Default Behavior
+            e.preventDefault();
+            // Calls Your Function with the URL from the custom data attribute
+            openUrl('http://www.google.com/', '_system');
+        });
     </script>
 
 </body>
