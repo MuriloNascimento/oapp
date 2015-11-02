@@ -151,108 +151,42 @@ function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
 }
 function pageEvents () {
-    console.log('inicio');
     $('.load_').css('display', 'block');
     $.ajax({
-        url: host + "/app/benefits/" + window.localStorage.getItem('membership')
+        url: host + "/app/transactions/"+window.localStorage.getItem('user_id')
     }).done(function(results) {
         var $this = $("#benefitsList").empty();
+
         $.each(results, function(i, value) {
-            var item = '<div class="accordion-item">';
-            item += '<div class="accordion-item-toggle">';
-            item += '<img class="logo_brand" src="'+value.establishment.image+'" alt="" title="" border="0">';
-            item += '<div class="be_content">';
-            item += '<div class="ev_content">';
-            item +=	'<p class="title_category">'+value.establishment.category+'</p>';
-            item += '<p class="title_brand">'+value.description+'</p>';
-            item += '<p class="title_brand">'+value.establishment.name+'</p>';
-            item += '</div>';
 
-            item += '<div class="ev_fav">';
+            var arr = value.created_at.split(' ');
+            var date = arr[0].split('-');
+            var hour = arr[1].split(':');
 
-            item += '<img src="images/load_posts.png" alt="" title="" border="0">';
+            var item = '<div class="post_entry">';
+            item += '<div class="post_date">';
+            item += '<span class="day">'+date[2]+'</span>';
+            item += '<span class="month">'+date[1]+'/'+date[0]+'</span>';
+            item += '<span class="month" style="margin-top: 8px">'+hour[0]+':'+hour[1]+'</span>';
             item += '</div>';
-            item += '</div>';
-            item += '</div>';
-
-            item += '<div class="accordion-item-content">';
-            item += '<p class="content_desc">'+value.establishment.description+'</p>';
-            item += '<p>'+value.establishment.address+'</p>';
-
-            item += '<div class="actions">';
-            item += '<form>';
-            item += '<input type="hidden" name="benefit_id" value="'+value.id+'">';
-            item += '<input type="hidden" name="client_id" value="'+window.localStorage.getItem('user_id')+'">';
-            item += '</form>';
-            item += '<div class="call_button btn-45 btn-map"><a href="#" data-map="'+value.establishment.address+'" class="map">Mapa</a></div>';
-            item += '<div class="call_button btn-45 btn-use"><a href="#" data-single-use="'+value.single_use+'" class="use">Usar</a></div>';
+            item += '<div class="post_title">';
+            item += '<h2>'+value.establishment.category+'</h2>';
+            item += '<h2><b>'+value.benefit.description+'</b></h2>';
+            item += '<h2><b>'+value.establishment.name+'</b></h2>';
             item += '</div>';
             item += '</div>';
 
-            item += '</div>';
-
-            var li = $("<li />").addClass('event_row');
+            var li = $("<li />");
 
             li.html(item).appendTo($this);
+
         });
-        function useCode(actions){
-            var form = actions.find('form');
-            $.ajax({
-                type: 'post',
-                data: form.serialize(),
-                method: 'post',
-                crossDomain: true,
-                dataType: 'json',
-                url: host + "/app/use-code"
-            }).done(function(results) {
 
-                if (results.success) {
-                    swal("Sucesso!", "Apresente este código ao caixa.", "success");
-
-                    var barcode = '<div class="barcode">';
-                    barcode += '<img src="'+results.barcode+'">';
-                    barcode += '<p class="code_number">'+results.number+'</p>';
-                    barcode += '</div>';
-                    actions.html(barcode);
-                } else {
-                    swal("Erro!", results.error, "error");
-                }
-
-
-            }).always(function(){
-                $('.sweet-alert button').removeAttr("disabled");
-            });
+        if(results.length === 0) {
+            var li = $("<li />");
+            var item = '<p>Sem registros</p>';
+            li.html(item).appendTo($this);
         }
-
-        $('.map').on('click', function(e){
-            e.preventDefault();
-            var address = $(this).attr('data-map');
-            //window.open("http://maps.apple.com/?q="+address, '_blank', 'location=no');
-            window.open("maps://?q="+address, '_system', 'location=no');
-        });
-        $('.use').on('click', function(){
-            var btn = $(this);
-            var actions = btn.parent().parent();
-            if (btn.attr('data-single-use') == 1) {
-                swal({
-                    title: "Atenção!",
-                    text: "Este benefício só pode ser utilizado uma única vez.\nUsar Agora?",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#239E38",
-                    confirmButtonText: "Sim, usar.",
-                    closeOnConfirm: false
-                }, function(){
-                    $('.sweet-alert button').attr("disabled", "disabled");
-
-                    useCode(actions);
-
-                });
-            } else {
-                useCode(actions);
-            }
-
-        });
 
     }).fail(function() {
         sweetAlert(":-( Oops...", "Não foi possível conectar ao servidor!", "error");
