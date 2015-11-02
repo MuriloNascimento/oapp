@@ -6,7 +6,8 @@ var myApp = new Framework7({
     // Enabled pages rendering using Template7
 	swipeBackPage: false,
 	swipeBackPageThreshold: 1,
-	swipePanel: "left",
+	//swipePanel: "top",
+    swipePanelOnlyClose: true,
 	swipePanelCloseOpposite: true,
 	pushState: true,
     template7Pages: true
@@ -36,6 +37,8 @@ var mainView = myApp.addView('.view-main', {
 });*/
 
 $$(document).on('pageInit', function (e) {
+    StatusBar.overlaysWebView(true);
+    StatusBar.styleLightContent();
     var url = window.location.href;
     var fileUrl = url.split("#!/");
 
