@@ -4063,9 +4063,7 @@
                         if (touchesDiff < 0 && actionsRight.length > 0) {
                             app.swipeoutOpen(swipeOutEl, 'right');
                         }
-                        if (touchesDiff > 0 && actionsLeft.length > 0) {
-                            app.swipeoutOpen(swipeOutEl, 'left');
-                        }
+                        
                     }
                     isTouched = false;
                     isMoved = false;

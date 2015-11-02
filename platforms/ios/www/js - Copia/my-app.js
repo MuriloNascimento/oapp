@@ -62,6 +62,8 @@ $$(document).on('pageInit', function (e) {
     var favEvents = [];
 
     switch(file){
+        case '':
+        case '/':
         case 'index.html':
             pageEvents();
             break;
