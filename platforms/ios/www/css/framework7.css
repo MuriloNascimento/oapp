@@ -4024,7 +4024,7 @@ html.with-statusbar-overlay body .panel {
   padding-top: 20px;
 }
 .statusbar-overlay {
-  background: #3f3f3f;
+  background: #000;
   z-index: 10000;
   position: absolute;
   left: 0;
