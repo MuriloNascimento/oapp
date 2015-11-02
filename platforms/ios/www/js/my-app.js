@@ -37,7 +37,8 @@ var mainView = myApp.addView('.view-main', {
 });*/
 
 $$(document).on('pageInit', function (e) {
-
+    StatusBar.overlaysWebView(true);
+    StatusBar.styleLightContent();
     var url = window.location.href;
     var fileUrl = url.split("#!/");
 
