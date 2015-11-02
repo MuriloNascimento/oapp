@@ -37,6 +37,7 @@ var mainView = myApp.addView('.view-main', {
 });*/
 
 $$(document).on('pageInit', function (e) {
+
     var app = {
         initialize: function() {
             this.bindEvents();
@@ -151,6 +152,7 @@ function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
 }
 function pageEvents () {
+    console.log('ini');
     $('.load_').css('display', 'block');
     $.ajax({
         url: host + "/app/benefits/" + window.localStorage.getItem('membership')
