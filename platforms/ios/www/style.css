@@ -73,6 +73,9 @@ clear:both;
 float:left;
 display:block;
 }
+ul#historyList li:last-child{
+    margin-bottom: 20px;
+}
 a {
 text-decoration: none;
 color: #fff;
@@ -1877,8 +1880,8 @@ ul.events li img{
 
 .google-maps {
     position: relative;
-    padding-bottom: 97%; // This is the aspect ratio
-height: 0;
+    padding-bottom: 97%;
+    height: 0;
     overflow: hidden;
 }
 .google-maps iframe {

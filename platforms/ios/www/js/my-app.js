@@ -54,8 +54,8 @@ $$(document).on('pageInit', function (e) {
         case 'events.html':
             pageEvents();
             break;
-        case 'favorite.html':
-            pageFavorites();
+        case 'map.html':
+            pageMap();
             break;
         case 'history.html':
             pageHistory();
@@ -280,6 +280,77 @@ function pageEvents () {
     });
 }
 
+function pageMap () {
+    var app = {
+        initialize: function() {
+            this.bindEvents();
+        },
+        bindEvents: function() {
+            document.addEventListener('deviceready', this.onDeviceReady, false);
+        },
+        onDeviceReady: function() {
+            app.receivedEvent('deviceready');
+        },
+        openNativeAppWindow: function(data) {
+            window.open(data, '_system');
+        }
+    };
+    $('.load_').css('display', 'block');
+
+    var map;
+
+    function initialize() {
+        var latlng = new google.maps.LatLng(28.5197169,-81.381806);
+
+        var options = {
+            zoom: 10,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+
+        map = new google.maps.Map(document.getElementById("mapa"), options);
+    }
+
+    initialize();
+
+    var markers = [];
+
+    function carregarPontos() {
+        $.ajax({
+            url: host + "/app/benefits/" + window.localStorage.getItem('membership')
+        }).done(function(results) {
+            $.each(results, function (i, value) {
+                console.log(value.establishment);
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(value.establishment.lat, value.establishment.lon),
+                    title: value.establishment.name,
+                    icon: 'images/icons/pin.png'
+                });
+
+                markers.push(marker);
+               // latlngbounds.extend(marker.position);
+            });
+
+            var markerCluster = new MarkerClusterer(map, markers);
+            //map.fitBounds(latlngbounds);
+        });
+
+    };
+
+    carregarPontos();
+
+    $.ajax({
+        url: host + "/app/transactions/"+window.localStorage.getItem('user_id')
+    }).done(function(results) {
+
+
+
+    }).fail(function() {
+        sweetAlert(":-( Oops...", "Não foi possível conectar ao servidor!", "error");
+    }).always(function(){
+        $('.load_').css('display', 'none');
+    });
+}
 
 $('#logout').on('click',function(e){
     window.localStorage.clear();
