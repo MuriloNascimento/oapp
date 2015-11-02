@@ -9,8 +9,8 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/org.apache.cordova.statusbar/www/statusbar.js",
-        "id": "org.apache.cordova.statusbar.statusbar",
+        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "id": "cordova-plugin-statusbar.statusbar",
         "clobbers": [
             "window.StatusBar"
         ]
@@ -20,8 +20,8 @@ module.exports.metadata =
 // TOP OF METADATA
 {
     "cordova-plugin-inappbrowser": "1.0.2-dev",
-    "cordova-plugin-whitelist": "1.0.0",
-    "org.apache.cordova.statusbar": "0.1.10"
+    "cordova-plugin-statusbar": "1.0.1",
+    "cordova-plugin-whitelist": "1.0.0"
 }
 // BOTTOM OF METADATA
 });

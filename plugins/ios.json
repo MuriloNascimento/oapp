@@ -43,10 +43,10 @@
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
-        "cordova-plugin-whitelist": {
+        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
-        "org.apache.cordova.statusbar": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
