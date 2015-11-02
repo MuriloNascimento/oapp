@@ -295,7 +295,6 @@ function pageMap () {
             window.open(data, '_system');
         }
     };
-    $('.load_').css('display', 'block');
 
     var map;
 
@@ -316,11 +315,11 @@ function pageMap () {
     var markers = [];
 
     function carregarPontos() {
+        $('.load_').css('display', 'block');
         $.ajax({
             url: host + "/app/benefits/" + window.localStorage.getItem('membership')
         }).done(function(results) {
             $.each(results, function (i, value) {
-                console.log(value.establishment);
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(value.establishment.lat, value.establishment.lon),
                     title: value.establishment.name,
@@ -333,6 +332,8 @@ function pageMap () {
 
             var markerCluster = new MarkerClusterer(map, markers);
             //map.fitBounds(latlngbounds);
+
+            $('.load_').css('display', 'none');
         });
 
     };
