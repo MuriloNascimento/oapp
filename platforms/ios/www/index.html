@@ -57,13 +57,13 @@
         <h3>Dúvidas</h3>
         <ul class="popular_posts">
             <li>
-                <a href="http://help.orvipclub.com" class="close-panel external"><img src="images/photos/photo1.jpg" alt="" title="" /></a>
+                <a href="#" onclick="window.open('http://help.orvipclub.com', '_system');" class="close-panel external"><img src="images/photos/photo1.jpg" alt="" title="" /></a>
                 <span>
-                    <a href="http://help.orvipclub.com" class="close-panel external">Como usar o sistema?</a>
+                    <a href="#" openclick="window.location.href='https://www.google.com/'" class="close-panel external">Como usar o sistema?</a>
                 </span>
             </li>
             <li>
-                <a href="http://help.orvipclub.com" class="close-panel external"><img src="images/photos/photo1.jpg" alt="" title="" /></a>
+                <a href="#" onclick="window.open(encodeURI('http://www.google.com/'), '_system')" class="close-panel external"><img src="images/photos/photo1.jpg" alt="" title="" /></a>
                 <span>
                     <a href="http://help.orvipclub.com" class="close-panel external">Meu cartão não foi aceito em algum estabelecimento. Como proceder?</a>
                 </span>
@@ -157,15 +157,17 @@
     <script type="text/javascript" src="js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="js/email.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <!-- Maps API Javascript -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="js/markerclusterer.js"></script>
+    <script type="text/javascript" src="js/infobox.js"></script>
+
     <script type="text/javascript">
         $('.user_nicename').text(window.localStorage.getItem('user_nicename'));
         $('.user_email').text(window.localStorage.getItem('user_email'));
         $('.user_name').text(window.localStorage.getItem('user_name'));
         $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
+        pageEvents();
     </script>
-    <!-- Maps API Javascript -->
-    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript" src="js/markerclusterer.js"></script>
-    <script type="text/javascript" src="js/infobox.js"></script>
 
 </body>

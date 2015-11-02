@@ -50,7 +50,7 @@ $$(document).on('pageInit', function (e) {
         case '':
         case '/':
         case 'index.html':
-            pageEvents();
+            //pageEvents();
             break;
         case 'map.html':
             pageMap();
@@ -87,8 +87,6 @@ $$(document).on('pageInit', function (e) {
 				elem.scrollTop = elem.scrollHeight - elem.offsetHeight - 1;
 		}, false);
 	};
-    pageEvents();
-
 })
 
 function pageHistory () {
