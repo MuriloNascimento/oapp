@@ -1879,19 +1879,11 @@ ul.events li img{
 }
 
 .google-maps {
-    position: relative;
-    padding-bottom: 97%;
-    height: 0;
-    overflow: hidden;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
-.google-maps iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-}
-
 .full{
     margin: 0;
     padding: 0;

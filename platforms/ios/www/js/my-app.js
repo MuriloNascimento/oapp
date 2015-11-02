@@ -50,9 +50,6 @@ $$(document).on('pageInit', function (e) {
         case '':
         case '/':
         case 'index.html':
-
-            break;
-        case 'events.html':
             pageEvents();
             break;
         case 'map.html':
@@ -344,8 +341,14 @@ function pageMap () {
                     icon: 'images/icons/pin.png'
                 });
 
+                var content = '';
+                content +=	'<p>'+value.establishment.category+'</p>';
+                content += '<p><b>'+value.description+'</b></p>';
+                content += '<p><b>'+value.establishment.name+'</b></p>';
+                content += '<p>'+value.establishment.address+'</p>';
+
                 var myOptions = {
-                    content: '<p><b>'+value.establishment.name+'</b><br/>'+value.establishment.address+'</p>',
+                    content: content,
                     pixelOffset: new google.maps.Size(-150, 0)
                 };
 
@@ -396,5 +399,11 @@ $('#logout').on('click',function(e){
             window.location.href = './login.html';
         }
     });
+});
 
+$(".navLink").on('tap', function (e) {
+    //Prevents Default Behavior
+    e.preventDefault();
+    // Calls Your Function with the URL from the custom data attribute
+    openUrl($(this).data('url'), '_system');
 });
