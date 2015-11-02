@@ -302,8 +302,11 @@ function pageMap () {
         var latlng = new google.maps.LatLng(28.5197169,-81.381806);
 
         var options = {
-            zoom: 10,
+            zoom: 8,
             center: latlng,
+            streetViewControl: false,
+            zoomControl: false,
+            mapTypeControl: false,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
@@ -312,26 +315,52 @@ function pageMap () {
 
     initialize();
 
-    var markers = [];
+    var idInfoBoxAberto;
+    var infoBox = [];
 
+    function abrirInfoBox(id, marker) {
+        if (typeof(idInfoBoxAberto) == 'number' && typeof(infoBox[idInfoBoxAberto]) == 'object') {
+            infoBox[idInfoBoxAberto].close();
+        }
+
+        infoBox[id].open(map, marker);
+        idInfoBoxAberto = id;
+    }
+
+
+    var markers = [];
     function carregarPontos() {
         $('.load_').css('display', 'block');
         $.ajax({
             url: host + "/app/benefits/" + window.localStorage.getItem('membership')
         }).done(function(results) {
             $.each(results, function (i, value) {
+                var latlngbounds = new google.maps.LatLngBounds();
+
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(value.establishment.lat, value.establishment.lon),
                     title: value.establishment.name,
                     icon: 'images/icons/pin.png'
                 });
 
+                var myOptions = {
+                    content: '<p><b>'+value.establishment.name+'</b><br/>'+value.establishment.address+'</p>',
+                    pixelOffset: new google.maps.Size(-150, 0)
+                };
+
+                infoBox[value.establishment.id] = new InfoBox(myOptions);
+                infoBox[value.establishment.id].marker = marker;
+
+                infoBox[value.establishment.id].listener = google.maps.event.addListener(marker, 'click', function (e) {
+                    abrirInfoBox(value.establishment.id, marker);
+                });
+
                 markers.push(marker);
-               // latlngbounds.extend(marker.position);
+                latlngbounds.extend(marker.position);
             });
 
             var markerCluster = new MarkerClusterer(map, markers);
-            //map.fitBounds(latlngbounds);
+            map.fitBounds(latlngbounds);
 
             $('.load_').css('display', 'none');
         });
