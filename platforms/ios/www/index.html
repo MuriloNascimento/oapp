@@ -165,7 +165,11 @@
         $('.user_email').text(window.localStorage.getItem('user_email'));
         $('.user_name').text(window.localStorage.getItem('user_name'));
         $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
-        pageEvents();
+
+        setTimeout( function(){
+            pageEvents();
+            console.log('aaa');
+        }  , 5000 );
     </script>
 
 </body>
