@@ -160,7 +160,7 @@ function pageEvents () {
         var $this = $("#benefitsList").empty();
         $.each(results, function(i, value) {
             var item = '<div class="accordion-item">';
-            item += '<div class="accordion-item-toggle">';
+            item += '<div class="">';
             item += '<img class="logo_brand" src="'+value.establishment.image+'" alt="" title="" border="0">';
             item += '<div class="be_content">';
             item += '<div class="ev_content">';
