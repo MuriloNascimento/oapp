@@ -229,6 +229,7 @@ function pageEvents () {
             //window.open("http://maps.apple.com/?q="+address, '_blank', 'location=no');
             window.open("maps://?q="+address, '_system', 'location=no');
         });
+
         $('.use').on('click', function(){
             var btn = $(this);
             var actions = btn.parent().parent();
