@@ -3499,7 +3499,7 @@ html.ios-gt-6.pixel-ratio-3 .actions-popover-label:after {
     top: 16px;
   }
   html.with-statusbar-overlay .popup-overlay {
-    z-index: 9800;
+    z-index: 98000;
   }
 }
 html.with-statusbar-overlay .login-screen,
@@ -4025,7 +4025,7 @@ html.with-statusbar-overlay body .panel {
 }
 .statusbar-overlay {
   background: #000;
-  z-index: 10000;
+  z-index: 100000;
   position: absolute;
   left: 0;
   top: 0;
