@@ -4,12 +4,12 @@ var myApp = new Framework7({
     // Enable templates auto precompilation
     precompileTemplates: true,
     // Enabled pages rendering using Template7
-	swipeBackPage: false,
-	swipeBackPageThreshold: 1,
-	//swipePanel: "top",
+    swipeBackPage: false,
+    swipeBackPageThreshold: 1,
+    //swipePanel: "top",
     swipePanelOnlyClose: true,
-	swipePanelCloseOpposite: true,
-	pushState: true,
+    swipePanelCloseOpposite: true,
+    pushState: true,
     template7Pages: true
 });
 
@@ -25,16 +25,16 @@ var mainView = myApp.addView('.view-main', {
 });
 
 /*$$(document).on("mobileinit",function() {
-  $('#loading').on('pageshow',function() {
+ $('#loading').on('pageshow',function() {
 
-    var initial = 'login';
-    if(localStorage.registered) {
-      initial = 'home';
-    }
-    $.mobile.changePage(initial);
-  });
+ var initial = 'login';
+ if(localStorage.registered) {
+ initial = 'home';
+ }
+ $.mobile.changePage(initial);
+ });
 
-});*/
+ });*/
 
 $$(document).on('pageInit', function (e) {
 
@@ -63,44 +63,43 @@ $$(document).on('pageInit', function (e) {
     var favEvents = [];
 
     switch(file){
-        case 'index.html':
-            pageEvents();
-            break;
         case 'map.html':
             pageMap();
             break;
         case 'history.html':
             pageHistory();
             break;
+        default:
+            pageEvents();
     }
 
-	document.addEventListener('touchmove', function(event) {
-	   if(event.target.parentNode.className.indexOf('navbarpages') != -1 || event.target.className.indexOf('navbarpages') != -1 ) {
-		event.preventDefault(); }
-	}, false);
+    document.addEventListener('touchmove', function(event) {
+        if(event.target.parentNode.className.indexOf('navbarpages') != -1 || event.target.className.indexOf('navbarpages') != -1 ) {
+            event.preventDefault(); }
+    }, false);
 
-	var ScrollFix = function(elem) {
-		// Variables to track inputs
-		var startY = startTopScroll = deltaY = undefined,
+    var ScrollFix = function(elem) {
+        // Variables to track inputs
+        var startY = startTopScroll = deltaY = undefined,
 
-		elem = elem || elem.querySelector(elem);
+            elem = elem || elem.querySelector(elem);
 
-		// If there is no element, then do nothing
-		if(!elem)
-			return;
+        // If there is no element, then do nothing
+        if(!elem)
+            return;
 
-		// Handle the start of interactions
-		elem.addEventListener('touchstart', function(event){
-			startY = event.touches[0].pageY;
-			startTopScroll = elem.scrollTop;
+        // Handle the start of interactions
+        elem.addEventListener('touchstart', function(event){
+            startY = event.touches[0].pageY;
+            startTopScroll = elem.scrollTop;
 
-			if(startTopScroll <= 0)
-				elem.scrollTop = 1;
+            if(startTopScroll <= 0)
+                elem.scrollTop = 1;
 
-			if(startTopScroll + elem.offsetHeight >= elem.scrollHeight)
-				elem.scrollTop = elem.scrollHeight - elem.offsetHeight - 1;
-		}, false);
-	};
+            if(startTopScroll + elem.offsetHeight >= elem.scrollHeight)
+                elem.scrollTop = elem.scrollHeight - elem.offsetHeight - 1;
+        }, false);
+    };
 })
 
 function pageHistory () {
@@ -196,6 +195,66 @@ function pageEvents () {
 
             li.html(item).appendTo($this);
         });
+        function useCode(actions){
+            var form = actions.find('form');
+            $.ajax({
+                type: 'post',
+                data: form.serialize(),
+                method: 'post',
+                crossDomain: true,
+                dataType: 'json',
+                url: host + "/app/use-code"
+            }).done(function(results) {
+
+                if (results.success) {
+                    swal("Sucesso!", "Apresente este código ao caixa.", "success");
+
+                    var barcode = '<div class="barcode">';
+                    barcode += '<img src="'+results.barcode+'">';
+                    barcode += '<p class="code_number">'+results.number+'</p>';
+                    barcode += '</div>';
+                    actions.html(barcode);
+                } else {
+                    swal("Erro!", results.error, "error");
+                }
+
+
+            }).always(function(){
+                $('.sweet-alert button').removeAttr("disabled");
+            });
+        }
+
+        $('.map').on('click', function(e){
+            e.preventDefault();
+            var address = $(this).attr('data-map');
+            //window.open("http://maps.apple.com/?q="+address, '_blank', 'location=no');
+            window.open("maps://?q="+address, '_system', 'location=no');
+        });
+
+        $('.use').on('click', function(){
+            var btn = $(this);
+            var actions = btn.parent().parent();
+            if (btn.attr('data-single-use') == 1) {
+                swal({
+                    title: "Atenção!",
+                    text: "Este benefício só pode ser utilizado uma única vez.\nUsar Agora?",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#239E38",
+                    confirmButtonText: "Sim, usar.",
+                    closeOnConfirm: false
+                }, function(){
+                    $('.sweet-alert button').attr("disabled", "disabled");
+
+                    useCode(actions);
+
+                });
+            } else {
+                useCode(actions);
+            }
+
+        });
+
     }).fail(function() {
         sweetAlert(":-( Oops...", "Não foi possível conectar ao servidor!", "error");
     }).always(function(){
@@ -316,63 +375,3 @@ function openPage(url) {
     var caption = 'Fechar' // get translation from i18n
     window.open(url, '_blank', 'location=no,closebuttoncaption='+caption+',presentationstyle=pagesheet');
 }
-
-function useCode(actions){
-    var form = actions.find('form');
-    $.ajax({
-        type: 'post',
-        data: form.serialize(),
-        method: 'post',
-        crossDomain: true,
-        dataType: 'json',
-        url: host + "/app/use-code"
-    }).done(function(results) {
-
-        if (results.success) {
-            swal("Sucesso!", "Apresente este código ao caixa.", "success");
-
-            var barcode = '<div class="barcode">';
-            barcode += '<img src="'+results.barcode+'">';
-            barcode += '<p class="code_number">'+results.number+'</p>';
-            barcode += '</div>';
-            actions.html(barcode);
-        } else {
-            swal("Erro!", results.error, "error");
-        }
-
-
-    }).always(function(){
-        $('.sweet-alert button').removeAttr("disabled");
-    });
-}
-
-$('.map').on('click', function(e){
-    e.preventDefault();
-    var address = $(this).attr('data-map');
-    //window.open("http://maps.apple.com/?q="+address, '_blank', 'location=no');
-    window.open("maps://?q="+address, '_system', 'location=no');
-});
-
-$('.use').on('click', function(){
-    var btn = $(this);
-    var actions = btn.parent().parent();
-    if (btn.attr('data-single-use') == 1) {
-        swal({
-            title: "Atenção!",
-            text: "Este benefício só pode ser utilizado uma única vez.\nUsar Agora?",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#239E38",
-            confirmButtonText: "Sim, usar.",
-            closeOnConfirm: false
-        }, function(){
-            $('.sweet-alert button').attr("disabled", "disabled");
-
-            useCode(actions);
-
-        });
-    } else {
-        useCode(actions);
-    }
-
-});
