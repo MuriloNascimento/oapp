@@ -142,14 +142,12 @@ function pageHistory () {
 
     }).fail(function() {
         sweetAlert(":-( Oops...", "Não foi possível conectar ao servidor!", "error");
+        pageHistory();
     }).always(function(){
         $('.load_').css('display', 'none');
     });
 }
 
-function ucFirst(string) {
-    return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
-}
 function pageEvents () {
     var $this = $("#benefitsList").empty();
 
@@ -218,7 +216,9 @@ function pageEvents () {
                     swal("Erro!", results.error, "error");
                 }
 
-
+            }).fail(function() {
+                sweetAlert(":-( Oops...", "Não foi possível conectar ao servidor!", "error");
+                pageEvents();
             }).always(function(){
                 $('.sweet-alert button').removeAttr("disabled");
             });
@@ -257,6 +257,7 @@ function pageEvents () {
 
     }).fail(function() {
         sweetAlert(":-( Oops...", "Não foi possível conectar ao servidor!", "error");
+        pageEvents();
     }).always(function(){
         $('.load_').css('display', 'none');
     });
@@ -336,24 +337,17 @@ function pageMap () {
             var markerCluster = new MarkerClusterer(map, markers);
             map.fitBounds(latlngbounds);
 
+        }).fail(function() {
+            sweetAlert(":-( Oops...", "Não foi possível conectar ao servidor!", "error");
+            carregarPontos();
+        }).always(function(){
             $('.load_').css('display', 'none');
         });
+
 
     };
 
     carregarPontos();
-
-    $.ajax({
-        url: host + "/app/transactions/"+window.localStorage.getItem('user_id')
-    }).done(function(results) {
-
-
-
-    }).fail(function() {
-        sweetAlert(":-( Oops...", "Não foi possível conectar ao servidor!", "error");
-    }).always(function(){
-        $('.load_').css('display', 'none');
-    });
 }
 
 $('#logout').on('click',function(e){
@@ -378,4 +372,7 @@ $('#btn-benefits').on('click', function(){
 function openPage(url) {
     var caption = 'Fechar' // get translation from i18n
     window.open(url, '_blank', 'location=no,closebuttoncaption='+caption+',presentationstyle=pagesheet');
+}
+function ucFirst(string) {
+    return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
 }
