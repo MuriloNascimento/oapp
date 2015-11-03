@@ -160,7 +160,7 @@ function pageEvents () {
         var $this = $("#benefitsList").empty();
         $.each(results, function(i, value) {
             var item = '<div class="accordion-item">';
-            item += '<div class="">';
+            item += '<div class="accordion-item-toggle">';
             item += '<img class="logo_brand" src="'+value.establishment.image+'" alt="" title="" border="0">';
             item += '<div class="be_content">';
             item += '<div class="ev_content">';
@@ -196,66 +196,6 @@ function pageEvents () {
 
             li.html(item).appendTo($this);
         });
-        function useCode(actions){
-            var form = actions.find('form');
-            $.ajax({
-                type: 'post',
-                data: form.serialize(),
-                method: 'post',
-                crossDomain: true,
-                dataType: 'json',
-                url: host + "/app/use-code"
-            }).done(function(results) {
-
-                if (results.success) {
-                    swal("Sucesso!", "Apresente este código ao caixa.", "success");
-
-                    var barcode = '<div class="barcode">';
-                    barcode += '<img src="'+results.barcode+'">';
-                    barcode += '<p class="code_number">'+results.number+'</p>';
-                    barcode += '</div>';
-                    actions.html(barcode);
-                } else {
-                    swal("Erro!", results.error, "error");
-                }
-
-
-            }).always(function(){
-                $('.sweet-alert button').removeAttr("disabled");
-            });
-        }
-
-        $('.map').on('click', function(e){
-            e.preventDefault();
-            var address = $(this).attr('data-map');
-            //window.open("http://maps.apple.com/?q="+address, '_blank', 'location=no');
-            window.open("maps://?q="+address, '_system', 'location=no');
-        });
-
-        $('.use').on('click', function(){
-            var btn = $(this);
-            var actions = btn.parent().parent();
-            if (btn.attr('data-single-use') == 1) {
-                swal({
-                    title: "Atenção!",
-                    text: "Este benefício só pode ser utilizado uma única vez.\nUsar Agora?",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#239E38",
-                    confirmButtonText: "Sim, usar.",
-                    closeOnConfirm: false
-                }, function(){
-                    $('.sweet-alert button').attr("disabled", "disabled");
-
-                    useCode(actions);
-
-                });
-            } else {
-                useCode(actions);
-            }
-
-        });
-
     }).fail(function() {
         sweetAlert(":-( Oops...", "Não foi possível conectar ao servidor!", "error");
     }).always(function(){
@@ -376,3 +316,63 @@ function openPage(url) {
     var caption = 'Fechar' // get translation from i18n
     window.open(url, '_blank', 'location=no,closebuttoncaption='+caption+',presentationstyle=pagesheet');
 }
+
+function useCode(actions){
+    var form = actions.find('form');
+    $.ajax({
+        type: 'post',
+        data: form.serialize(),
+        method: 'post',
+        crossDomain: true,
+        dataType: 'json',
+        url: host + "/app/use-code"
+    }).done(function(results) {
+
+        if (results.success) {
+            swal("Sucesso!", "Apresente este código ao caixa.", "success");
+
+            var barcode = '<div class="barcode">';
+            barcode += '<img src="'+results.barcode+'">';
+            barcode += '<p class="code_number">'+results.number+'</p>';
+            barcode += '</div>';
+            actions.html(barcode);
+        } else {
+            swal("Erro!", results.error, "error");
+        }
+
+
+    }).always(function(){
+        $('.sweet-alert button').removeAttr("disabled");
+    });
+}
+
+$('.map').on('click', function(e){
+    e.preventDefault();
+    var address = $(this).attr('data-map');
+    //window.open("http://maps.apple.com/?q="+address, '_blank', 'location=no');
+    window.open("maps://?q="+address, '_system', 'location=no');
+});
+
+$('.use').on('click', function(){
+    var btn = $(this);
+    var actions = btn.parent().parent();
+    if (btn.attr('data-single-use') == 1) {
+        swal({
+            title: "Atenção!",
+            text: "Este benefício só pode ser utilizado uma única vez.\nUsar Agora?",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#239E38",
+            confirmButtonText: "Sim, usar.",
+            closeOnConfirm: false
+        }, function(){
+            $('.sweet-alert button').attr("disabled", "disabled");
+
+            useCode(actions);
+
+        });
+    } else {
+        useCode(actions);
+    }
+
+});
