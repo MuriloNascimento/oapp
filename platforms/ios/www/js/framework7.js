@@ -5672,7 +5672,10 @@
             item = $(item);
             if (item.length === 0) return;
             if (item.hasClass('accordion-item-expanded')) app.accordionClose(item);
-            else app.accordionOpen(item);
+            else {
+                app.accordionOpen(item);
+                window.scrollBy(0,300);
+            }
         };
         app.accordionOpen = function (item) {
             item = $(item);
