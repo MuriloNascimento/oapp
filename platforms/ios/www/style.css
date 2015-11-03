@@ -600,7 +600,7 @@ margin:10px 0 20px 0;
 }
 .establishment .event_row{
   padding: 0;
-  margin: 0;
+  margin: 0 0 -1px 0;
   border-bottom: none;
 }
 .establishment .accordion-item-content{
@@ -650,7 +650,7 @@ clear:both;
 color: #000;
 }
 .page_content img{
-display:block;
+/*display:block;*/
 max-width:100%;
 margin:0 0 20px 0;
 }
@@ -1895,8 +1895,9 @@ ul.events li img{
 }
 
 .logo_brand{
-  width: 100%;
-  margin: 0 !important;
+    width: 100%;
+    display: block;
+    margin: 0 !important;
 }
 .be_content{
   width: 100%;
@@ -1912,19 +1913,23 @@ ul.events li img{
 .infoBox:before { border-left: 10px solid transparent; border-right: 10px solid transparent; border-bottom: 10px solid #3fa7d8; top: -10px; content: ""; height: 0; position: absolute; width: 0; left: 138px }
 
 #welcome{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background: url("images/start.jpg") center center;
-  text-align: center;
-  color: #FFFFFF;
-  padding-top: 45%;
-  top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background: #000;
 }
 
-#welcome p{
-  color: #FFFFFF;
+#bg {
+    width: 100%;
+    position: absolute;
 }
-.btn-46{
-  margin: 5% 25%;
+#btn-benefits{
+    margin-top: 90%;
+    position: absolute;
+    width: 100%;
+    text-align: center !important;
+}
+.barcode{
+    padding: 5%;
 }
