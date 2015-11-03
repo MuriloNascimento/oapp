@@ -151,12 +151,12 @@ function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
 }
 function pageEvents () {
-    console.log('ini');
+    var $this = $("#benefitsList").empty();
+
     $('.load_').css('display', 'block');
     $.ajax({
         url: host + "/app/benefits/" + window.localStorage.getItem('membership')
     }).done(function(results) {
-        var $this = $("#benefitsList").empty();
         $.each(results, function(i, value) {
             var item = '<div class="accordion-item">';
             item += '<div class="accordion-item-toggle">';
@@ -369,6 +369,10 @@ $('#logout').on('click',function(e){
             window.location.href = './login.html';
         }
     });
+});
+
+$('#btn-benefits').on('click', function(){
+    pageEvents();
 });
 
 function openPage(url) {
