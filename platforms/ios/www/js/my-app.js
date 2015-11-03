@@ -37,6 +37,7 @@ var mainView = myApp.addView('.view-main', {
  });*/
 
 $$(document).on('pageInit', function (e) {
+    var page = e.detail.page;
 
     var app = {
         initialize: function() {
@@ -62,15 +63,21 @@ $$(document).on('pageInit', function (e) {
     var base = 'images/icons/black/';
     var favEvents = [];
 
+    console.log(page.name);
+    if (page.name == 'index') {
+        pageEvents();
+    }
+
     switch(file){
+        case 'benefits.html':
+            pageEvents();
+            break;
         case 'map.html':
             pageMap();
             break;
         case 'history.html':
             pageHistory();
             break;
-        default:
-            pageEvents();
     }
 
     document.addEventListener('touchmove', function(event) {
@@ -363,10 +370,6 @@ $('#logout').on('click',function(e){
             window.location.href = './login.html';
         }
     });
-});
-
-$('#btn-benefits').on('click', function(){
-    pageEvents();
 });
 
 function openPage(url) {
