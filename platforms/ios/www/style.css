@@ -1954,6 +1954,6 @@ ul.events li img{
         margin-bottom: 60px !important;
     }
     #pages_maincontent{
-        padding-bottom: 82px;
+        padding-bottom: 82px !important;
     }
 }
