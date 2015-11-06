@@ -1939,4 +1939,21 @@ ul.events li img{
     .ev_fav{
         width: 5% !important;
     }
+    .toolbar-through .page-content, .toolbar-fixed .page-content, .tabbar-through .page-content, .tabbar-fixed .page-content{
+        padding-top: 100px !important;
+        padding-bottom: 100px !important;
+    }
+
+    .event_row:last-child{
+        margin-bottom: 0px !important;
+    }
+    ul#historyList li:last-child{
+        margin-bottom: 65px !important;
+    }
+    .actions{
+        margin-bottom: 60px !important;
+    }
+    #pages_maincontent{
+        padding-bottom: 82px;
+    }
 }
