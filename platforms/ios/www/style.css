@@ -1933,3 +1933,20 @@ ul.events li img{
 .barcode{
     padding: 5%;
 }
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px) {
+  .ev_fav{
+    width: 5%;
+  }
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (-webkit-min-device-pixel-ratio: 2) {
+  .ev_fav{
+    width: 5%;
+  }
+}
