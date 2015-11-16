@@ -780,7 +780,7 @@ html.ios-gt-6.pixel-ratio-3 .subnavbar:after {
 .toolbar {
   left: 0;
   bottom: 0;
-/*  background: #f7f7f8;*/
+  background: #484747
 }
 html.ios-gt-6.pixel-ratio-2 .toolbar:before {
   -webkit-transform: scaleY(0.5);
@@ -3580,7 +3580,7 @@ html.with-statusbar-overlay .popup.tablet-fullscreen {
   right: auto;
   height: 1px;
   width: 100%;
-  background-color: #929499;
+  background-color: #484747;
   display: block;
   z-index: 15;
   -webkit-transform-origin: 50% 0%;
