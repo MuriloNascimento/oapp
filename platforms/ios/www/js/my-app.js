@@ -367,9 +367,10 @@ $('#logout').on('click',function(e){
         crossDomain: true, // enable this
         dataType: 'json',
         success: function(data){
-            window.location.href = './login.html';
+            console.log('logout');
         }
     });
+    window.location.href = './login.html';
 });
 
 function openPage(url) {
