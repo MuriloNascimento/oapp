@@ -37,6 +37,7 @@ var mainView = myApp.addView('.view-main', {
  });*/
 
 $$(document).on('pageInit', function (e) {
+    checkLanguage();
     var page = e.detail.page;
 
     var app = {
@@ -63,7 +64,6 @@ $$(document).on('pageInit', function (e) {
     var base = 'images/icons/black/';
     var favEvents = [];
 
-    console.log(page.name);
     if (page.name == 'index') {
         pageEvents();
     }
@@ -110,6 +110,7 @@ $$(document).on('pageInit', function (e) {
 })
 
 function pageHistory () {
+    $('.page_title').text(lang.history);
     $('.load_').css('display', 'block');
     $.ajax({
         url: host + "/app/transactions/"+window.localStorage.getItem('user_id')
@@ -148,7 +149,7 @@ function pageHistory () {
         }
 
     }).fail(function() {
-        sweetAlert(":-( Oops...", "Não foi possível conectar ao servidor!", "error");
+        sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
         pageHistory();
     }).always(function(){
         $('.load_').css('display', 'none');
@@ -156,6 +157,8 @@ function pageHistory () {
 }
 
 function pageEvents () {
+    $('.page_title').text(lang.benefits);
+
     var $this = $("#benefitsList").empty();
 
     $('.load_').css('display', 'block');
@@ -189,8 +192,8 @@ function pageEvents () {
             item += '<input type="hidden" name="benefit_id" value="'+value.id+'">';
             item += '<input type="hidden" name="client_id" value="'+window.localStorage.getItem('user_id')+'">';
             item += '</form>';
-            item += '<div class="call_button btn-45 btn-map"><a href="#" data-map="'+value.establishment.address+'" class="map">Mapa</a></div>';
-            item += '<div class="call_button btn-45 btn-use"><a href="#" data-single-use="'+value.single_use+'" class="use">Usar</a></div>';
+            item += '<div class="call_button btn-45 btn-map"><a href="#" data-map="'+value.establishment.address+'" class="map">'+lang.map+'</a></div>';
+            item += '<div class="call_button btn-45 btn-use"><a href="#" data-single-use="'+value.single_use+'" class="use">'+lang.use+'</a></div>';
             item += '</div>';
             item += '</div>';
 
@@ -212,7 +215,7 @@ function pageEvents () {
             }).done(function(results) {
 
                 if (results.success) {
-                    swal("Sucesso!", "Apresente este código ao caixa.", "success");
+                    swal(lang.success, lang.show_coupon, "success");
 
                     var barcode = '<div class="barcode">';
                     barcode += '<img src="'+results.barcode+'">';
@@ -224,7 +227,7 @@ function pageEvents () {
                 }
 
             }).fail(function() {
-                sweetAlert(":-( Oops...", "Não foi possível conectar ao servidor!", "error");
+                sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
                 pageEvents();
             }).always(function(){
                 $('.sweet-alert button').removeAttr("disabled");
@@ -244,7 +247,7 @@ function pageEvents () {
             if (btn.attr('data-single-use') == 1) {
                 swal({
                     title: "Atenção!",
-                    text: "Este benefício só pode ser utilizado uma única vez.\nUsar Agora?",
+                    text: lang.msg_one_use+".\n"+lang.use_now+"?",
                     type: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#239E38",
@@ -263,7 +266,7 @@ function pageEvents () {
         });
 
     }).fail(function() {
-        sweetAlert(":-( Oops...", "Não foi possível conectar ao servidor!", "error");
+        sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
         pageEvents();
     }).always(function(){
         $('.load_').css('display', 'none');
@@ -271,7 +274,7 @@ function pageEvents () {
 }
 
 function pageMap () {
-
+    $('.page_title').text(lang.map);
     var map;
 
     function initialize() {
@@ -345,7 +348,7 @@ function pageMap () {
             map.fitBounds(latlngbounds);
 
         }).fail(function() {
-            sweetAlert(":-( Oops...", "Não foi possível conectar ao servidor!", "error");
+            sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
             carregarPontos();
         }).always(function(){
             $('.load_').css('display', 'none');
@@ -379,4 +382,11 @@ function openPage(url) {
 }
 function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
+}
+
+function checkLanguage() {
+    navigator.globalization.getPreferredLanguage(
+        function (language) {alert('language: ' + language.value + '\n');},
+        function () {alert('Error getting language\n');}
+    );
 }

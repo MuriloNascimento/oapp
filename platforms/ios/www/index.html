@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<!--<meta name="apple-mobile-web-app-status-bar-style" content="darkcontent">-->
-<meta name="format-detection" content="telephone=no">
-<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
-<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="apple-touch-startup-image-640x1096.png">
-<title>OR VIP CLUB</title>
-<link rel="stylesheet" href="css/framework7.css">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="css/colors/funpass-black.css">
-<link type="text/css" rel="stylesheet" href="css/swipebox.css" />
-<link type="text/css" rel="stylesheet" href="css/animations.css" />
-<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
-<script type="text/javascript">
-    if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
-        window.location.href = './login.html';
-    }
-</script>
-<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
-<script src="js/sweetalert.min.js"></script> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="darkcontent">-->
+    <meta name="format-detection" content="telephone=no">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="apple-touch-startup-image-640x1096.png">
+    <title>OR VIP CLUB</title>
+    <link rel="stylesheet" href="css/framework7.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/colors/funpass-black.css">
+    <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
+    <link type="text/css" rel="stylesheet" href="css/animations.css" />
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
+    <script type="text/javascript">
+        if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
+            window.location.href = './login.html';
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+    <script src="js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script src="lang/en.json"></script>
+    <script>
+        var lang = JSON.parse(lang);
+    </script>
 </head>
 <body id="mobile_wrap">
 
@@ -34,7 +39,7 @@
             <div class="user_thumb">
                 <img src="images/profile.jpg" id="user_profile" alt="" height="280" title="" />
                 <div class="user_details">
-                    <p>Olá, <span class="user_name"></span></p>
+                    <p><script>document.write(lang.hello);</script>, <span class="user_name"></span></p>
                 </div>
             </div>
 
@@ -48,27 +53,48 @@
                         <img src="images/icons/white/toogle.png" alt="" title="" />
                         <span class="user_plan"></span>
                     </li>
-                    <li><a href="#" id="logout" class="close-panel"><img src="images/icons/white/lock.png" alt="" title="" /><span>Logout</span></a></li>
+                    <li>
+                        <a href="#" id="logout" class="close-panel">
+                            <img src="images/icons/white/lock.png" alt="" title="" />
+                            <span>
+                                <script>
+                                    document.write(lang.logout);
+                                </script>
+                            </span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </div>
     <div class="panel panel-right panel-cover">
-        <h3>Dúvidas</h3>
+        <h3><script>document.write(lang.questions);</script></h3>
         <ul class="popular_posts">
             <li>
                 <span>
-                    <a href="#" onclick="openPage('http://help.orvipclub.com')" class="close-panel">Como usar o sistema?</a>
+                    <a href="#" onclick="openPage('http://help.orvipclub.com')" class="close-panel">
+                        <script>
+                            document.write(lang.how_use_system);
+                        </script>
+                    </a>
                 </span>
             </li>
             <li>
                 <span>
-                    <a href="#" onclick="openPage('http://help.orvipclub.com')" class="close-panel navlink">Meu cartão não foi aceito em algum estabelecimento. Como proceder?</a>
+                    <a href="#" onclick="openPage('http://help.orvipclub.com')" class="close-panel navlink">
+                        <script>
+                            document.write(lang.card_not_accepted);
+                        </script>
+                    </a>
                 </span>
             </li>
             <li>
                 <span>
-                    <a href="#" onclick="openPage('http://help.orvipclub.com')" class="close-panel external">Ainda tem dúvidas? Entre em contato!</a>
+                    <a href="#" onclick="openPage('http://help.orvipclub.com')" class="close-panel external">
+                        <script>
+                            document.write(lang.contact);
+                        </script>
+                    </a>
                 </span>
             </li>
         </ul>
@@ -130,16 +156,35 @@
     <div class="content-block">
         <nav class="main-nav">
           <ul>
-            <li><a href="#" data-panel="left" class="open-panel close-popup"><img src="images/icons/white/user.png" alt="" title="" /><span>Usuário</span></a></li>
-            <li><a href="events.html" class="close-popup"><img src="images/icons/white/tag.png" alt="" title="" /><span>Estabelecimentos</span></a></li>
-            <li><a href="index.html" class="close-popup"><img src="images/icons/white/card.png" alt="" title="" /><span>Cartão</span></a></li>
-            <li><a href="#" data-panel="right" class="open-panel close-popup"><img src="images/icons/white/question.png" alt="" title="" /><span>Dúvidas</span></a></li>
+            <li>
+                <a href="#" data-panel="left" class="open-panel close-popup">
+                    <img src="images/icons/white/user.png" alt="" title="" />
+                    <span><script>document.write(lang.user);</script></span>
+                </a>
+            </li>
+            <li>
+                <a href="events.html" class="close-popup">
+                    <img src="images/icons/white/tag.png" alt="" title="" />
+                    <span><script>document.write(lang.establishment);</script></span>
+                </a>
+            </li>
+            <li>
+                <a href="index.html" class="close-popup">
+                    <img src="images/icons/white/card.png" alt="" title="" />
+                    <span><script>document.write(lang.card);</script></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-panel="right" class="open-panel close-popup">
+                    <img src="images/icons/white/question.png" alt="" title="" />
+                    <span><script>document.write(lang.questions);</script></span>
+                </a>
+            </li>
           </ul>
         </nav>
       <div class="close_popup_button"><a href="#" class="close-popup"><img src="images/icons/white/menu_close.png" alt="" title="" /></a></div>
     </div>
     </div>
-    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script src="js/jquery.validate.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/framework7.js"></script>
@@ -159,5 +204,4 @@
         $('.user_name').text(window.localStorage.getItem('user_name'));
         $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
     </script>
-
 </body>

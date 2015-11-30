@@ -8,7 +8,7 @@
 	<meta name="format-detection" content="telephone=no">
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 	<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="apple-touch-startup-image-640x1096.png">
-	<title>Fun Pass Orlando</title>
+	<title>OR VIP CLUB</title>
 	<link rel="stylesheet" href="css/framework7.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="css/colors/funpass-black.css">
@@ -35,7 +35,7 @@
 			</div>
 			<div class="login-box">
 				<div class="lb-header">
-					<a href="#tab1" class="tab-link active" id="login-box-link">Login</a>
+					<a href="#tab1" class="tab-link active" id="login-box-link"><script>document.write(lang.login);</script></a>
 				</div>
 				<div class="tabs-animated-wrap">
 					<div class="tabs">
@@ -48,7 +48,7 @@
 									<input type="password" name="password" placeholder="Senha"/>
 								</div>
 								<div class="u-form-group">
-									<button type="button" id="login">Acessar</button>
+									<button type="button" id="login"><script>document.write(lang.access);</script></button>
 								</div>
 								<!-- <div class="u-form-group">
                                   <a href="#" class="forgot-password">Esqueceu a senha?</a>
@@ -97,7 +97,7 @@
 			dataType: 'json',
 			success: function(data){
 				if (!data.loggedin) {
-					sweetAlert("Oops...", "Usuário ou login incorretos!", "error");
+					sweetAlert("Oops...", lang.error_user, "error");
 				} else {
 
 					window.localStorage.setItem('token', data.token);
