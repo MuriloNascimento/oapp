@@ -384,17 +384,3 @@ function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
 }
 
-function checkLanguage() {
-    navigator.globalization.getPreferredLanguage(
-        function (language) {
-            var l_ = language.value;
-            var lang_ = l_.split("-");
-
-            alert('lang: ' + lang_[0]);
-            var lang = window[lang_[0]];
-        },
-        function () {
-            var lang = window['en'];
-        }
-    );
-}
