@@ -37,6 +37,7 @@ var mainView = myApp.addView('.view-main', {
  });*/
 
 $$(document).on('pageInit', function (e) {
+    getLang();
     var page = e.detail.page;
 
     var app = {
@@ -391,4 +392,19 @@ function loadJS(file) {
     jsElm.src = file;
     // finally insert the element to the body element in order to load the script
     document.body.appendChild(jsElm);
+}
+
+function getLang(){
+    navigator.globalization.getPreferredLanguage(
+        function (language) {
+            var language_ = language.value;
+            var lang_ = language_.split("-");
+
+            alert(lang_[0]);
+            var lang = window[lang_[0]];
+        },
+        function () {
+            var lang = window['en'];
+        }
+    );
 }
