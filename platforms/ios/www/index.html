@@ -29,6 +29,7 @@
             function (language) {
                 var lang_ = language.value;
                 var lang = lang_.split("-");
+                alert(lang[0]);
                 loadJS('lang/'+lang[0]+'.json');
             },
             function () {
