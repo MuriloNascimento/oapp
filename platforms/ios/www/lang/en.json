@@ -1,0 +1,30 @@
+lang = {
+  "hello" : "Hello",
+  "logout" : "Logout",
+
+  "map" : "Map",
+  "benefits" : "Benefits",
+
+  "use" : "Use",
+
+  "success" : "Success!",
+  "error" : "Error",
+  "show_coupon" : "Present this coupon to the operator.",
+  "error_connection" : "Could not connect to server",
+  "msg_one_use" : "This benefit can only be used once time",
+  "use_now" : "Use now",
+
+  "how_use_system" : "How use the system?",
+  "card_not_accepted" : "My card was not accepted in any establishment. How to proceed?",
+  "contact" : "Still have questions? Contact!",
+
+  "establishment" : "Establishment",
+  "card" : "Card",
+  "user" : "User",
+  "questions" : "Questions",
+  "history" : "History",
+
+  "login" : "Login",
+  "access" : "Access",
+  "error_user" : "Incorrect user or login!",
+};
