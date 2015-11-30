@@ -27,17 +27,21 @@
     <script src="lang/pt.json"></script>
 
     <script>
-        navigator.globalization.getPreferredLanguage(
-            function (language) {
-                var language_ = language.value;
-                var lang_ = language_.split("-");
+        getLang();
+        function getLang(){
+            navigator.globalization.getPreferredLanguage(
+                function (language) {
+                    var language_ = language.value;
+                    var lang_ = language_.split("-");
 
-                var lang = window[lang_[0]];
-            },
-            function () {
-                var lang = window['en'];
-            }
-        );
+                    alert(lang_[0]);
+                    var lang = window[lang_[0]];
+                },
+                function () {
+                    var lang = window['en'];
+                }
+            );
+        }
 
     </script>
 </head>
