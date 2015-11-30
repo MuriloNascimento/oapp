@@ -387,15 +387,6 @@ function ucFirst(string) {
 function checkLanguage() {
     navigator.globalization.getPreferredLanguage(
         function (language) {
-            var lang_ = language.value;
-            var lang = lang_.split("-");
-            alert('languagesss: ' + lang[0] + '\n');
-        },
-        function () {alert('Error getting language\n');}
-    );
-
-    navigator.globalization.getPreferredLanguage(
-        function (language) {
             var l_ = language.value;
             var lang_ = l_.split("-");
 
