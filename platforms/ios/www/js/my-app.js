@@ -393,6 +393,7 @@ function checkLanguage() {
 
             lang = window[lang_[0]];
             changeText(lang);
+            alert('aaa'+ lang.hello);
         },
         function () {
             lang = window['en'];
@@ -401,6 +402,7 @@ function checkLanguage() {
     );
 }
 function changeText(lang){
+    alert("bbb" + lang.benefits);
     $.each(lang, function(i, val) {
        $('.lang_-'+i).text(val);
     });
