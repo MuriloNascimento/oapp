@@ -37,7 +37,6 @@ var mainView = myApp.addView('.view-main', {
  });*/
 
 $$(document).on('pageInit', function (e) {
-    checkLanguage();
     var page = e.detail.page;
 
     var app = {

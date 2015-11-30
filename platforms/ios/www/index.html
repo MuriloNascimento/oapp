@@ -27,6 +27,7 @@
     <script src="lang/en.json"></script>
     <script src="lang/pt.json"></script>
     <script type="text/javascript">
+    checkLanguage();
     function checkLanguage() {
         navigator.globalization.getPreferredLanguage(
             function (language) {
@@ -34,7 +35,6 @@
                 var lang_ = l_.split("-");
 
                 var lang = window[lang_[0]];
-                alert('lang: ' + lang.success);
             },
             function () {
                 var lang = window['en'];
