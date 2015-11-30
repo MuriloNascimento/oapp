@@ -37,7 +37,7 @@ var mainView = myApp.addView('.view-main', {
  });*/
 
 $$(document).on('pageInit', function (e) {
-    getLang();
+    checkLanguage();
     var page = e.detail.page;
 
     var app = {
@@ -383,25 +383,23 @@ function openPage(url) {
 function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
 }
-function loadJS(file) {
-    // DOM: Create the script element
-    var jsElm = document.createElement("script");
-    // set the type attribute
-    jsElm.type = "application/javascript";
-    // make the script element load file
-    jsElm.src = file;
-    // finally insert the element to the body element in order to load the script
-    document.body.appendChild(jsElm);
-}
 
-function getLang(){
+function checkLanguage() {
     navigator.globalization.getPreferredLanguage(
         function (language) {
-            console.log(language.value);
-            var language_ = language.value;
-            var lang_ = language_.split("-");
+            var lang_ = language.value;
+            var lang = lang_.split("-");
+            alert('languagesss: ' + lang[0] + '\n');
+        },
+        function () {alert('Error getting language\n');}
+    );
 
-            alert(lang_[0]);
+    navigator.globalization.getPreferredLanguage(
+        function (language) {
+            var l_ = language.value;
+            var lang_ = l_.split("-");
+
+            alert('lang: ' + lang_[0]);
             var lang = window[lang_[0]];
         },
         function () {
