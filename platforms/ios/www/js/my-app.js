@@ -1,8 +1,4 @@
 // Initialize your app
-var lang;
-
-checkLanguage();
-
 var myApp = new Framework7({
     animateNavBackIcon: true,
     // Enable templates auto precompilation
@@ -384,26 +380,4 @@ function openPage(url) {
 }
 function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
-}
-function checkLanguage() { 
-    navigator.globalization.getPreferredLanguage(
-        function (language) {
-            var l_ = language.value;
-            var lang_ = l_.split("-");
-
-            lang = window[lang_[0]];
-            changeText(lang);
-            alert('aaa'+ lang.hello);
-        },
-        function () {
-            lang = window['en'];
-            changeText(lang);
-        }
-    );
-}
-function changeText(lang){
-    alert("bbb" + lang.benefits);
-    $.each(lang, function(i, val) {
-       $('.lang_-'+i).text(val);
-    });
 }

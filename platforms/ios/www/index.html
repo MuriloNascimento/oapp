@@ -21,6 +21,31 @@
         if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
             window.location.href = './login.html';
         }
+
+        var lang;
+        checkLanguage();
+        function checkLanguage() { 
+            navigator.globalization.getPreferredLanguage(
+                function (language) {
+                    var l_ = language.value;
+                    var lang_ = l_.split("-");
+
+                    lang = window[lang_[0]];
+                    changeText(lang);
+                    alert('aaa'+ lang.hello);
+                },
+                function () {
+                    lang = window['en'];
+                    changeText(lang);
+                }
+            );
+        }
+        function changeText(lang){
+            alert("bbb" + lang.benefits);
+            $.each(lang, function(i, val) {
+               $('.lang_-'+i).text(val);
+            });
+        }
     </script>
     <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
     <script src="js/sweetalert.min.js"></script>
