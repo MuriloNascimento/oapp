@@ -23,9 +23,29 @@
     <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
     <script src="js/sweetalert.min.js"></script>
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-    <script src="lang/en.json"></script>
     <script>
-        var lang = JSON.parse(lang);
+
+        navigator.globalization.getPreferredLanguage(
+            function (language) {
+                var lang_ = language.value;
+                var lang = lang_.split("-");
+                loadJS('lang/'+lang[0]+'.json');
+            },
+            function () {
+                loadJS('lang/en.json');
+            }
+        );
+        function loadJS(file) {
+            // DOM: Create the script element
+            var jsElm = document.createElement("script");
+            // set the type attribute
+            jsElm.type = "application/javascript";
+            // make the script element load file
+            jsElm.src = file;
+            // finally insert the element to the body element in order to load the script
+            document.body.appendChild(jsElm);
+        }
+        //var lang = JSON.parse(lang);
     </script>
 </head>
 <body id="mobile_wrap">

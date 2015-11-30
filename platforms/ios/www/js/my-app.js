@@ -383,14 +383,3 @@ function openPage(url) {
 function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
 }
-
-function checkLanguage() {
-    navigator.globalization.getPreferredLanguage(
-        function (language) {
-            var lang = language.value;
-            lang.split("-");
-            alert('languagesss: ' + lang[0] + '\n');
-        },
-        function () {alert('Error getting language\n');}
-    );
-}
