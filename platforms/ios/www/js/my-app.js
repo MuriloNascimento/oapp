@@ -391,11 +391,11 @@ function checkLanguage() {
             var l_ = language.value;
             var lang_ = l_.split("-");
 
-            var lang = window[lang_[0]];
+            lang = window[lang_[0]];
             changeText(lang);
         },
         function () {
-            var lang = window['en'];
+            lang = window['en'];
             changeText(lang);
         }
     );
