@@ -397,6 +397,7 @@ function loadJS(file) {
 function getLang(){
     navigator.globalization.getPreferredLanguage(
         function (language) {
+            console.log(language.value);
             var language_ = language.value;
             var lang_ = language_.split("-");
 
