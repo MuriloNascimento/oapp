@@ -1,4 +1,8 @@
 // Initialize your app
+var lang;
+
+checkLanguage();
+
 var myApp = new Framework7({
     animateNavBackIcon: true,
     // Enable templates auto precompilation
@@ -24,7 +28,6 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: false
 });
 
-checkLanguage();
 /*$$(document).on("mobileinit",function() {
  $('#loading').on('pageshow',function() {
 
@@ -38,6 +41,8 @@ checkLanguage();
  });*/
 
 $$(document).on('pageInit', function (e) {
+    checkLanguage();
+
     var page = e.detail.page;
 
     var app = {
@@ -110,7 +115,6 @@ $$(document).on('pageInit', function (e) {
 })
 
 function pageHistory () {
-    $('.page_title').text(lang.history);
     $('.load_').css('display', 'block');
     $.ajax({
         url: host + "/app/transactions/"+window.localStorage.getItem('user_id')
@@ -157,7 +161,6 @@ function pageHistory () {
 }
 
 function pageEvents () {
-    $('.page_title').text(lang.benefits);
 
     var $this = $("#benefitsList").empty();
 
@@ -274,7 +277,6 @@ function pageEvents () {
 }
 
 function pageMap () {
-    $('.page_title').text(lang.map);
     var map;
 
     function initialize() {
@@ -383,28 +385,23 @@ function openPage(url) {
 function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
 }
+function checkLanguage() { 
+    navigator.globalization.getPreferredLanguage(
+        function (language) {
+            var l_ = language.value;
+            var lang_ = l_.split("-");
 
-function checkLanguage() {        
-        navigator.globalization.getPreferredLanguage(
-            function (language) {
-                var l_ = language.value;
-                var lang_ = l_.split("-");
-
-                var lang = window[lang_[0]];
-                changeText(lang);
-            },
-            function () {
-                var lang = window['en'];
-                changeText(lang);
-            }
-        );
-    }
-
-function changeText(lang) {
-    $('.lang_#hello').text(lang.hello);
-    $('.lang_#logout').text(lang.logout);
-    $('.lang_#questions').text(lang.questions);
-    $('.lang_#how_use_system').text(lang.how_use_system);
-    $('.lang_#card_not_accepted').text(lang.card_not_accepted);
-    $('.lang_#contact').text(lang.contact);
+            var lang = window[lang_[0]];
+            changeText(lang);
+        },
+        function () {
+            var lang = window['en'];
+            changeText(lang);
+        }
+    );
+}
+function changeText(lang){
+    $.each(lang, function(i, val) {
+       $('.lang_-'+i).text(val);
+    });
 }
