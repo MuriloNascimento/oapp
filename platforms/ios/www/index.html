@@ -15,6 +15,8 @@
     <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
     <link type="text/css" rel="stylesheet" href="css/animations.css" />
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
+    <script src="lang/en.json"></script>
+    <script src="lang/pt.json"></script>
     <script type="text/javascript">
         if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
             window.location.href = './login.html';
@@ -24,24 +26,6 @@
     <script src="js/sweetalert.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-    <script src="lang/en.json"></script>
-    <script src="lang/pt.json"></script>
-    <script type="text/javascript">
-    checkLanguage();
-    function checkLanguage() {
-        navigator.globalization.getPreferredLanguage(
-            function (language) {
-                var l_ = language.value;
-                var lang_ = l_.split("-");
-
-                var lang = window[lang_[0]];
-            },
-            function () {
-                var lang = window['en'];
-            }
-        );
-    }
-    </script>
 
 </head>
 <body id="mobile_wrap">
@@ -55,7 +39,7 @@
             <div class="user_thumb">
                 <img src="images/profile.jpg" id="user_profile" alt="" height="280" title="" />
                 <div class="user_details">
-                    <p><script>document.write(lang.hello);</script>, <span class="user_name"></span></p>
+                    <p><span class="lang_#hello"></span>, <span class="user_name"></span></p>
                 </div>
             </div>
 
@@ -73,9 +57,7 @@
                         <a href="#" id="logout" class="close-panel">
                             <img src="images/icons/white/lock.png" alt="" title="" />
                             <span>
-                                <script>
-                                    document.write(lang.logout);
-                                </script>
+                                <span class="lang_#logout"></span>
                             </span>
                         </a>
                     </li>
@@ -84,32 +66,26 @@
         </div>
     </div>
     <div class="panel panel-right panel-cover">
-        <h3><script>document.write(lang.questions);</script></h3>
+        <h3><span class="lang_#questions"></span></h3>
         <ul class="popular_posts">
             <li>
                 <span>
                     <a href="#" onclick="openPage('http://help.orvipclub.com')" class="close-panel">
-                        <script>
-                            document.write(lang.how_use_system);
-                        </script>
+                        <span class="lang_#how_use_system"></span>
                     </a>
                 </span>
             </li>
             <li>
                 <span>
                     <a href="#" onclick="openPage('http://help.orvipclub.com')" class="close-panel navlink">
-                        <script>
-                            document.write(lang.card_not_accepted);
-                        </script>
+                        <span class="lang_#card_not_accepted"></span>
                     </a>
                 </span>
             </li>
             <li>
                 <span>
                     <a href="#" onclick="openPage('http://help.orvipclub.com')" class="close-panel external">
-                        <script>
-                            document.write(lang.contact);
-                        </script>
+                        <span class="lang_#contact"></span>
                     </a>
                 </span>
             </li>

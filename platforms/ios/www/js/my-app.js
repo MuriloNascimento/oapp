@@ -24,6 +24,7 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: false
 });
 
+checkLanguage();
 /*$$(document).on("mobileinit",function() {
  $('#loading').on('pageshow',function() {
 
@@ -383,3 +384,27 @@ function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
 }
 
+function checkLanguage() {        
+        navigator.globalization.getPreferredLanguage(
+            function (language) {
+                var l_ = language.value;
+                var lang_ = l_.split("-");
+
+                var lang = window[lang_[0]];
+                changeText(lang);
+            },
+            function () {
+                var lang = window['en'];
+                changeText(lang);
+            }
+        );
+    }
+
+function changeText(lang) {
+    $('.lang_#hello').text(lang.hello);
+    $('.lang_#logout').text(lang.logout);
+    $('.lang_#questions').text(lang.questions);
+    $('.lang_#how_use_system').text(lang.how_use_system);
+    $('.lang_#card_not_accepted').text(lang.card_not_accepted);
+    $('.lang_#contact').text(lang.contact);
+}
