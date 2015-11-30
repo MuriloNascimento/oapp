@@ -27,8 +27,7 @@
     <script src="lang/pt.json"></script>
 
     <script>
-        $.holdReady( true );
-        var data;
+        var data = 'en';
         navigator.globalization.getPreferredLanguage(
             function (language) {
                 var lang_ = language.value;
@@ -38,11 +37,10 @@
                 data = lang[0];
             },
             function () {
-                data = en;
+                data = lang[0];
             }
         );
-        var lang = JSON.parse(en);
-        $.holdReady( false );
+        var lang = JSON.parse(data);
         
     </script>
 </head>
