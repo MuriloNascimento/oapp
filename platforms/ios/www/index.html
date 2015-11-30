@@ -33,8 +33,8 @@
                 var l_ = language.value;
                 var lang_ = l_.split("-");
 
-                alert('lang: ' + lang_[0]);
                 var lang = window[lang_[0]];
+                alert('lang: ' + lang.success);
             },
             function () {
                 var lang = window['en'];
