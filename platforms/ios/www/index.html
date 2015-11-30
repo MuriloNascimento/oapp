@@ -27,21 +27,18 @@
     <script src="lang/pt.json"></script>
 
     <script>
-        var data = 'en';
         navigator.globalization.getPreferredLanguage(
             function (language) {
-                var lang_ = language.value;
-                var lang = lang_.split("-");
-                alert(lang[0]);
-                
-                data = lang[0];
+                var language_ = language.value;
+                var lang_ = language_.split("-");
+
+                var lang = window[lang_[0]];
             },
             function () {
-                data = lang[0];
+                var lang = window['en'];
             }
         );
-        var lang = JSON.parse(data);
-        
+
     </script>
 </head>
 <body id="mobile_wrap">
