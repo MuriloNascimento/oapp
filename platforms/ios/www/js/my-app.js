@@ -1,4 +1,5 @@
 // Initialize your app
+checkLanguage();
 var myApp = new Framework7({
     animateNavBackIcon: true,
     // Enable templates auto precompilation
@@ -24,14 +25,14 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: false
 });
 
-$$(document).on("mobileinit",function() {
+/*$$(document).on("mobileinit",function() {
     $$(document).on('pageshow',function() {
-        changeText();
+        checkLanguage();
     });
-});
+});*/
 
 $$(document).on('pageInit', function (e) {
-    checkLanguage();
+    changeText();
 
     var page = e.detail.page;
 
