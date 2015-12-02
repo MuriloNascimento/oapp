@@ -24,17 +24,11 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: false
 });
 
-/*$$(document).on("mobileinit",function() {
- $('#loading').on('pageshow',function() {
-
- var initial = 'login';
- if(localStorage.registered) {
- initial = 'home';
- }
- $.mobile.changePage(initial);
- });
-
- });*/
+$$(document).on("mobileinit",function() {
+    $$(document).on('pageshow',function() {
+        changeText();
+    });
+});
 
 $$(document).on('pageInit', function (e) {
     checkLanguage();
