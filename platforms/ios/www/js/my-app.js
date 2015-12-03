@@ -1,5 +1,4 @@
 // Initialize your app
-checkLanguage();
 var myApp = new Framework7({
     animateNavBackIcon: true,
     // Enable templates auto precompilation
