@@ -24,9 +24,10 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: false
 });
 
-$$(document).on('pageshow',function(e) {
+/*$$(document).on('pageshow',function(e) {
     checkLanguage();
-});
+    alert('www');
+});*/
 
 $$(document).on('pageInit', function (e) {
     checkLanguage();
