@@ -23,18 +23,19 @@
         }
 
         var lang;
+        var lang_text = 'en';
         function checkLanguage() {
-
             navigator.globalization.getPreferredLanguage(
                 function (language) {
                     var l_ = language.value;
                     var lang_ = l_.split("-");
 
-                    lang = window[lang_[0]];
+                    lang_text = lang_[0];
+                    lang = window[lang_text];
                     changeText();
                 },
                 function () {
-                    lang = window['en'];
+                    lang = window[lang_text];
                     changeText();
                 }
             );

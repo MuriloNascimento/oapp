@@ -30,6 +30,7 @@ var mainView = myApp.addView('.view-main', {
 });*/
 
 $$(document).on('pageInit', function (e) {
+    checkLanguage();
 
     var page = e.detail.page;
 
@@ -157,6 +158,15 @@ function pageEvents () {
         url: host + "/app/benefits/" + window.localStorage.getItem('membership')
     }).done(function(results) {
         $.each(results, function(i, value) {
+            var nameI18n;
+            var descriptionI18n;
+            var i18n = $.each(value.establishment_i18n, function(index, v){
+                if (v.lang == lang_text) {
+                    nameI18n = v.name;
+                    descriptionI18n = v.description;
+                }
+            });
+
             var item = '<div class="accordion-item">';
             item += '<div class="accordion-item-toggle">';
             item += '<img class="logo_brand" src="'+value.establishment.image+'" alt="" title="" border="0">';
@@ -164,7 +174,13 @@ function pageEvents () {
             item += '<div class="ev_content">';
             item +=	'<p class="title_category">'+value.establishment.category+'</p>';
             item += '<p class="title_brand">'+value.description+'</p>';
-            item += '<p class="title_brand">'+value.establishment.name+'</p>';
+            
+            if (nameI18n != 'undefined') {
+                item += '<p class="title_brand">'+nameI18n+'</p>';
+              
+            } else {
+                item += '<p class="title_brand">'+value.establishment.name+'</p>';
+            }
             item += '</div>';
 
             item += '<div class="ev_fav">';
@@ -175,7 +191,13 @@ function pageEvents () {
             item += '</div>';
 
             item += '<div class="accordion-item-content">';
-            item += '<p class="content_desc">'+value.establishment.description+'</p>';
+            if (typeof descriptionI18n != 'undefined') {
+                item += '<p class="content_desc">'+descriptionI18n+'</p>';
+              
+            } else {
+                item += '<p class="content_desc">'+value.establishment.description+'</p>';
+            }
+            
             item += '<p>'+value.establishment.address+'</p>';
 
             item += '<div class="actions">';
