@@ -366,6 +366,9 @@ $('#logout').on('click',function(e){
     });
     window.location.href = './login.html';
 });
+$(document).ready(function(){
+        checkLanguage();
+});
 
 function openPage(url) {
     var caption = 'Fechar' // get translation from i18n
