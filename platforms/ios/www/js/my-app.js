@@ -24,11 +24,11 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: false
 });
 
-/*$$(document).on("mobileinit",function() {
+$$(document).on("mobileinit",function() {
     $$(document).on('pageshow',function() {
         checkLanguage();
     });
-});*/
+});
 
 $$(document).on('pageInit', function (e) {
     changeText();
