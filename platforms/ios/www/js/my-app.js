@@ -30,7 +30,6 @@ var mainView = myApp.addView('.view-main', {
 });*/
 
 $$(document).on('pageInit', function (e) {
-    checkLanguage();
 
     var page = e.detail.page;
 
@@ -365,9 +364,6 @@ $('#logout').on('click',function(e){
         }
     });
     window.location.href = './login.html';
-});
-$(document).ready(function(){
-        checkLanguage();
 });
 
 function openPage(url) {

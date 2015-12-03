@@ -218,5 +218,9 @@
         $('.user_email').text(window.localStorage.getItem('user_email'));
         $('.user_name').text(window.localStorage.getItem('user_name'));
         $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
+        
+        $('.toolbar_icons li a').on('click', function(){
+            checkLanguage();
+        });
     </script>
 </body>
