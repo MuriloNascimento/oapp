@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
 	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--<meta name="apple-mobile-web-app-status-bar-style" content="darkcontent">-->
 	<meta name="format-detection" content="telephone=no">
 	<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
 	<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="apple-touch-startup-image-640x1096.png">
@@ -15,14 +15,13 @@
 	<link type="text/css" rel="stylesheet" href="css/swipebox.css" />
 	<link type="text/css" rel="stylesheet" href="css/animations.css" />
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
-
 	<script src="lang/en.json"></script>
     <script src="lang/pt.json"></script>
     <script type="text/javascript">
+
         var lang;
         var lang_text = 'en';
         function checkLanguage() {
-
             navigator.globalization.getPreferredLanguage(
                 function (language) {
                     var l_ = language.value;
@@ -45,7 +44,6 @@
             });
         }
     </script>
-
 	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 	<script src="js/sweetalert.min.js"></script>
 </head>
@@ -111,7 +109,6 @@
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript">
-	checkLanguage();
 	$('#login').on('click',function(e){
 		$('#login').attr("disabled", "disabled");
 		$('#load').css('display', 'block');
@@ -148,7 +145,7 @@
 
 		return false;
 	});
-
+	checkLanguage();
 </script>
 </body>
 </html>
