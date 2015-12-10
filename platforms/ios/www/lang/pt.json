@@ -4,8 +4,10 @@ pt = {
 
   "map" : "Mapa",
   "benefits" : "Benefícios",
+  "filter" : "Filtrar",
 
   "use" : "Usar",
+  "send" : "Enviar",
 
   "success" : "Sucesso!",
   "show_coupon" : "Apresente este cupom ao caixa",

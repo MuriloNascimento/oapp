@@ -64,9 +64,11 @@ $$(document).on('pageInit', function (e) {
 
     switch(file){
         case 'benefits.html':
+            filterCategories('benefits');
             pageEvents();
             break;
         case 'map.html':
+            filterCategories('map');
             pageMap();
             break;
         case 'history.html':
@@ -111,6 +113,26 @@ function pageHistory () {
         var $this = $("#historyList").empty();
 
         $.each(results, function(i, value) {
+            var establishmentNameI18n;
+            var establishment_i18n = $.each(value.establishmentI18n, function(index, v){
+                if (v.lang == lang_text) {
+                    establishmentNameI18n = v.name;
+                }
+            });
+
+            var benefitiDesc18n;
+            var benefiti18n = $.each(value.benefitI18n, function(index, v){
+                if (v.lang == lang_text) {
+                    benefitiDesc18n = v.description;
+                }
+            });
+
+            var categoryNameI18n;
+            var cI18n = $.each(value.establishmentCategoryI18n, function(index, v){
+                if (v.lang == lang_text) {
+                    categoryNameI18n = v.name;
+                }
+            });
 
             var arr = value.created_at.split(' ');
             var date = arr[0].split('-');
@@ -123,16 +145,30 @@ function pageHistory () {
             item += '<span class="month" style="margin-top: 8px">'+hour[0]+':'+hour[1]+'</span>';
             item += '</div>';
             item += '<div class="post_title">';
-            item += '<h2>'+value.establishment.category+'</h2>';
-            item += '<h2><b>'+value.benefit.description+'</b></h2>';
-            item += '<h2><b>'+value.establishment.name+'</b></h2>';
+            if (categoryNameI18n != undefined) {
+                item += '<h2>'+categoryNameI18n+'</h2>';
+            } else {
+                item += '<h2>'+value.establishmentCategory+'</h2>';
+            }
+
+            if (benefitiDesc18n != undefined) {
+                item += '<h2><b>'+benefitiDesc18n+'</b></h2>';              
+            } else {
+                item += '<h2><b>'+value.benefit.description+'</b></h2>';
+            }
+            
+            if (establishmentNameI18n != undefined) {
+                item += '<h2><b>'+establishmentNameI18n+'</b></h2>';
+            } else {
+                item += '<h2><b>'+value.establishment.name+'</b></h2>';
+            }
+
             item += '</div>';
             item += '</div>';
 
             var li = $("<li />");
 
             li.html(item).appendTo($this);
-
         });
 
         if(results.length === 0) {
@@ -149,21 +185,38 @@ function pageHistory () {
     });
 }
 
-function pageEvents () {
 
+
+function pageEvents (filter) {
+    
     var $this = $("#benefitsList").empty();
 
     $('.load_').css('display', 'block');
     $.ajax({
-        url: host + "/app/benefits/" + window.localStorage.getItem('membership')
+        url: host + "/app/benefits/" + window.localStorage.getItem('membership'),
+        data: filter
     }).done(function(results) {
         $.each(results, function(i, value) {
-            var nameI18n;
-            var descriptionI18n;
-            var i18n = $.each(value.establishment_i18n, function(index, v){
+            var establishmentNameI18n;
+            var establishmentDescI18n;
+            var establishment_i18n = $.each(value.establishment_i18n, function(index, v){
                 if (v.lang == lang_text) {
-                    nameI18n = v.name;
-                    descriptionI18n = v.description;
+                    establishmentNameI18n = v.name;
+                    establishmentDescI18n = v.description;
+                }
+            });
+
+            var benefitiDesc18n;
+            var benefiti18n = $.each(value.i18n, function(index, v){
+                if (v.lang == lang_text) {
+                    benefitiDesc18n = v.description;
+                }
+            });
+
+            var categoryNameI18n;
+            var cI18n = $.each(value.categoryI18n, function(index, v){
+                if (v.lang == lang_text) {
+                    categoryNameI18n = v.name;
                 }
             });
 
@@ -172,11 +225,21 @@ function pageEvents () {
             item += '<img class="logo_brand" src="'+value.establishment.image+'" alt="" title="" border="0">';
             item += '<div class="be_content">';
             item += '<div class="ev_content">';
-            item +=	'<p class="title_category">'+value.establishment.category+'</p>';
-            item += '<p class="title_brand">'+value.description+'</p>';
+            if (categoryNameI18n != undefined) {
+                item += '<p class="title_brand">'+categoryNameI18n+'</p>';
+            } else {
+                item += '<p class="title_category">'+value.categoryName+'</p>';
+            }
+
+            if (benefitiDesc18n != undefined) {
+                item += '<p class="title_brand">'+benefitiDesc18n+'</p>';
+              
+            } else {
+                item += '<p class="title_brand">'+value.description+'</p>';
+            }
             
-            if (nameI18n != 'undefined') {
-                item += '<p class="title_brand">'+nameI18n+'</p>';
+            if (establishmentNameI18n != undefined) {
+                item += '<p class="title_brand">'+establishmentNameI18n+'</p>';
               
             } else {
                 item += '<p class="title_brand">'+value.establishment.name+'</p>';
@@ -191,8 +254,9 @@ function pageEvents () {
             item += '</div>';
 
             item += '<div class="accordion-item-content">';
-            if (typeof descriptionI18n != 'undefined') {
-                item += '<p class="content_desc">'+descriptionI18n+'</p>';
+
+            if (typeof establishmentDescI18n != 'undefined') {
+                item += '<p class="content_desc">'+establishmentDescI18n+'</p>';
               
             } else {
                 item += '<p class="content_desc">'+value.establishment.description+'</p>';
@@ -286,7 +350,7 @@ function pageEvents () {
     });
 }
 
-function pageMap () {
+function pageMap (filter) {
     var map;
 
     function initialize() {
@@ -323,9 +387,31 @@ function pageMap () {
     function carregarPontos() {
         $('.load_').css('display', 'block');
         $.ajax({
-            url: host + "/app/benefits/" + window.localStorage.getItem('membership')
+            url: host + "/app/benefits/" + window.localStorage.getItem('membership'),
+            data: filter
         }).done(function(results) {
             $.each(results, function (i, value) {
+                var establishmentNameI18n;
+                var establishment_i18n = $.each(value.establishment_i18n, function(index, v){
+                    if (v.lang == lang_text) {
+                        establishmentNameI18n = v.name;
+                    }
+                });
+
+                var benefitiDesc18n;
+                var benefiti18n = $.each(value.i18n, function(index, v){
+                    if (v.lang == lang_text) {
+                        benefitiDesc18n = v.description;
+                    }
+                });
+
+                var categoryNameI18n;
+                var cI18n = $.each(value.categoryI18n, function(index, v){
+                    if (v.lang == lang_text) {
+                        categoryNameI18n = v.name;
+                    }
+                });
+
                 var latlngbounds = new google.maps.LatLngBounds();
 
                 var marker = new google.maps.Marker({
@@ -335,10 +421,25 @@ function pageMap () {
                 });
 
                 var content = '';
-                content +=	'<p>'+value.establishment.category+'</p>';
-                content += '<p><b>'+value.description+'</b></p>';
-                content += '<p><b>'+value.establishment.name+'</b></p>';
-                content += '<p>'+value.establishment.address+'</p>';
+                if (categoryNameI18n != undefined) {
+                    content +=  '<p>'+categoryNameI18n+'</p>';
+                } else {
+                    content +=  '<p>'+value.categoryName+'</p>';
+                }
+                
+                if (benefitiDesc18n != undefined) {
+                    content += '<p><b>'+benefitiDesc18n+'</b></p>';
+                } else {
+                    content += '<p><b>'+value.description+'</b></p>';
+                }
+                
+                if (establishmentNameI18n != undefined) {
+                    content += '<p><b>'+establishmentNameI18n+'</b></p>';
+                } else {
+                    content += '<p><b>'+value.establishment.name+'</b></p>';
+                }
+
+                content += '<p>'+value.establishment.address+'</p>';         
 
                 var myOptions = {
                     content: content,
@@ -354,6 +455,54 @@ function pageMap () {
 
                 markers.push(marker);
                 latlngbounds.extend(marker.position);
+
+                //address
+                $.each(value.establishment.address, function (i, v) {
+                    var latlngbounds = new google.maps.LatLngBounds();
+
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(v.lat, v.lon),
+                        title: value.establishment.name,
+                        icon: 'images/icons/pin.png'
+                    });
+
+                    var content = '';
+                    if (categoryNameI18n != undefined) {
+                        content +=  '<p>'+categoryNameI18n+'</p>';
+                    } else {
+                        content +=  '<p>'+value.categoryName+'</p>';
+                    }
+                    
+                    if (benefitiDesc18n != undefined) {
+                        content += '<p><b>'+benefitiDesc18n+'</b></p>';
+                    } else {
+                        content += '<p><b>'+value.description+'</b></p>';
+                    }
+                    
+                    if (establishmentNameI18n != undefined) {
+                        content += '<p><b>'+establishmentNameI18n+'</b></p>';
+                    } else {
+                        content += '<p><b>'+value.establishment.name+'</b></p>';
+                    }
+
+                    content += '<p>'+value.establishment.address+'</p>';         
+
+                    var myOptions = {
+                        content: content,
+                        pixelOffset: new google.maps.Size(-150, 0)
+                    };
+
+                    infoBox[value.establishment.id] = new InfoBox(myOptions);
+                    infoBox[value.establishment.id].marker = marker;
+
+
+                    infoBox[value.establishment.id].listener = google.maps.event.addListener(marker, 'click', function (e) {
+                        abrirInfoBox(value.establishment.id, marker);
+                    });
+                    markers.push(marker);
+                    latlngbounds.extend(marker.position);
+                });
+                //endaddress
             });
 
             var markerCluster = new MarkerClusterer(map, markers);
@@ -370,6 +519,40 @@ function pageMap () {
     };
 
     carregarPontos();
+}
+
+function filterCategories(page){
+    var $this = $(".list-flters").empty();
+    
+    $.ajax({
+        url: host + "/app/categories"
+    }).done(function(results) {
+
+        $.each(results, function(i, value) {
+
+            var item = '<input type="checkbox" name="category[]" value="'+value.id+'" />'+value.name;
+
+            var li = $("<p />").addClass('categories-li');
+
+            li.html(item).appendTo($this);
+        });
+
+        $('.categories-li').on('click',function(e){
+            $(this).toggleClass('categories-li-active');
+            var checkBoxes = $(this).find('input');
+            checkBoxes.prop("checked", !checkBoxes.prop("checked"));
+        });
+
+    }).fail(function() {
+        sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
+    });
+    $('.btn-filter').on('click', function(){
+        if (page == 'benefits') {
+            pageEvents($('.filter-form').serializeArray());
+        } else {
+            pageMap($('.filter-form').serializeArray());
+        }
+    });
 }
 
 $('#logout').on('click',function(e){

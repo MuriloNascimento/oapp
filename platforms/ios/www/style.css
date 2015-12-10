@@ -43,6 +43,15 @@ Template:	Mobix - Mobile Web APP Template
 /*===============================================*/
 /* 2. GENERAL		 						 */
 /*===============================================*/
+.scrollingArea
+{
+  width: 100%;
+  height: (some-fixed-height);
+  overflow: hidden;
+  overflow-y: scroll !important;
+  -webkit-overflow-scrolling: touch;
+}
+
 html,
 body {
 position: relative;
@@ -1956,4 +1965,36 @@ ul.events li img{
     #pages_maincontent{
         padding-bottom: 82px !important;
     }
+}
+
+.filter{
+  background: #646464 !important;
+  color: #fff !important;
+}
+.filter > img {
+  position: absolute;
+  left: 10px;
+  max-width: 36px;
+}
+.categories-li{
+  margin: 1px 0 !important;
+  padding: 10px !important;
+}
+
+.categories-li-active{
+  background: #424254 !important;
+  color: #fff !important;
+}
+.filter-content {
+  background: #ececec;
+}
+.fil-content{
+  padding: 20px;
+}
+.btn-filter{
+  margin-top: 20px !important;
+  float: none !important;
+  left: 25% !important;
+  position: relative;
+  background: #646464 !important
 }

@@ -4,8 +4,10 @@ en = {
 
   "map" : "Map",
   "benefits" : "Benefits",
+  "filter" : "Filter",
 
   "use" : "Use",
+  "send" : "Send",
 
   "success" : "Success!",
   "error" : "Error",

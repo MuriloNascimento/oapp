@@ -16,6 +16,36 @@
 	<link type="text/css" rel="stylesheet" href="css/animations.css" />
 	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
 
+	<script src="lang/en.json"></script>
+    <script src="lang/pt.json"></script>
+    <script type="text/javascript">
+        var lang;
+        var lang_text = 'en';
+        function checkLanguage() {
+
+            navigator.globalization.getPreferredLanguage(
+                function (language) {
+                    var l_ = language.value;
+                    var lang_ = l_.split("-");
+
+                    lang_text = lang_[0];
+                    lang = window[lang_text];
+                    changeText();
+                },
+                function () {
+                    lang = window[lang_text];
+                    changeText();
+                }
+            );
+
+        }
+        function changeText(){
+            $.each(lang, function(i, val) {
+               $('.lang_-'+i).text(val);
+            });
+        }
+    </script>
+
 	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 	<script src="js/sweetalert.min.js"></script>
 </head>
@@ -35,20 +65,20 @@
 			</div>
 			<div class="login-box">
 				<div class="lb-header">
-					<a href="#tab1" class="tab-link active" id="login-box-link"><script>document.write(lang.login);</script></a>
+					<a href="#tab1" class="tab-link active" id="login-box-link"><span class="lang_-login"></span></a>
 				</div>
 				<div class="tabs-animated-wrap">
 					<div class="tabs">
 						<div id="tab1" class="tab active">
 							<form class="email-login">
 								<div class="u-form-group">
-									<input type="text" name="username" placeholder="Usuário"/>
+									<input type="text" name="username" placeholder="Username"/>
 								</div>
 								<div class="u-form-group">
-									<input type="password" name="password" placeholder="Senha"/>
+									<input type="password" name="password" placeholder="Password"/>
 								</div>
 								<div class="u-form-group">
-									<button type="button" id="login"><script>document.write(lang.access);</script></button>
+									<button type="button" id="login"><span class="lang_-access"></span></button>
 								</div>
 								<!-- <div class="u-form-group">
                                   <a href="#" class="forgot-password">Esqueceu a senha?</a>
@@ -81,7 +111,7 @@
 <script type="text/javascript" src="js/index.js"></script>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript">
-
+	checkLanguage();
 	$('#login').on('click',function(e){
 		$('#login').attr("disabled", "disabled");
 		$('#load').css('display', 'block');
