@@ -1971,25 +1971,33 @@ ul.events li img{
   background: #646464 !important;
   color: #fff !important;
 }
-.filter > img {
+.page_title > img {
+  float: right;
+}
+.title_filter{
   position: absolute;
-  left: 10px;
-  max-width: 36px;
+  right: 70px;
+  font-size: 80%;
+  top: 13px;
 }
 .categories-li{
   margin: 1px 0 !important;
   padding: 10px !important;
+  font-size: 140% !important;
 }
-
-.categories-li-active{
+.categories-li input{
+  margin-right: 5px !important;
+}
+/*.categories-li-active{
   background: #424254 !important;
   color: #fff !important;
-}
+}*/
 .filter-content {
-  background: #ececec;
+  background: #F3F3F3;
 }
 .fil-content{
   padding: 20px;
+  border-top: 1px solid #C3C1C1;
 }
 .btn-filter{
   margin-top: 20px !important;

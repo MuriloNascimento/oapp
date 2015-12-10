@@ -547,6 +547,7 @@ function filterCategories(page){
         sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
     });
     $('.btn-filter').on('click', function(){
+        $( ".accordion-item-toggle" ).trigger( "click" );
         if (page == 'benefits') {
             pageEvents($('.filter-form').serializeArray());
         } else {
