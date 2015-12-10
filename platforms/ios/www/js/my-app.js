@@ -547,12 +547,14 @@ function filterCategories(page){
         sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
     });
     $('.btn-filter').on('click', function(){
-        $( ".accordion-item-toggle" ).trigger( "click" );
         if (page == 'benefits') {
             pageEvents($('.filter-form').serializeArray());
         } else {
             pageMap($('.filter-form').serializeArray());
         }
+        $(".accordion-item-toggle").trigger("click");
+        $('.accordion-item').removeClass('accordion-item-expanded');
+        $('.filter-content').removeAttr('style');
     });
 }
 

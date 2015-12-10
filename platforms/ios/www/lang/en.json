@@ -7,7 +7,7 @@ en = {
   "filter" : "Filter",
 
   "use" : "Use",
-  "send" : "Send",
+  "send" : "Filter",
 
   "success" : "Success!",
   "error" : "Error",

@@ -25,7 +25,11 @@
         var lang;
         var lang_text = 'en';
         function checkLanguage() {
-
+             /*           lang_text = 'pt';
+            lang = window['pt'];
+            changeText();
+*/
+            
             navigator.globalization.getPreferredLanguage(
                 function (language) {
                     var l_ = language.value;

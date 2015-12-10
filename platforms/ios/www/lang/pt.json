@@ -7,7 +7,7 @@ pt = {
   "filter" : "Filtrar",
 
   "use" : "Usar",
-  "send" : "Enviar",
+  "send" : "Filtrar",
 
   "success" : "Sucesso!",
   "show_coupon" : "Apresente este cupom ao caixa",
