@@ -13,7 +13,7 @@ var myApp = new Framework7({
     template7Pages: true
 });
 
-var host = 'http://checklist.grupoair.com.br'
+var host = 'http://app.orvipclub.com'
 
 // Export selectors engine
 var $$ = Dom7;
