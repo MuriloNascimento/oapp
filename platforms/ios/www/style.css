@@ -2015,4 +2015,5 @@ ul.events li img{
   position: fixed;
   width: 100%;
   z-index: 50;
+  top: 0;
 }
