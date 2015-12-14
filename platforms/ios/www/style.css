@@ -684,7 +684,7 @@ height:70px;
 z-index: 1;
 }
 .fixed{
-  top: 70px;
+  /*top: 70px;*/
 }
 .nav_left_logo{
 width:100%;
