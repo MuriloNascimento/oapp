@@ -263,14 +263,16 @@ function pageEvents (filter) {
                 item += '<p class="content_desc">'+value.establishment.description+'</p>';
             }
             
-            item += '<p>'+value.establishment.address+'</p>';
 
             item += '<div class="actions">';
             item += '<form>';
             item += '<input type="hidden" name="benefit_id" value="'+value.id+'">';
             item += '<input type="hidden" name="client_id" value="'+window.localStorage.getItem('user_id')+'">';
             item += '</form>';
-            item += '<div class="call_button btn-45 btn-map"><a href="#" data-map="'+value.establishment.address+'" class="map">'+lang.map+'</a></div>';
+            //item += '<p>'+value.establishment.address+'</p>';
+            //item += '<div class="call_button btn-45 btn-map"><a href="#" data-map="'+value.establishment.address+'" class="map">'+lang.map+'</a></div>';
+            item += '<div class="call_button btn-45 btn-map"><a href="map.html" data-map="'+value.establishment.id+'" class="maps">'+lang.map+'</a></div>';
+
             item += '<div class="call_button btn-45 btn-use"><a href="#" data-single-use="'+value.single_use+'" class="use">'+lang.use+'</a></div>';
             item += '</div>';
             item += '</div>';
@@ -319,6 +321,12 @@ function pageEvents (filter) {
             window.open("maps://?q="+address, '_system', 'location=no');
         });
 
+        $(".maps").click(function() {
+            sessionStorage.param1 = $(this).attr('data-map');
+            //window.location.replace("/#!/map.html");
+            //window.location.href="/#!/map.html";
+        });
+
         $('.use').on('click', function(){
             var btn = $(this);
             var actions = btn.parent().parent();
@@ -353,6 +361,13 @@ function pageEvents (filter) {
 
 function pageMap (filter) {
     var map;
+    var estaId = 0;
+    if (typeof sessionStorage.param1 != 'undefined') {
+        estaId = sessionStorage.param1;
+        sessionStorage.param1 = null;
+    }
+
+    console.log(sessionStorage.param1);
 
     function initialize() {
         var latlng = new google.maps.LatLng(28.5197169,-81.381806);
@@ -386,9 +401,10 @@ function pageMap (filter) {
 
     var markers = [];
     function carregarPontos() {
+
         $('.load_').css('display', 'block');
         $.ajax({
-            url: host + "/app/benefitAddress/" + window.localStorage.getItem('membership'),
+            url: host + "/app/benefitAddress/" + window.localStorage.getItem('membership') + '/' + estaId,
             data: filter
         }).done(function(results) {
             $.each(results, function (i, value) {
@@ -416,7 +432,7 @@ function pageMap (filter) {
                 var latlngbounds = new google.maps.LatLngBounds();
 
                 var marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(value.establishment.lat, value.establishment.lon),
+                    position: new google.maps.LatLng(value.lat, value.lon),
                     title: value.establishment.name,
                     icon: 'images/icons/pin.png'
                 });
@@ -440,70 +456,22 @@ function pageMap (filter) {
                     content += '<p><b>'+value.establishment.name+'</b></p>';
                 }
 
-                content += '<p>'+value.establishment.address+'</p>';         
-
+                content += '<p>'+value.address+'</p>';     
                 var myOptions = {
                     content: content,
                     pixelOffset: new google.maps.Size(-150, 0)
                 };
 
-                infoBox[value.establishment.id] = new InfoBox(myOptions);
-                infoBox[value.establishment.id].marker = marker;
+                infoBox[i] = new InfoBox(myOptions);
+                infoBox[i].marker = marker;
 
-                infoBox[value.establishment.id].listener = google.maps.event.addListener(marker, 'click', function (e) {
-                    abrirInfoBox(value.establishment.id, marker);
+                infoBox[i].listener = google.maps.event.addListener(marker, 'click', function (e) {
+                    abrirInfoBox(i, marker);
                 });
 
                 markers.push(marker);
                 latlngbounds.extend(marker.position);
 
-                //address
-                $.each(value.establishment.address, function (i, v) {
-                    var latlngbounds = new google.maps.LatLngBounds();
-
-                    var marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(v.lat, v.lon),
-                        title: value.establishment.name,
-                        icon: 'images/icons/pin.png'
-                    });
-
-                    var content = '';
-                    if (categoryNameI18n != undefined) {
-                        content +=  '<p>'+categoryNameI18n+'</p>';
-                    } else {
-                        content +=  '<p>'+value.categoryName+'</p>';
-                    }
-                    
-                    if (benefitiDesc18n != undefined) {
-                        content += '<p><b>'+benefitiDesc18n+'</b></p>';
-                    } else {
-                        content += '<p><b>'+value.description+'</b></p>';
-                    }
-                    
-                    if (establishmentNameI18n != undefined) {
-                        content += '<p><b>'+establishmentNameI18n+'</b></p>';
-                    } else {
-                        content += '<p><b>'+value.establishment.name+'</b></p>';
-                    }
-
-                    content += '<p>'+value.establishment.address+'</p>';         
-
-                    var myOptions = {
-                        content: content,
-                        pixelOffset: new google.maps.Size(-150, 0)
-                    };
-
-                    infoBox[value.establishment.id] = new InfoBox(myOptions);
-                    infoBox[value.establishment.id].marker = marker;
-
-
-                    infoBox[value.establishment.id].listener = google.maps.event.addListener(marker, 'click', function (e) {
-                        abrirInfoBox(value.establishment.id, marker);
-                    });
-                    markers.push(marker);
-                    latlngbounds.extend(marker.position);
-                });
-                //endaddress
             });
 
             var markerCluster = new MarkerClusterer(map, markers);
