@@ -367,8 +367,6 @@ function pageMap (filter) {
         sessionStorage.param1 = null;
     }
 
-    console.log(sessionStorage.param1);
-
     function initialize() {
         var latlng = new google.maps.LatLng(28.5197169,-81.381806);
 
@@ -524,6 +522,7 @@ function filterCategories(page){
         $(".accordion-item-toggle").trigger("click");
         $('.accordion-item').removeClass('accordion-item-expanded');
         $('.filter-content').removeAttr('style');
+
     });
 }
 
