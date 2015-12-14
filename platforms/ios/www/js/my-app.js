@@ -366,7 +366,8 @@ function pageMap (filter) {
         estaId = sessionStorage.param1;
         sessionStorage.param1 = null;
     }
-
+    window.scrollTo(0, 0);
+    
     function initialize() {
         var latlng = new google.maps.LatLng(28.5197169,-81.381806);
 
