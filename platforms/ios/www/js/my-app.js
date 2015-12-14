@@ -43,6 +43,7 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
+            checkLanguage();
         },
         openNativeAppWindow: function(data) {
             window.open(data, '_system');
@@ -387,7 +388,7 @@ function pageMap (filter) {
     function carregarPontos() {
         $('.load_').css('display', 'block');
         $.ajax({
-            url: host + "/app/benefits/" + window.localStorage.getItem('membership'),
+            url: host + "/app/benefitAddress/" + window.localStorage.getItem('membership'),
             data: filter
         }).done(function(results) {
             $.each(results, function (i, value) {
@@ -581,5 +582,3 @@ function openPage(url) {
 function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
 }
-
-checkLanguage();
