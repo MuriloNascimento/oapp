@@ -14,16 +14,6 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
-    <feature name="InAppBrowser">
-        <param name="ios-package" value="CDVInAppBrowser" />
-    </feature>
-    <feature name="StatusBar">
-        <param name="ios-package" value="CDVStatusBar" />
-        <param name="onload" value="true" />
-    </feature>
-    <feature name="Globalization">
-        <param name="ios-package" value="CDVGlobalization" />
-    </feature>
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <name>OR VIP CLUB</name>
@@ -109,4 +99,14 @@
     <access origin="login.html" subdomains="true" />
     <access origin="/www/login.html" />
     <access origin="*" />
+    <feature name="Globalization">
+        <param name="ios-package" value="CDVGlobalization" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar" />
+        <param name="onload" value="true" />
+    </feature>
 </widget>

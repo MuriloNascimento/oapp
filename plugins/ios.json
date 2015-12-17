@@ -5,19 +5,13 @@
     },
     "config_munge": {
         "files": {
-            "framework": {
-                "parents": {
-                    "CoreGraphics.framework": [
-                        {
-                            "xml": false,
-                            "count": 1
-                        }
-                    ]
-                }
-            },
             "config.xml": {
                 "parents": {
                     "/*": [
+                        {
+                            "xml": "<feature name=\"Globalization\"><param name=\"ios-package\" value=\"CDVGlobalization\" /></feature>",
+                            "count": 1
+                        },
                         {
                             "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>",
                             "count": 1
@@ -33,9 +27,15 @@
                         {
                             "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
                             "count": 1
-                        },
+                        }
+                    ]
+                }
+            },
+            "framework": {
+                "parents": {
+                    "CoreGraphics.framework": [
                         {
-                            "xml": "<feature name=\"Globalization\"><param name=\"ios-package\" value=\"CDVGlobalization\" /></feature>",
+                            "xml": false,
                             "count": 1
                         }
                     ]
@@ -44,6 +44,9 @@
         }
     },
     "installed_plugins": {
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.phonegap.helloworld"
+        },
         "cordova-plugin-inappbrowser": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
@@ -51,9 +54,6 @@
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
-        },
-        "cordova-plugin-globalization": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },
