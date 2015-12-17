@@ -32,7 +32,7 @@
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
     </author>
-    <content src="index.html" />
+    <content src="" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
