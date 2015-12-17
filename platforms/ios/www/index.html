@@ -17,11 +17,6 @@
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
     <script src="lang/en.json"></script>
     <script src="lang/pt.json"></script>
-    <script type="text/javascript">
-        if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
-            window.location = 'login.html';
-        }
-    </script>
     <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
     <script src="js/sweetalert.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
@@ -183,6 +178,11 @@
     <script type="text/javascript" src="js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="js/email.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
+            window.location = 'login.html';
+        }
+    </script>
     <!-- Maps API Javascript -->
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="js/markerclusterer.js"></script>
