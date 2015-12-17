@@ -106,7 +106,7 @@
     <allow-intent href="geo:*" />
     <access origin="http://www.google.com/" />
     <access origin="http://maps.google.com/" />
-    <access origin="login.html" />
-    <access origin="www/login.html" />
+    <access origin="login.html" subdomains="true" />
+    <access origin="/www/login.html" />
     <access origin="*" />
 </widget>
