@@ -1633,7 +1633,7 @@ ul.events li img{
 
 .login-box{
   position:relative;
-  margin: 15% auto;
+  /*margin: 15% auto;*/
   width: 100%;
   /*height: 100%;*/
   background-color: #fff;
@@ -1964,14 +1964,17 @@ ul.events li img{
     padding: 5%;
 }
 
+.pdtop55{
+  padding-top: 16% !important;
+}
 
 @media only screen and (min-device-width : 768px) {
     .ev_fav{
         width: 5% !important;
     }
     .toolbar-through .page-content, .toolbar-fixed .page-content, .tabbar-through .page-content, .tabbar-fixed .page-content{
-        padding-top: 100px !important;
-        padding-bottom: 100px !important;
+        padding-top: 100px;
+        padding-bottom: 100px;
     }
 
     .event_row:last-child{
@@ -1988,6 +1991,7 @@ ul.events li img{
     }
 }
 
+
 .filter{
   background: #646464 !important;
   color: #fff !important;
@@ -1997,13 +2001,13 @@ ul.events li img{
 }
 .title_filter{
   position: absolute;
-  right: 7px;
-  font-size: 63%;
-  top: 13px;
+  right: 3px;
+  font-size: 50%;
+  top: 16px;
   background: #000;
   color: #fff;
   border-radius: 5px;
-  padding: 4px 10px;
+  padding: 4px 5px;
 }
 .title_filter > img{
   padding-left: 4px;

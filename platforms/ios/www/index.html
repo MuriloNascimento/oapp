@@ -10,14 +10,14 @@
     <link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="apple-touch-startup-image-640x1096.png">
     <title>OR VIP CLUB</title>
     <link rel="stylesheet" href="css/framework7.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/colors/funpass-black.css">
     <link type="text/css" rel="stylesheet" href="css/swipebox.css" />
     <link type="text/css" rel="stylesheet" href="css/animations.css" />
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+    <link rel="stylesheet" href="style.css">
     <script src="lang/en.json"></script>
     <script src="lang/pt.json"></script>
-    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
     <script src="js/sweetalert.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
@@ -182,35 +182,6 @@
         /*if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
             window.location = 'login.html';
         }*/
-
-        var lang;
-        var lang_text = 'en';
-        function checkLanguage() {
-            lang_text = 'pt';
-            lang = window['pt'];
-            changeText();
-            
-            /*navigator.globalization.getPreferredLanguage(
-                function (language) {
-                    var l_ = language.value;
-                    var lang_ = l_.split("-");
-
-                    lang_text = lang_[0];
-                    lang = window[lang_text];
-                    changeText();
-                },
-                function () {
-                    lang = window[lang_text];
-                    changeText();
-                }
-            );*/
-
-        }
-        function changeText(){
-            $.each(lang, function(i, val) {
-               $('.lang_-'+i).text(val);
-            });
-        }
     </script>
     <!-- Maps API Javascript -->
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -227,9 +198,5 @@
         $('.toolbar_icons li a').on('click', function(){
             checkLanguage();
         });
-
-        setTimeout(function() { 
-            mainView.router.loadPage("login.html");
-        }, 5000);
     </script>
 </body>
