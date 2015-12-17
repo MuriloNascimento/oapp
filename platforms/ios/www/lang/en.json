@@ -1,24 +1,24 @@
 en = {
+
   "hello" : "Hi",
   "logout" : "Logout",
 
   "map" : "Map",
   "benefits" : "Benefits",
-  "filter" : "Filter",
+  "filter" : "CATEGORIES",
 
   "use" : "Use",
   "send" : "Filter",
-
   "success" : "Success!",
   "error" : "Error",
-  "show_coupon" : "Show this coupon to the operator.",
+  "show_coupon" : "Present this coupon at checkout",
   "error_connection" : "Ops! We couldn’t connect to server",
-  "msg_one_use" : "This benefit can only be used once time",
-  "use_now" : "Use it Now!",
+  "msg_one_use" : "Please note:  Offer good for single use. Do you want to use it now?",
+  "use_now" : "Use Now!",
 
-  "how_use_system" : "How to use the system?",
-  "card_not_accepted" : "My card was not accepted in any establishment. How to proceed?",
-  "contact" : "Still have questions? Contact!",
+  "how_use_system" : "How to use the system.",
+  "card_not_accepted" : "My card/coupon was not accepted. What do I do?",
+  "contact" : "Still have questions? Contact us!",
 
   "establishment" : "Establishment",
   "card" : "Card",
@@ -26,7 +26,15 @@ en = {
   "questions" : "Questions",
   "history" : "History",
 
-  "login" : "Login",
-  "access" : "Access",
+  "login" : "Sign in",
+  "login_desc" : "Are you already member of the most unique club in Orlando?",
+  "access" : "Login",
   "error_user" : "Incorrect user or login!",
+
+  "register_desc" : "Ainda não faz parte do clube mais exclusivo de Orlando?",
+  "register_call" : "Participe!",
+  "register_btn" : "CADASTRE-SE",
+
+  "or" : "or",
+
 };

@@ -1439,7 +1439,7 @@ position: relative;
 width: 100%;
 overflow: hidden;
 height: auto;
-margin:20px 0 0 0;
+margin:0 0 0 0;
 }
 .photos_tabs{
 margin-top:0px;
@@ -1641,12 +1641,18 @@ ul.events li img{
 }
 .lb-header{
   position:relative;
-  color: #00415d;
-  margin: 5px 5px 10px 5px;
-  padding-bottom:10px;
-  border-bottom: 1px solid #eee;
+  color: #000;
+  margin: 0 15% 0px 15%;
   text-align:center;
-  height:28px;
+  font-size: 130%;
+}
+.mgtop25{
+  margin-top: 25px !important;
+}
+.lb-header > .header_title{
+  font-size: 110%;
+  font-weight:  bolder;
+  display: block;
 }
 .lb-header a{
   margin: 0 25px;
@@ -1709,6 +1715,7 @@ ul.events li img{
 .u-form-group{
   width:100%;
   margin-bottom: 10px;
+  text-align: center;
 }
 .u-form-group input[type="email"],
 .u-form-group input[type="password"],
@@ -1739,6 +1746,7 @@ ul.events li img{
   padding: 14px 0;
   border-radius: 2px;
   text-transform: uppercase;
+  margin-top: 10px;
 }
 .forgot-password{
   width:50%;
@@ -1859,7 +1867,17 @@ ul.events li img{
 
 #login{
   cursor: pointer;
+  border-radius: 10px;
+  font-size: 130%;
 }
+
+#register{
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 130%;
+  background: #638fc9;
+}
+
 .tab{
   min-height: 220px;
 }
@@ -1976,9 +1994,16 @@ ul.events li img{
 }
 .title_filter{
   position: absolute;
-  right: 53px;
-  font-size: 80%;
+  right: 7px;
+  font-size: 63%;
   top: 13px;
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+  padding: 4px 10px;
+}
+.title_filter > img{
+  padding-left: 4px;
 }
 .categories-li{
   margin: 1px 0 !important;
@@ -2010,4 +2035,11 @@ ul.events li img{
 .filter-content{
   max-height: 300px;
   overflow: auto;
+}
+
+.center-text{
+  text-align: center;
+  color: #638fc9;
+  font-size: 170%;
+  font-weight: bold;
 }

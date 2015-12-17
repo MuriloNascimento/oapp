@@ -23,7 +23,7 @@
         var lang_text = 'en';
         function checkLanguage() {
 
-            /*                        lang_text = 'pt';
+			/*lang_text = 'pt';
             lang = window['pt'];
             changeText();*/
 
@@ -67,29 +67,42 @@
 				</div>
 			</div>
 			<div class="login-box">
-				<div class="lb-header">
-					<a href="#tab1" class="tab-link active" id="login-box-link"><span class="lang_-login"></span></a>
+				<div class="lb-header mgtop25">
+					<span class="lang_-login_desc"></span>
+					<span class="header_title lang_-login"></span>
 				</div>
-				<div class="tabs-animated-wrap">
-					<div class="tabs">
-						<div id="tab1" class="tab active">
-							<form class="email-login">
-								<div class="u-form-group">
-									<input type="text" name="username" placeholder="Username"/>
-								</div>
-								<div class="u-form-group">
-									<input type="password" name="password" placeholder="Password"/>
-								</div>
-								<div class="u-form-group">
-									<button type="button" id="login"><span class="lang_-access"></span></button>
-								</div>
-								<!-- <div class="u-form-group">
-                                  <a href="#" class="forgot-password">Esqueceu a senha?</a>
-                                </div> -->
-							</form>
-						</div>
+				<form class="email-login">
+					<div class="u-form-group">
+						<input type="text" name="username" placeholder="Username"/>
 					</div>
+					<div class="u-form-group">
+						<input type="password" name="password" placeholder="Password"/>
+					</div>
+					<div class="u-form-group">
+						<button type="button" id="login">
+							<span class="lang_-access"></span>
+							<img src="images/icons/send.png" alt="" title="" />
+						</button>
+					</div>
+				</form>
+
+				<div class="u-form-group">
+					<span class="center-text lang_-or"></span>
 				</div>
+
+				<div class="lb-header">
+					<span class="lang_-register_desc"></span>
+					<span class="header_title lang_-register_call"></span>
+				</div>
+				<div class="u-form-group">
+					<a href="#" onclick="openPage('http://orvipclub.com/')" ></a>
+						<button type="button" id="register">
+							<span class="lang_-register_btn"></span>
+							<img src="images/icons/ok.png" alt="" title="" />
+						</button>
+					</a>
+				</div>
+
 			</div>
 		</div>
 	</div>

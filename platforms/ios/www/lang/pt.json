@@ -1,32 +1,40 @@
 pt = {
   "hello" : "Olá",
   "logout" : "Sair",
-
+  
   "map" : "Mapa",
   "benefits" : "Benefícios",
-  "filter" : "Filtrar",
+  "filter" : "CATEGORIAS",
 
   "use" : "Usar",
   "send" : "Filtrar",
 
   "success" : "Sucesso!",
   "show_coupon" : "Apresente este cupom ao caixa",
-  "error_connection" : "Não foi possível se conetar ao servidor",
+  "error_connection" : "Não foi possível conectar ao servidor",
+
   "msg_one_use" : "Este benefício só pode ser utilizado uma única vez",
   "use_now" : "Usar Agora",
 
-  "how_use_system" : "Como usar o sistema?",
-  "card_not_accepted" : "Meu cartão não foi aceito em algum estabelecimento. Como proceder?",
+  "how_use_system" : "Como usar o APP?",
+  "card_not_accepted" : "Meu código/cartão não foi aceito. Como devo proceder?",
   "contact" : "Ainda tem dúvidas? Entre em contato!",
-
+ 
   "establishment" : "Estabelecimento",
   "card" : "Cartão",
   "user" : "Usuário",
   "questions" : "Dúvidas",
   "history" : "Histórico",
 
-  "login" : "Login",
+  "login" : "Faça seu login",
+  "login_desc" : "Você já faz parte do clube mais exclusivo de Orlando?",
   "access" : "Acessar",
   "error_user" : "Usuário ou login incorretos!",
+
+  "register_desc" : "Still not a member of the most unique club in Orlando?",
+  "register_call" : "Join now!",
+  "register_btn" : "Join Up",
+
+  "or" : "ou",
 
 };
