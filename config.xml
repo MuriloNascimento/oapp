@@ -7,7 +7,7 @@
     <author email="support@phonegap.com" href="http://phonegap.com">
         
     </author>
-    <content src="index.html" />
+    <content src="login.html" />
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
@@ -91,7 +91,7 @@
     <access origin="http://www.google.com/" />
     <access origin="http://maps.google.com/" />
     <access origin="login.html" subdomains="true"/> 
-    <access origin="login.html"/> 
+    <access origin="www/login.html"/> 
     <access origin="*" />
     <platform name="android">
         <allow-intent href="market:*" />
