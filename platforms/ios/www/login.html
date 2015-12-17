@@ -18,10 +18,12 @@
 	<script src="lang/en.json"></script>
     <script src="lang/pt.json"></script>
     <script type="text/javascript">
+        	alert('0');
 
         var lang;
         var lang_text = 'en';
         function checkLanguage() {
+        	alert('1');
 
 			/*lang_text = 'pt';
             lang = window['pt'];
@@ -44,7 +46,7 @@
 
         }
         function changeText(){
-        	alert('1');
+        	alert('2');
         	alert(lang[0]);
             $.each(lang, function(i, val) {
                $('.lang_-'+i).text(val);
@@ -165,6 +167,7 @@
 
 		return false;
 	});
+        	alert('00');
 	
 	checkLanguage();
 </script>

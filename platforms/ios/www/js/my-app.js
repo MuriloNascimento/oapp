@@ -63,6 +63,8 @@ $$(document).on('pageInit', function (e) {
 
     if (page.name == 'index') {
         pageEvents();
+    } else if (page.name == 'login') {
+        alert('login');
     }
 
     switch(file){
@@ -76,6 +78,9 @@ $$(document).on('pageInit', function (e) {
             break;
         case 'history.html':
             pageHistory();
+            break;
+        case 'login.html':
+            alert('login2');
             break;
     }
 
