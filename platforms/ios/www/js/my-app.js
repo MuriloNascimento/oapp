@@ -592,9 +592,9 @@ function filterCategories(page){
 }
 
 function isLogged(){ 
-
     if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
-        mainView.router.loadPage("login.html");
+        //mainView.router.loadPage("login.html");
+        window.open("/#!/login.html", '_self');
     }
 }
 
