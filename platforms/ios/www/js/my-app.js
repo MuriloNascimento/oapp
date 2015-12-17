@@ -77,9 +77,6 @@ $$(document).on('pageInit', function (e) {
         case 'history.html':
             pageHistory();
             break;
-        case 'login.html':
-            alert('qq');
-            break;
     }
 
     document.addEventListener('touchmove', function(event) {
@@ -562,10 +559,12 @@ function checkLanguage() {
     /*lang_text = 'pt';
     lang = window['pt'];
     changeText();*/
-
+    alert('1');
     
     navigator.globalization.getPreferredLanguage(
         function (language) {
+    alert('2');
+
             var l_ = language.value;
             var lang_ = l_.split("-");
 
@@ -581,6 +580,8 @@ function checkLanguage() {
 
 }
 function changeText(){
+    alert('3');
+
     $.each(lang, function(i, val) {
        $('.lang_-'+i).text(val);
     });
