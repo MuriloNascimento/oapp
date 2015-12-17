@@ -27,8 +27,7 @@ var mainView = myApp.addView('.view-main', {
 });
 
 /*$$(document).on('pageshow',function(e) {
-    checkLanguage();
-    alert('www');
+    mainView.router.loadPage("login.html");
 });*/
 
 $$(document).on('pageInit', function (e) {
@@ -45,6 +44,7 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
+
             checkLanguage();
         },
         openNativeAppWindow: function(data) {
@@ -62,20 +62,29 @@ $$(document).on('pageInit', function (e) {
     var favEvents = [];
 
     if (page.name == 'index') {
+
         pageEvents();
     }
-
     switch(file){
         case 'benefits.html':
+            isLogged();
+
             filterCategories('benefits');
             pageEvents();
             break;
         case 'map.html':
+            isLogged();
+
             filterCategories('map');
             pageMap();
             break;
         case 'history.html':
+            isLogged();
+
             pageHistory();
+            break;
+        case 'login.html':
+            login();
             break;
     }
 
@@ -491,6 +500,59 @@ function pageMap (filter) {
     carregarPontos();
 }
 
+function login() {
+    window.localStorage.clear();
+    $.ajax({
+        type: 'get',
+        data: {'destroy': true},
+        method: 'get',
+        url: 'http://revista.grupoair.com.br/wp-admin/admin-ajax.php?action=login',
+        crossDomain: true, // enable this
+        dataType: 'json',
+        success: function(data){
+            console.log('logout');
+        }
+    });
+
+    $('#login').on('click',function(e){
+        $('#login').attr("disabled", "disabled");
+        $('#load').css('display', 'block');
+        e.preventDefault();
+        var postData = $('.email-login').serialize();
+
+        $.ajax({
+            type: 'get',
+            data: postData,
+            method: 'get',
+            url: 'http://revista.grupoair.com.br/wp-admin/admin-ajax.php?action=login',
+            crossDomain: true, // enable this
+            dataType: 'json',
+            success: function(data){
+                if (!data.loggedin) {
+                    sweetAlert("Oops...", lang.error_user, "error");
+                } else {
+
+                    window.localStorage.setItem('token', data.token);
+                    window.localStorage.setItem('user_id', data.user.data.ID);
+                    window.localStorage.setItem('user_nicename', data.user.data.user_nicename);
+                    window.localStorage.setItem('user_email', data.user.data.user_email);
+                    window.localStorage.setItem('user_name', data.user.data.display_name);
+                    window.localStorage.setItem('membership', data.user.data.membership);
+
+                    //window.location.href = './index.html';
+                    mainView.router.loadPage("index.html")
+
+                }
+                $('#load').css('display', 'none');
+                $('#login').removeAttr("disabled");
+
+            }
+            //beforeSend: setHeader
+        });
+
+        return false;
+    });
+}
 function filterCategories(page){
     var $this = $(".list-flters").empty();
     
@@ -529,21 +591,13 @@ function filterCategories(page){
     });
 }
 
-$('#logout').on('click',function(e){
-    window.localStorage.clear();
-    $.ajax({
-        type: 'get',
-        data: {'destroy': true},
-        method: 'get',
-        url: 'http://revista.grupoair.com.br/wp-admin/admin-ajax.php?action=login',
-        crossDomain: true, // enable this
-        dataType: 'json',
-        success: function(data){
-            console.log('logout');
-        }
-    });
-    window.location.href = './login.html';
-});
+function isLogged(){ 
+
+    if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
+        mainView.router.loadPage("login.html");
+        $('#logoutss').trigger('click');
+    }
+}
 
 function openPage(url) {
     var caption = 'Fechar' // get translation from i18n

@@ -1646,9 +1646,13 @@ ul.events li img{
   text-align:center;
   font-size: 130%;
 }
-.mgtop25{
-  margin-top: 25px !important;
-}
+.mgtop5{margin-top: 5px !important;}
+.mgtop10{margin-top: 10px !important;}
+.mgtop15{margin-top: 15px !important;}
+.mgtop20{margin-top: 20px !important;}
+.mgtop25{margin-top: 25px !important;}
+.mgtop30{margin-top: 30px !important;}
+
 .lb-header > .header_title{
   font-size: 110%;
   font-weight:  bolder;
@@ -1704,12 +1708,12 @@ ul.events li img{
 /*.social-login a:last-child{
   background-color: #DF4A32;
 }*/
-.email-login,.email-signup{
+.email-login, .email-signup{
   position:relative;
   float: left;
   width: 100%;
   height:auto;
-  margin-top: 20px;
+  margin-top: 10px;
   text-align:center;
 }
 .u-form-group{
@@ -1746,7 +1750,6 @@ ul.events li img{
   padding: 14px 0;
   border-radius: 2px;
   text-transform: uppercase;
-  margin-top: 10px;
 }
 .forgot-password{
   width:50%;

@@ -1,63 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-    <!--<meta name="apple-mobile-web-app-status-bar-style" content="darkcontent">-->
-	<meta name="format-detection" content="telephone=no">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
-	<link rel="apple-touch-startup-image" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" href="apple-touch-startup-image-640x1096.png">
-	<title>OR VIP CLUB</title>
-	<link rel="stylesheet" href="css/framework7.css">
-	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="css/colors/funpass-black.css">
-	<link type="text/css" rel="stylesheet" href="css/swipebox.css" />
-	<link type="text/css" rel="stylesheet" href="css/animations.css" />
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900' rel='stylesheet' type='text/css'>
-	<script src="lang/en.json"></script>
-    <script src="lang/pt.json"></script>
-    <script type="text/javascript">
-        var lang;
-        var lang_text = 'en';
-        function checkLanguage() {
-            lang_text = 'pt';
-            lang = window['pt'];
-            changeText();
-            
-            /*navigator.globalization.getPreferredLanguage(
-                function (language) {
-                    var l_ = language.value;
-                    var lang_ = l_.split("-");
-
-                    lang_text = lang_[0];
-                    lang = window[lang_text];
-                    changeText();
-                },
-                function () {
-                    lang = window[lang_text];
-                    changeText();
-                }
-            );*/
-
-        }
-        function changeText(){
-            $.each(lang, function(i, val) {
-               $('.lang_-'+i).text(val);
-            });
-        }
-    </script>
-	<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
-	<script src="js/sweetalert.min.js"></script>
-    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-</head>
-<body id="mobile_wrap">
-
-<div class="statusbar-overlay"></div>
-
-<div class="panel-overlay"></div>
-
-<div class="pages">
+<div class="pages toolbar-through">
 	<div data-page="login" class="page no-toolbar">
 		<div class="page-content">
 			<div class="navbarpages">
@@ -66,7 +7,7 @@
 				</div>
 			</div>
 			<div class="login-box">
-				<div class="lb-header mgtop25">
+				<div class="lb-header mgtop5">
 					<span class="lang_-login_desc"></span>
 					<span class="header_title lang_-login"></span>
 				</div>
@@ -116,52 +57,3 @@
 		</div>
 	</div>
 </div>
-<script src="js/jquery.validate.min.js" type="text/javascript"></script>
-<script type="text/javascript" src="js/framework7.js"></script>
-<script type="text/javascript" src="js/my-app.js"></script>
-<script type="text/javascript" src="js/jquery.swipebox.js"></script>
-<script type="text/javascript" src="js/jquery.fitvids.js"></script>
-<script type="text/javascript" src="js/email.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
-<script src="phonegap.js"></script>
-<script type="text/javascript">
-	$('#login').on('click',function(e){
-		$('#login').attr("disabled", "disabled");
-		$('#load').css('display', 'block');
-		e.preventDefault();
-		var postData = $('.email-login').serialize();
-
-		$.ajax({
-			type: 'get',
-			data: postData,
-			method: 'get',
-			url: 'http://revista.grupoair.com.br/wp-admin/admin-ajax.php?action=login',
-			crossDomain: true, // enable this
-			dataType: 'json',
-			success: function(data){
-				if (!data.loggedin) {
-					sweetAlert("Oops...", lang.error_user, "error");
-				} else {
-
-					window.localStorage.setItem('token', data.token);
-                    window.localStorage.setItem('user_id', data.user.data.ID);
-                    window.localStorage.setItem('user_nicename', data.user.data.user_nicename);
-                    window.localStorage.setItem('user_email', data.user.data.user_email);
-                    window.localStorage.setItem('user_name', data.user.data.display_name);
-					window.localStorage.setItem('membership', data.user.data.membership);
-
-					window.location.href = './index.html';
-				}
-				$('#load').css('display', 'none');
-				$('#login').removeAttr("disabled");
-
-			}
-			//beforeSend: setHeader
-		});
-
-		return false;
-	});
-	checkLanguage();
-</script>
-</body>
-</html>

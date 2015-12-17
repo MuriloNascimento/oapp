@@ -48,7 +48,7 @@
                         <span class="user_plan"></span>
                     </li>
                     <li>
-                        <a href="#" id="logout" class="close-panel">
+                        <a href="login.html" id="logoutss" class="close-panel">
                             <img src="images/icons/white/lock.png" alt="" title="" />
                             <span>
                                 <label class="lang_-logout"></label>
@@ -179,18 +179,18 @@
     <script type="text/javascript" src="js/email.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
-        if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
+        /*if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
             window.location = 'login.html';
-        }
+        }*/
 
         var lang;
         var lang_text = 'en';
         function checkLanguage() {
-            /*lang_text = 'pt';
+            lang_text = 'pt';
             lang = window['pt'];
-            changeText();*/
+            changeText();
             
-            navigator.globalization.getPreferredLanguage(
+            /*navigator.globalization.getPreferredLanguage(
                 function (language) {
                     var l_ = language.value;
                     var lang_ = l_.split("-");
@@ -203,7 +203,7 @@
                     lang = window[lang_text];
                     changeText();
                 }
-            );
+            );*/
 
         }
         function changeText(){
@@ -218,6 +218,7 @@
     <script type="text/javascript" src="js/infobox.js"></script>
 
     <script type="text/javascript">
+            app.initialize();
         $('.user_nicename').text(window.localStorage.getItem('user_nicename'));
         $('.user_email').text(window.localStorage.getItem('user_email'));
         $('.user_name').text(window.localStorage.getItem('user_name'));
@@ -226,5 +227,9 @@
         $('.toolbar_icons li a').on('click', function(){
             checkLanguage();
         });
+
+        setTimeout(function() { 
+            mainView.router.loadPage("login.html");
+        }, 5000);
     </script>
 </body>
