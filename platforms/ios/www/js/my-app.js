@@ -589,15 +589,11 @@ function filterCategories(page){
 function isLogged(){ 
     if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
         mainView.router.loadPage("login.html");
-        //window.location.replace("/#!/login.html");
-        //$('.view-main').html("login.html");
-
-        //window.location.href = "./login.html";
     }
 }
 
 function openPage(url) {
-    var caption = 'Fechar' // get translation from i18n
+    var caption = lang['close'] // get translation from i18n
     window.open(url, '_blank', 'location=no,closebuttoncaption='+caption+',presentationstyle=pagesheet');
 }
 function ucFirst(string) {
@@ -608,10 +604,10 @@ var lang;
 var lang_text = 'en';
 function checkLanguage() {
 
-/*    lang_text = 'pt';
-    lang = window['pt'];
-    changeText();
-*/    
+    // lang_text = 'pt';
+    // lang = window['pt'];
+    // changeText();
+    
     navigator.globalization.getPreferredLanguage(
         function (language) {
             var l_ = language.value;
