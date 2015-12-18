@@ -26,6 +26,10 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: false
 });
 
+document.addEventListener("touchmove", function(event){
+    event.preventDefault();
+});
+
 /*$$(document).on('pageshow',function(e) {
     mainView.router.loadPage("login.html");
 });*/
@@ -604,11 +608,11 @@ var lang;
 var lang_text = 'en';
 function checkLanguage() {
 
-    lang_text = 'pt';
-    lang = window['pt'];
-    changeText();
+    // lang_text = 'pt';
+    // lang = window['pt'];
+    // changeText();
     
-    /*navigator.globalization.getPreferredLanguage(
+    navigator.globalization.getPreferredLanguage(
         function (language) {
             var l_ = language.value;
             var lang_ = l_.split("-");
@@ -621,7 +625,7 @@ function checkLanguage() {
             lang = window[lang_text];
             changeText();
         }
-    );*/
+    );
 
 }
 function changeText(){
