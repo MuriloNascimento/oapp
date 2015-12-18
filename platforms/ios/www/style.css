@@ -1779,6 +1779,7 @@ ul.events li img{
   display: block;
   position: absolute;
   top: 0;
+  left: 0;
 }
 .container_load{
   position: absolute;
