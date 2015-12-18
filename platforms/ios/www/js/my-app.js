@@ -601,7 +601,7 @@ function isLogged(){
         //window.location.replace("/#!/login.html");
         //$('.view-main').html("login.html");
 
-        window.location.href = "login.html";
+        window.location.href = "./login.html";
 
     }
 }
