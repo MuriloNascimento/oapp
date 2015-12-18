@@ -67,20 +67,14 @@ $$(document).on('pageInit', function (e) {
     }
     switch(file){
         case 'benefits.html':
-            isLogged();
-
             filterCategories('benefits');
             pageEvents();
             break;
         case 'map.html':
-            isLogged();
-
             filterCategories('map');
             pageMap();
             break;
         case 'history.html':
-            isLogged();
-
             pageHistory();
             break;
         case 'login.html':
@@ -594,12 +588,11 @@ function filterCategories(page){
 
 function isLogged(){ 
     if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
-        //mainView.router.loadPage("login.html");
+        mainView.router.loadPage("login.html");
         //window.location.replace("/#!/login.html");
         //$('.view-main').html("login.html");
 
-        window.location.href = "./login.html";
-
+        //window.location.href = "./login.html";
     }
 }
 
@@ -614,11 +607,12 @@ function ucFirst(string) {
 var lang;
 var lang_text = 'en';
 function checkLanguage() {
-    lang_text = 'pt';
+
+/*    lang_text = 'pt';
     lang = window['pt'];
     changeText();
-    
-    /*navigator.globalization.getPreferredLanguage(
+*/    
+    navigator.globalization.getPreferredLanguage(
         function (language) {
             var l_ = language.value;
             var lang_ = l_.split("-");
@@ -631,7 +625,7 @@ function checkLanguage() {
             lang = window[lang_text];
             changeText();
         }
-    );*/
+    );
 
 }
 function changeText(){
@@ -639,6 +633,10 @@ function changeText(){
        $('.lang_-'+i).text(val);
     });
 }
+
+$('body').on('click', function(){
+    isLogged();
+});
 
 function insertData() {
     $('.user_nicename').text(window.localStorage.getItem('user_nicename'));
