@@ -4,7 +4,7 @@ pt = {
   
   "map" : "Mapa",
   "benefits" : "Benefícios",
-  "filter" : "CATEGORIAS",
+  "filter" : "FILTROS",
 
   "use" : "Usar",
   "send" : "Filtrar",
@@ -31,9 +31,9 @@ pt = {
   "access" : "Acessar",
   "error_user" : "Usuário ou login incorretos!",
 
-  "register_desc" : "Still not a member of the most unique club in Orlando?",
-  "register_call" : "Join now!",
-  "register_btn" : "Join Up",
+  "register_desc" : "Ainda não faz parte do clube mais exclusivo de Orlando?",
+  "register_call" : "Participe!",
+  "register_btn" : "CADASTRE-SE",
 
   "or" : "ou",
 
