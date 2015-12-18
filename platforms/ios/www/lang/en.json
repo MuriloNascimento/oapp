@@ -5,7 +5,7 @@ en = {
 
   "map" : "Map",
   "benefits" : "Benefits",
-  "filter" : "CATEGORIES",
+  "filter" : "FILTERS",
 
   "use" : "Use",
   "send" : "Filter",
@@ -30,10 +30,10 @@ en = {
   "login_desc" : "Are you already member of the most unique club in Orlando?",
   "access" : "Login",
   "error_user" : "Incorrect user or login!",
-
-  "register_desc" : "Ainda não faz parte do clube mais exclusivo de Orlando?",
-  "register_call" : "Participe!",
-  "register_btn" : "CADASTRE-SE",
+  
+  "register_desc" : "Still not a member of the most unique club in Orlando?",
+  "register_call" : "Join now!",
+  "register_btn" : "Join Up",
 
   "or" : "or",
 

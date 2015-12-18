@@ -189,12 +189,7 @@
     <script type="text/javascript" src="js/infobox.js"></script>
 
     <script type="text/javascript">
-            app.initialize();
-        $('.user_nicename').text(window.localStorage.getItem('user_nicename'));
-        $('.user_email').text(window.localStorage.getItem('user_email'));
-        $('.user_name').text(window.localStorage.getItem('user_name'));
-        $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
-        
+        app.initialize();        
         $('.toolbar_icons li a').on('click', function(){
             checkLanguage();
         });
