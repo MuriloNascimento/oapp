@@ -539,10 +539,7 @@ function login() {
                     window.localStorage.setItem('user_name', data.user.data.display_name);
                     window.localStorage.setItem('membership', data.user.data.membership);
 
-                    $('.user_nicename').text(window.localStorage.getItem('user_nicename'));
-                    $('.user_email').text(window.localStorage.getItem('user_email'));
-                    $('.user_name').text(window.localStorage.getItem('user_name'));
-                    $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
+                    insertData();
 
                     mainView.router.loadPage("index.html")
 
@@ -641,4 +638,11 @@ function changeText(){
     $.each(lang, function(i, val) {
        $('.lang_-'+i).text(val);
     });
+}
+
+function insertData() {
+    $('.user_nicename').text(window.localStorage.getItem('user_nicename'));
+    $('.user_email').text(window.localStorage.getItem('user_email'));
+    $('.user_name').text(window.localStorage.getItem('user_name'));
+    $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
 }
