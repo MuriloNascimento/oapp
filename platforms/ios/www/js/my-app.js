@@ -609,10 +609,12 @@ var lang;
 var lang_text = 'en';
 function checkLanguage() {
 
+    /*=====DEV=====*/
     // lang_text = 'pt';
     // lang = window['pt'];
     // changeText();
     
+    /*=====PROD=====*/
     navigator.globalization.getPreferredLanguage(
         function (language) {
             var l_ = language.value;
