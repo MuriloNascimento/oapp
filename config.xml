@@ -12,8 +12,9 @@
     <preference name="orientation" value="portrait" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="true" />
-    <preference name="webviewbounce" value="true" />
+    <preference name="webviewbounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
+    <preference name="UIWebViewBounce" value="false" />
     <preference name="prerendered-icon" value="true" />
     <preference name="stay-in-webview" value="false" />
     <preference name="ios-statusbarstyle" value="white" />
@@ -95,13 +96,9 @@
 
     <platform name="android">
         <allow-intent href="market:*" />
-        <preference name="webviewbounce" value="true" />
-        <preference name="DisallowOverscroll" value="true" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-        <preference name="webviewbounce" value="true" />
-        <preference name="DisallowOverscroll" value="true" />
     </platform>
 </widget>
