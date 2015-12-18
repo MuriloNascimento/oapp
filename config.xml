@@ -91,8 +91,6 @@
     <access origin="http://www.google.com/" />
     <access origin="http://maps.google.com/" />
     <access origin="*" />
-    <access origin="login.html" />
-    <access origin="./login.html" />
 
     <platform name="android">
         <allow-intent href="market:*" />
