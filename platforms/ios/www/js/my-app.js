@@ -535,7 +535,7 @@ function login() {
 
                     insertData();
 
-                    mainView.router.loadPage("index.html")
+                    mainView.router.loadPage("benefits.html")
 
                 }
                 $('#load').css('display', 'none');
