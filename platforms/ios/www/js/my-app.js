@@ -510,7 +510,7 @@ function login() {
 
     $('#login').on('click',function(e){
         $('#login').attr("disabled", "disabled");
-        $('#load').css('display', 'block');
+        $('.load_').css('display', 'block');
         e.preventDefault();
         var postData = $('.email-login').serialize();
 
@@ -538,7 +538,7 @@ function login() {
                     mainView.router.loadPage("benefits.html")
 
                 }
-                $('#load').css('display', 'none');
+                $('.load_').css('display', 'none');
                 $('#login').removeAttr("disabled");
 
             }
