@@ -26,8 +26,9 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: false
 });
 
-document.addEventListener("touchmove", function(event){
-    event.preventDefault();
+var scrollingDiv = document.getElementById('scrollDiv');
+scrollingDiv.addEventListener('touchmove', function(event){
+    event.stopPropagation();
 });
 
 /*$$(document).on('pageshow',function(e) {
