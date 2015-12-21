@@ -3,6 +3,8 @@ pt = {
   "logout" : "Sair",
   
   "map" : "Mapa",
+  "see_map" : "Ver Mapa",
+
   "benefits" : "Benefícios",
   "filter" : "FILTROS",
 

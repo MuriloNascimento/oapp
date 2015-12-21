@@ -466,7 +466,7 @@ function pageMap (filter) {
                 }
 
                 content += '<p>'+value.address+'</p>';
-                content += '<a href="http://maps.google.com/?q='+value.address+'" class="btn-see_map" target="_system">Ver mapa</a>';
+                content += '<a href="#" onclick="openPage(\'http://maps.google.com/?q='+value.address+' \')" class="btn-see_map">'+lang.see_map+'</a>';
 
                 var myOptions = {
                     content: content,
