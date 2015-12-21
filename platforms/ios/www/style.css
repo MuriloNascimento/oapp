@@ -2057,3 +2057,14 @@ ul.events li img{
   font-size: 170%;
   font-weight: bold;
 }
+
+.btn-see_map{
+  font-size: 100%;
+  background: #000;
+  color: #fff;
+  border-radius: 5px;
+  padding: 4px 10px;
+  margin: 5px;
+  position: relative;
+  float: left;
+}

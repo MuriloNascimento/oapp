@@ -465,7 +465,9 @@ function pageMap (filter) {
                     content += '<p><b>'+value.establishment.name+'</b></p>';
                 }
 
-                content += '<p><a href="http://maps.google.com/?q='+value.address+'" target="_blank" style="color: #000">'+value.address+'</a></p>';     
+                content += '<p>'+value.address+'</p>';
+                content += '<a href="http://maps.google.com/?q='+value.address+'" class="btn-see_map" target="_system">Ver mapa</a>';
+
                 var myOptions = {
                     content: content,
                     pixelOffset: new google.maps.Size(-150, 0)
@@ -610,12 +612,12 @@ var lang_text = 'en';
 function checkLanguage() {
 
     /*=====DEV=====*/
-    // lang_text = 'pt';
-    // lang = window['pt'];
-    // changeText();
+    lang_text = 'pt';
+    lang = window['pt'];
+    changeText();
     
     /*=====PROD=====*/
-    navigator.globalization.getPreferredLanguage(
+    /*navigator.globalization.getPreferredLanguage(
         function (language) {
             var l_ = language.value;
             var lang_ = l_.split("-");
@@ -628,7 +630,7 @@ function checkLanguage() {
             lang = window[lang_text];
             changeText();
         }
-    );
+    );*/
 
 }
 function changeText(){
