@@ -465,7 +465,7 @@ function pageMap (filter) {
                     content += '<p><b>'+value.establishment.name+'</b></p>';
                 }
 
-                content += '<p>'+value.address+'</p>';     
+                content += '<p><a href="http://maps.google.com/?q='+value.address+'" target="_blank" style="color: #000">'+value.address+'</a></p>';     
                 var myOptions = {
                     content: content,
                     pixelOffset: new google.maps.Size(-150, 0)
