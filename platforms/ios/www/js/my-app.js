@@ -49,7 +49,6 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
-
             checkLanguage();
         },
         openNativeAppWindow: function(data) {
@@ -646,6 +645,7 @@ $('body').on('click', function(){
 });
 
 function insertData() {
+    isLogged();
     $('.user_nicename').text(window.localStorage.getItem('user_nicename'));
     $('.user_email').text(window.localStorage.getItem('user_email'));
     $('.user_name').text(window.localStorage.getItem('user_name'));
