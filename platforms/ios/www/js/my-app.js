@@ -65,6 +65,10 @@ $$(document).on('pageInit', function (e) {
     var base = 'images/icons/black/';
     var favEvents = [];
 
+    if(!navigator.onLine){
+        sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
+    }
+        
     if (page.name == 'index') {
 
         pageEvents();
@@ -650,13 +654,4 @@ function insertData() {
     $('.user_name').text(window.localStorage.getItem('user_name'));
     $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
 
-    isLogged();
 }
-
-$(document).on('pagebeforeshow', '#index', function () {
-    setInterval(function () {
-        if(!navigator.onLine){
-            sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
-        }
-    }, 100);
-});

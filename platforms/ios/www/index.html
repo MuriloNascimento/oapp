@@ -178,18 +178,15 @@
     <script type="text/javascript" src="js/jquery.fitvids.js"></script>
     <script type="text/javascript" src="js/email.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        /*if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
-            window.location = 'login.html';
-        }*/
-    </script>
     <!-- Maps API Javascript -->
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script type="text/javascript" src="js/markerclusterer.js"></script>
     <script type="text/javascript" src="js/infobox.js"></script>
 
     <script type="text/javascript">
-        app.initialize(); 
+        app.initialize();
+        isLogged();
+
         insertData();
         $('.toolbar_icons li a').on('click', function(){
             checkLanguage();
