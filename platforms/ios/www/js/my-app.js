@@ -43,6 +43,7 @@ $$(document).on('pageInit', function (e) {
     var app = {
         initialize: function() {
             this.bindEvents();
+            verifyConnection();
         },
         bindEvents: function() {
             document.addEventListener('deviceready', this.onDeviceReady, false);
@@ -644,6 +645,16 @@ $('body').on('click', function(){
     isLogged();
 });
 
+function verifyConnection(){
+    $.ajax({
+        url: host,
+        data: filter
+    }).done(function(results) {
+        //successs
+    }).fail(function() {
+        sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
+    });
+}
 function insertData() {
     isLogged();
     $('.user_nicename').text(window.localStorage.getItem('user_nicename'));
