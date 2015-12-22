@@ -613,12 +613,12 @@ var lang_text = 'en';
 function checkLanguage() {
 
     /*=====DEV=====*/
-    lang_text = 'pt';
-    lang = window['pt'];
-    changeText();
+    // lang_text = 'pt';
+    // lang = window['pt'];
+    // changeText();
     
     /*=====PROD=====*/
-    /*navigator.globalization.getPreferredLanguage(
+    navigator.globalization.getPreferredLanguage(
         function (language) {
             var l_ = language.value;
             var lang_ = l_.split("-");
@@ -631,7 +631,7 @@ function checkLanguage() {
             lang = window[lang_text];
             changeText();
         }
-    );*/
+    );
 
 }
 function changeText(){
@@ -652,3 +652,11 @@ function insertData() {
 
     isLogged();
 }
+
+$(document).on('pagebeforeshow', '#index', function () {
+    setInterval(function () {
+        if(!navigator.onLine){
+            sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
+        }
+    }, 100);
+});
