@@ -68,7 +68,7 @@ $$(document).on('pageInit', function (e) {
     if(!navigator.onLine){
         sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
     }
-        
+
     if (page.name == 'index') {
 
         pageEvents();
@@ -649,9 +649,10 @@ $('body').on('click', function(){
 });
 
 function insertData() {
+    isLogged();
+
     $('.user_nicename').text(window.localStorage.getItem('user_nicename'));
     $('.user_email').text(window.localStorage.getItem('user_email'));
     $('.user_name').text(window.localStorage.getItem('user_name'));
     $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
-
 }
