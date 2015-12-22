@@ -70,7 +70,6 @@ $$(document).on('pageInit', function (e) {
     }
 
     if (page.name == 'index') {
-
         pageEvents();
     }
     switch(file){
@@ -597,6 +596,7 @@ function filterCategories(page){
 }
 
 function isLogged(){
+    checkLanguage();
     if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
         mainView.router.loadPage("login.html");
     } else {
@@ -636,9 +636,6 @@ function checkLanguage() {
             changeText();
         }
     );
-
-    isLogged();
-
 }
 function changeText(){
     $.each(lang, function(i, val) {
