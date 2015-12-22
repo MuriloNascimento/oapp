@@ -407,7 +407,6 @@ function pageMap (filter) {
         idInfoBoxAberto = id;
     }
 
-
     var markers = [];
     function carregarPontos() {
 
@@ -466,7 +465,7 @@ function pageMap (filter) {
                 }
 
                 content += '<p>'+value.address+'</p>';
-                content += '<a href="#" onclick="openPage(\'http://maps.google.com/?q='+value.address+' \')" class="btn-see_map">'+lang.see_map+'</a>';
+                content += '<button onclick="openPage(\'http://maps.google.com/?q='+value.address+' \')" class="btn-see_map">'+lang.see_map+'</button>';
 
                 var myOptions = {
                     content: content,
@@ -580,6 +579,7 @@ function filterCategories(page){
     }).fail(function() {
         sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
     });
+
     $('.btn-filter').on('click', function(){
         if (page == 'benefits') {
             pageEvents($('.filter-form').serializeArray());
@@ -593,9 +593,11 @@ function filterCategories(page){
     });
 }
 
-function isLogged(){ 
+function isLogged(){
     if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
         mainView.router.loadPage("login.html");
+    } else {
+        $('#user-panel').addClass('panel-left panel-cover');
     }
 }
 
@@ -612,12 +614,12 @@ var lang_text = 'en';
 function checkLanguage() {
 
     /*=====DEV=====*/
-    lang_text = 'pt';
-    lang = window['pt'];
-    changeText();
+    // lang_text = 'pt';
+    // lang = window['pt'];
+    // changeText();
     
     /*=====PROD=====*/
-    /*navigator.globalization.getPreferredLanguage(
+    navigator.globalization.getPreferredLanguage(
         function (language) {
             var l_ = language.value;
             var lang_ = l_.split("-");
@@ -630,7 +632,7 @@ function checkLanguage() {
             lang = window[lang_text];
             changeText();
         }
-    );*/
+    );
 
 }
 function changeText(){

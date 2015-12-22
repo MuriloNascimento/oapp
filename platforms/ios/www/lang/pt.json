@@ -3,7 +3,7 @@ pt = {
   "logout" : "Sair",
   
   "map" : "Mapa",
-  "see_map" : "Ver Mapa",
+  "see_map" : "Traçar rota",
 
   "benefits" : "Benefícios",
   "filter" : "FILTROS",
