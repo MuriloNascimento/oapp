@@ -43,7 +43,6 @@ $$(document).on('pageInit', function (e) {
     var app = {
         initialize: function() {
             this.bindEvents();
-            verifyConnection();
         },
         bindEvents: function() {
             document.addEventListener('deviceready', this.onDeviceReady, false);
@@ -614,9 +613,9 @@ var lang_text = 'en';
 function checkLanguage() {
 
     /*=====DEV=====*/
-    // lang_text = 'pt';
-    // lang = window['pt'];
-    // changeText();
+    /*lang_text = 'pt';
+    lang = window['pt'];
+    changeText();*/
     
     /*=====PROD=====*/
     navigator.globalization.getPreferredLanguage(
@@ -646,14 +645,9 @@ $('body').on('click', function(){
 });
 
 function verifyConnection(){
-    $.ajax({
-        url: host,
-        data: filter
-    }).done(function(results) {
-        //successs
-    }).fail(function() {
+    if(!window.navigator.onLine) {
         sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
-    });
+    }
 }
 function insertData() {
     isLogged();
