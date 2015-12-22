@@ -49,7 +49,6 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
-            isLogged();
             checkLanguage();
         },
         openNativeAppWindow: function(data) {
@@ -614,12 +613,12 @@ var lang_text = 'en';
 function checkLanguage() {
 
     /*=====DEV=====*/
-    // lang_text = 'pt';
-    // lang = window['pt'];
-    // changeText();
+    lang_text = 'pt';
+    lang = window['pt'];
+    changeText();
     
     /*=====PROD=====*/
-    navigator.globalization.getPreferredLanguage(
+    /*navigator.globalization.getPreferredLanguage(
         function (language) {
             var l_ = language.value;
             var lang_ = l_.split("-");
@@ -632,7 +631,7 @@ function checkLanguage() {
             lang = window[lang_text];
             changeText();
         }
-    );
+    );*/
 
 }
 function changeText(){
@@ -645,13 +644,11 @@ $('body').on('click', function(){
     isLogged();
 });
 
-function verifyConnection(){
-    
-}
 function insertData() {
-    isLogged();
     $('.user_nicename').text(window.localStorage.getItem('user_nicename'));
     $('.user_email').text(window.localStorage.getItem('user_email'));
     $('.user_name').text(window.localStorage.getItem('user_name'));
     $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
+
+    isLogged();
 }
