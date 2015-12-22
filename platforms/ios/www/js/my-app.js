@@ -49,6 +49,7 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
+            isLogged();
             checkLanguage();
         },
         openNativeAppWindow: function(data) {
@@ -613,9 +614,9 @@ var lang_text = 'en';
 function checkLanguage() {
 
     /*=====DEV=====*/
-    /*lang_text = 'pt';
-    lang = window['pt'];
-    changeText();*/
+    // lang_text = 'pt';
+    // lang = window['pt'];
+    // changeText();
     
     /*=====PROD=====*/
     navigator.globalization.getPreferredLanguage(
@@ -645,9 +646,7 @@ $('body').on('click', function(){
 });
 
 function verifyConnection(){
-    if(!window.navigator.onLine) {
-        sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
-    }
+    
 }
 function insertData() {
     isLogged();
