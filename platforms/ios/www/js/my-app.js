@@ -49,6 +49,8 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
+            checkConnection();
+
             checkLanguage();
         },
         openNativeAppWindow: function(data) {
