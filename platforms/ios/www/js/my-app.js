@@ -56,6 +56,8 @@ $$(document).on('pageInit', function (e) {
         }
     };
 
+    checkConnection();
+    
     var url = window.location.href;
     var fileUrl = url.split("#!/");
 
@@ -652,4 +654,20 @@ function insertData() {
     $('.user_email').text(window.localStorage.getItem('user_email'));
     $('.user_name').text(window.localStorage.getItem('user_name'));
     $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
+}
+
+function checkConnection() {
+    var networkState = navigator.connection.type;
+
+    var states = {};
+    states[Connection.UNKNOWN]  = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI]     = 'WiFi connection';
+    states[Connection.CELL_2G]  = 'Cell 2G connection';
+    states[Connection.CELL_3G]  = 'Cell 3G connection';
+    states[Connection.CELL_4G]  = 'Cell 4G connection';
+    states[Connection.CELL]     = 'Cell generic connection';
+    states[Connection.NONE]     = 'No network connection';
+
+    sweetAlert(":-( Oops...", states[networkState]+"!", "error");
 }
