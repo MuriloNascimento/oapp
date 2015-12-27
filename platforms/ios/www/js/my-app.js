@@ -54,10 +54,7 @@ $$(document).on('pageInit', function (e) {
         openNativeAppWindow: function(data) {
             window.open(data, '_system');
         }
-    };
-
-    checkConnection();
-    
+    };    
     var url = window.location.href;
     var fileUrl = url.split("#!/");
 
