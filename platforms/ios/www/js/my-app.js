@@ -50,6 +50,8 @@ $$(document).on('pageInit', function (e) {
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
             checkLanguage();
+            checkConnection();
+
         },
         openNativeAppWindow: function(data) {
             window.open(data, '_system');
@@ -668,5 +670,3 @@ function checkConnection() {
 
     sweetAlert(":-( Oops...", states[networkState]+"!", "error");
 }
-
-checkConnection();
