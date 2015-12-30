@@ -665,10 +665,10 @@ function checkConnection() {
     states[Connection.CELL_3G]  = 'Cell 3G connection';
     states[Connection.CELL_4G]  = 'Cell 4G connection';
     states[Connection.CELL]     = 'Cell generic connection';
-    states[Connection.NONE]     = 'none';
+    states[Connection.NONE]     = false;
 
     //alert(states[networkState]);
-    if (states[networkState] == 'none') {
+    if (states[networkState] == false) {
         sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
         checkConnection();
     }
