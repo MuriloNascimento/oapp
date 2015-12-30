@@ -91,54 +91,27 @@
         <div class="view view-main">
 
             <div class="pages toolbar-through">
-    <div data-page="history" class="page">
-        <div class="page-content">
 
-            <div class="navbarpages">
-                <div class="nav_left_logo"><a href="index.html"><img src="images/logo-white.png" alt="" title="" /></a></div>
-            </div>
-            <div id="pages_maincontent">
-
-                <div class="accordion-item">
-                    <div class="accordion-item-toggle">
-                        <h2 class="page_title"><span class="lang_-benefits"></span>
-                            <span class="title_filter">
-                                <span class="lang_-filter"></span>
-                                <img src="images/icons/categories_icon.png" alt="" title="" />
-                            </span>
-                        </h2>
-                    </div>
-                    <div class="accordion-item-content filter-content">
-                        <div class="fil-content">
-                            <form class="filter-form">
-                                <div class="list-flters"></div>
-
-                                <div class="call_button btn-45"><a href="#" class="btn-filter"><span class="lang_-send"></span></a></div>
-                            </form>
+                <div data-page="index" class="page">
+                    <div class="page_content">
+                        <div class="navbarpages">
+                            <div class="nav_left_logo"><a href="index.html"><img src="images/logo-white.png" alt="" title="" /></a></div>
+                        </div>
+                        <div id="pages_maincontent">
+                            <div class="page_content establishment">
+                                <div class="blog-posts">
+                                    <ul class="posts">
+                                        <li id="welcome">
+                                            <img id="bg" src="http://checklist.grupoair.com.br/public/app/start-bg.jpg">
+                                            <a href="benefits.html" id="btn-benefits"><img src="http://checklist.grupoair.com.br/public/app/start-btn.png"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="page_content establishment">
-                    <div class="load_" style="display:none">
-                        <div class="container_load">
-                            <div class="ball"></div>
-                            <div class="ball"></div>
-                            <div class="ball"></div>
-                            <div class="ball"></div>
-                        </div>
-                    </div>
-
-                    <div class="blog-posts">
-                        <ul class="posts" id="benefitsList"></ul>
-                    </div>
-                </div>
             </div>
-        </div>
-    </div>
-</div>
-
-            
             <!-- Bottom Toolbar-->
             <div class="toolbar">
                 <div class="toolbar-inner">
@@ -212,7 +185,6 @@
 
     <script type="text/javascript">
         app.initialize();
-        onDeviceReady();
 
         $('.toolbar_icons li a').on('click', function(){
             checkLanguage();

@@ -667,8 +667,7 @@ function checkConnection() {
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = false;*/
 
-    alert(networkState);
-    if (networkState == "none") {
+    if (networkState == "NONE") {
         sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
         checkConnection();
     }
