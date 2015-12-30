@@ -657,7 +657,7 @@ function insertData() {
 
 function checkConnection() {
     var networkState = navigator.connection.type;
-    alert('yes');
+
     var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
     states[Connection.ETHERNET] = 'Ethernet connection';
@@ -668,5 +668,7 @@ function checkConnection() {
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = 'No network connection';
 
-    sweetAlert(":-( Oops...", states[networkState]+"!", "error");
+    alert(Connection.NONE);
+
+    //sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
 }
