@@ -657,8 +657,8 @@ function insertData() {
 
 function checkConnection() {
     var networkState = navigator.connection.type;
-
-    /*var states = {};
+    alert('yes');
+    var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
     states[Connection.ETHERNET] = 'Ethernet connection';
     states[Connection.WIFI]     = 'WiFi connection';
@@ -666,11 +666,11 @@ function checkConnection() {
     states[Connection.CELL_3G]  = 'Cell 3G connection';
     states[Connection.CELL_4G]  = 'Cell 4G connection';
     states[Connection.CELL]     = 'Cell generic connection';
-    states[Connection.NONE]     = 'No network connection';
-*/
-    alert(networkState);
-    if(networkState === none) {
-        sweetAlert(":-( Oops...", lang.error_connection + "!", "error");  
+    states[Connection.NONE]     = 'none';
+
+
+    if (states[networkState] === 'none') {
+        sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
         checkConnection();
     }
 }
