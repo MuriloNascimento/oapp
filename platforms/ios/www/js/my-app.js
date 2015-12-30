@@ -667,9 +667,17 @@ function checkConnection() {
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = 'none';
 
-    alert(states[networkState]);
+    //alert(states[networkState]);
     if (states[networkState] == 'none') {
         sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
         checkConnection();
     }
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
+    //
+function onDeviceReady() {
+    isLogged();
 }
