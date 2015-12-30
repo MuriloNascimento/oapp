@@ -49,6 +49,7 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
+            isLogged();
             checkLanguage();
         },
         openNativeAppWindow: function(data) {
@@ -657,7 +658,7 @@ function insertData() {
 
 function checkConnection() {
     var networkState = navigator.connection.type;
-    alert('yes');
+
     var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
     states[Connection.ETHERNET] = 'Ethernet connection';
