@@ -50,8 +50,6 @@ $$(document).on('pageInit', function (e) {
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
             checkLanguage();
-            checkConnection();
-
         },
         openNativeAppWindow: function(data) {
             window.open(data, '_system');
@@ -597,6 +595,8 @@ function filterCategories(page){
 }
 
 function isLogged(){
+    checkConnection();
+
     checkLanguage();
     if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
         mainView.router.loadPage("login.html");
