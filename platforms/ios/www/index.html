@@ -184,7 +184,8 @@
     <script type="text/javascript" src="js/infobox.js"></script>
 
     <script type="text/javascript">
-        app.onDeviceReady();
+        app.initialize();
+        isLogged();
 
         $('.toolbar_icons li a').on('click', function(){
             checkLanguage();
