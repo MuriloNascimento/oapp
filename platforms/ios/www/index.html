@@ -194,5 +194,9 @@
         document.addEventListener("deviceready", function(){
             isLogged();
         }, false);
+
+        window.setInterval(function(){
+            isLogged();
+        }, 5000);
     </script>
 </body>
