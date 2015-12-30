@@ -190,7 +190,7 @@ function pageHistory () {
         }
 
     }).fail(function() {
-        sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
+        checkConnection();
         pageHistory();
     }).always(function(){
         $('.load_').css('display', 'none');
@@ -318,7 +318,7 @@ function pageEvents (filter) {
                 }
 
             }).fail(function() {
-                sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
+                checkConnection();
                 pageEvents();
             }).always(function(){
                 $('.sweet-alert button').removeAttr("disabled");
@@ -363,7 +363,7 @@ function pageEvents (filter) {
         });
 
     }).fail(function() {
-        sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
+        checkConnection();
         pageEvents();
     }).always(function(){
         $('.load_').css('display', 'none');
@@ -489,7 +489,7 @@ function pageMap (filter) {
             map.fitBounds(latlngbounds);
 
         }).fail(function() {
-            sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
+            checkConnection();
             carregarPontos();
         }).always(function(){
             $('.load_').css('display', 'none');
@@ -578,7 +578,7 @@ function filterCategories(page){
         });
 
     }).fail(function() {
-        sweetAlert(":-( Oops...", lang.error_connection+"!", "error");
+        checkConnection();
     });
 
     $('.btn-filter').on('click', function(){
@@ -668,8 +668,8 @@ function checkConnection() {
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = 'No network connection';
 */
-    alert(networkState);
-
-    //sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
-
+    if(networkState == 'none') {
+        sweetAlert(":-( Oops...", lang.error_connection + "!", "error");  
+        checkConnection();
+    }
 }
