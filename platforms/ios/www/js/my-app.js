@@ -49,7 +49,9 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
+            isLogged();
             checkLanguage();
+            insertData();
         },
         openNativeAppWindow: function(data) {
             window.open(data, '_system');
@@ -64,9 +66,9 @@ $$(document).on('pageInit', function (e) {
     var base = 'images/icons/black/';
     var favEvents = [];
 
-    if(!navigator.onLine){
+    /*if(!navigator.onLine){
         sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
-    }
+    }*/
 
     if (page.name == 'index') {
         pageEvents();
