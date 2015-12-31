@@ -86,6 +86,7 @@ $$(document).on('pageInit', function (e) {
             pageHistory();
             break;
         case 'login.html':
+            checkLanguage();
             login();
             break;
     }
