@@ -188,6 +188,7 @@
     <script type="text/javascript">
         
         if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
+            checkLanguage();
             mainView.router.loadPage("login.html");
         } else {
             $('#user-panel').addClass('panel-left panel-cover');
@@ -198,7 +199,7 @@
         $('.toolbar_icons li a').on('click', function(){
             checkLanguage();
         });
-        checkLanguage();
+
         insertData();
     </script>
 </body>

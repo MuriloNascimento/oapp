@@ -49,8 +49,6 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
-            checkLanguage();
-
         },
         openNativeAppWindow: function(data) {
             window.open(data, '_system');
@@ -86,7 +84,6 @@ $$(document).on('pageInit', function (e) {
             break;
         case 'login.html':
             login();
-            checkLanguage();
             break;
     }
 
