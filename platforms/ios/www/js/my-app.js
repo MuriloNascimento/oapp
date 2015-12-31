@@ -49,9 +49,6 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
-            isLogged();
-            checkLanguage();
-            insertData();
         },
         openNativeAppWindow: function(data) {
             window.open(data, '_system');
@@ -86,7 +83,6 @@ $$(document).on('pageInit', function (e) {
             pageHistory();
             break;
         case 'login.html':
-            checkLanguage();
             login();
             break;
     }
@@ -560,6 +556,8 @@ function login() {
 
         return false;
     });
+    
+    checkLanguage();
 }
 
 function filterCategories(page){
