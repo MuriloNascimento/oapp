@@ -552,6 +552,8 @@ function login() {
 
         }).fail(function() {
             connectionFail();
+        }).always(function(){
+            $('.load_').css('display', 'none');
         });
         //beforeSend: setHeader
 
