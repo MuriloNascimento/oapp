@@ -658,6 +658,7 @@ function insertData() {
 
 function checkConnection() {
     var networkState = navigator.connection.type;
+    alert('aaa');
     /*var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
     states[Connection.ETHERNET] = 'Ethernet connection';
