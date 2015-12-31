@@ -192,7 +192,7 @@ function pageHistory () {
         }
 
     }).fail(function() {
-        checkConnection();
+        connectionFail();
         pageHistory();
     }).always(function(){
         $('.load_').css('display', 'none');
@@ -320,7 +320,7 @@ function pageEvents (filter) {
                 }
 
             }).fail(function() {
-                checkConnection();
+                connectionFail();
                 pageEvents();
             }).always(function(){
                 $('.sweet-alert button').removeAttr("disabled");
@@ -365,7 +365,7 @@ function pageEvents (filter) {
         });
 
     }).fail(function() {
-        checkConnection();
+        connectionFail();
         pageEvents();
     }).always(function(){
         $('.load_').css('display', 'none');
@@ -491,7 +491,7 @@ function pageMap (filter) {
             map.fitBounds(latlngbounds);
 
         }).fail(function() {
-            checkConnection();
+            connectionFail();
             carregarPontos();
         }).always(function(){
             $('.load_').css('display', 'none');
@@ -551,7 +551,7 @@ function login() {
             $('#login').removeAttr("disabled");
 
         }).fail(function() {
-            checkConnection();
+            connectionFail();
         });
         //beforeSend: setHeader
 
@@ -581,7 +581,7 @@ function filterCategories(page){
         });
 
     }).fail(function() {
-        checkConnection();
+        connectionFail();
     });
 
     $('.btn-filter').on('click', function(){
@@ -658,7 +658,6 @@ function insertData() {
 
 function checkConnection() {
     var networkState = navigator.connection.type;
-    alert('aaa');
     /*var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
     states[Connection.ETHERNET] = 'Ethernet connection';
@@ -669,8 +668,11 @@ function checkConnection() {
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = false;*/
 
-    if (networkState == "NONE") {
-        sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
+    if (networkState == "NONE" || networkState == "none" || networkState == "" || networkState == null) {
+        connectionFail();
         checkConnection();
     }
+}
+function connectionFail(){
+    sweetAlert(":-( Oops...", lang.error_connection + "!", "error");
 }
