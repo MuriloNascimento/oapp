@@ -49,6 +49,7 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
+            checkLanguage();
         },
         openNativeAppWindow: function(data) {
             window.open(data, '_system');
@@ -646,6 +647,7 @@ function changeText(){
 
 $('body').on('click', function(){
     checkConnection();
+    checkLanguage();
     isLogged();
 });
 
