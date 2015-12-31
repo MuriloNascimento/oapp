@@ -529,30 +529,31 @@ function login() {
             method: 'get',
             url: 'http://revista.grupoair.com.br/wp-admin/admin-ajax.php?action=login',
             crossDomain: true, // enable this
-            dataType: 'json',
-            success: function(data){
-                if (!data.loggedin) {
-                    sweetAlert("Oops...", lang.error_user, "error");
-                } else {
+            dataType: 'json'
+        }).done(function(data) {
+            if (!data.loggedin) {
+                sweetAlert("Oops...", lang.error_user, "error");
+            } else {
 
-                    window.localStorage.setItem('token', data.token);
-                    window.localStorage.setItem('user_id', data.user.data.ID);
-                    window.localStorage.setItem('user_nicename', data.user.data.user_nicename);
-                    window.localStorage.setItem('user_email', data.user.data.user_email);
-                    window.localStorage.setItem('user_name', data.user.data.display_name);
-                    window.localStorage.setItem('membership', data.user.data.membership);
+                window.localStorage.setItem('token', data.token);
+                window.localStorage.setItem('user_id', data.user.data.ID);
+                window.localStorage.setItem('user_nicename', data.user.data.user_nicename);
+                window.localStorage.setItem('user_email', data.user.data.user_email);
+                window.localStorage.setItem('user_name', data.user.data.display_name);
+                window.localStorage.setItem('membership', data.user.data.membership);
 
-                    insertData();
+                insertData();
 
-                    mainView.router.loadPage("benefits.html")
-
-                }
-                $('.load_').css('display', 'none');
-                $('#login').removeAttr("disabled");
+                mainView.router.loadPage("benefits.html")
 
             }
-            //beforeSend: setHeader
+            $('.load_').css('display', 'none');
+            $('#login').removeAttr("disabled");
+
+        }).fail(function() {
+            checkConnection();
         });
+        //beforeSend: setHeader
 
         return false;
     });
@@ -597,14 +598,11 @@ function filterCategories(page){
 }
 
 function isLogged(){
-
     if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
         mainView.router.loadPage("login.html");
     } else {
         $('#user-panel').addClass('panel-left panel-cover');
     }
-    checkConnection();
-    checkLanguage();
 }
 
 function openPage(url) {
@@ -674,7 +672,3 @@ function checkConnection() {
         checkConnection();
     }
 }
-
-setTimeout( function(){ 
-    checkConnection(); 
-}, 7000);

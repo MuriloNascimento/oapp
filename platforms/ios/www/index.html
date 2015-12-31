@@ -21,6 +21,9 @@
     <script src="js/sweetalert.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+        isLogged();
+    </script>
 </head>
 <body id="mobile_wrap">
 
@@ -193,6 +196,7 @@
         });
 
         insertData();
-        isLogged();
+        checkConnection();
+        checkLanguage();
     </script>
 </body>
