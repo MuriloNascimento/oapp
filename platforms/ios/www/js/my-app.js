@@ -645,6 +645,7 @@ function changeText(){
 }
 
 $('body').on('click', function(){
+    checkConnection();
     isLogged();
 });
 
