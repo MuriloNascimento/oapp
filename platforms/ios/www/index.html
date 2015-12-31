@@ -187,19 +187,18 @@
 
     <script type="text/javascript">
         
-
-        app.initialize();
-
-        $('.toolbar_icons li a').on('click', function(){
-            checkLanguage();
-        });
-
-        insertData();
         checkLanguage();
         if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
             mainView.router.loadPage("login.html");
         } else {
             $('#user-panel').addClass('panel-left panel-cover');
         }
+        
+        app.initialize();
+
+        $('.toolbar_icons li a').on('click', function(){
+            checkLanguage();
+        });
+        insertData();
     </script>
 </body>
