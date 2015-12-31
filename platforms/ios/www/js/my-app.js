@@ -511,6 +511,7 @@ function login() {
         dataType: 'json',
         success: function(data){
             console.log('logout');
+            checkLanguage();
         }
     });
 
@@ -556,8 +557,6 @@ function login() {
 
         return false;
     });
-    
-    checkLanguage();
 }
 
 function filterCategories(page){
