@@ -84,6 +84,7 @@ $$(document).on('pageInit', function (e) {
             break;
         case 'login.html':
             login();
+            checkLanguage();
             break;
     }
 
@@ -511,7 +512,6 @@ function login() {
         dataType: 'json',
         success: function(data){
             console.log('logout');
-            checkLanguage();
         }
     });
 
