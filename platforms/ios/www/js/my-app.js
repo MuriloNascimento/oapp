@@ -71,6 +71,7 @@ $$(document).on('pageInit', function (e) {
     }*/
 
     if (page.name == 'index') {
+        alert('sss');
         pageEvents();
     }
     switch(file){
@@ -674,3 +675,7 @@ function checkConnection() {
         checkConnection();
     }
 }
+
+setTimeout( function(){ 
+    checkConnection(); 
+}, 7000);
