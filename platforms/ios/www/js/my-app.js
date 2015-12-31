@@ -637,6 +637,12 @@ function checkLanguage() {
             changeText();
         }
     );
+
+    if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
+        mainView.router.loadPage("login.html");
+    } else {
+        $('#user-panel').addClass('panel-left panel-cover');
+    }
 }
 function changeText(){
     $.each(lang, function(i, val) {
