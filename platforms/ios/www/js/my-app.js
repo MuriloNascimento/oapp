@@ -597,14 +597,15 @@ function filterCategories(page){
 }
 
 function isLogged(){
-    checkConnection();
 
-    checkLanguage();
     if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
         mainView.router.loadPage("login.html");
     } else {
+        insertData();
         $('#user-panel').addClass('panel-left panel-cover');
     }
+    checkConnection();
+    checkLanguage();
 }
 
 function openPage(url) {
