@@ -561,6 +561,7 @@ function login() {
         return false;
     });
 }
+
 function filterCategories(page){
     var $this = $(".list-flters").empty();
     
