@@ -647,7 +647,6 @@ function changeText(){
 
 $('body').on('click', function(){
     checkConnection();
-    checkLanguage();
     isLogged();
 });
 
