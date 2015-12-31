@@ -186,12 +186,8 @@
     <script type="text/javascript" src="js/infobox.js"></script>
 
     <script type="text/javascript">
-        if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
-            mainView.router.loadPage("login.html");
-        } else {
-            $('#user-panel').addClass('panel-left panel-cover');
-        }
         
+
         app.initialize();
 
         $('.toolbar_icons li a').on('click', function(){
@@ -199,7 +195,11 @@
         });
 
         insertData();
-        isLogged();
         checkLanguage();
+        if (window.localStorage.getItem('token') === null || window.localStorage.getItem('token') === undefined) {
+            mainView.router.loadPage("login.html");
+        } else {
+            $('#user-panel').addClass('panel-left panel-cover');
+        }
     </script>
 </body>
