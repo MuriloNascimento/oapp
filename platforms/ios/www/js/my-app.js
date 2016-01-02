@@ -37,6 +37,7 @@ $$(document).on('pageshow',function(e) {
 
 $$(document).on('pageInit', function (e) {
     checkLanguage();
+    isLogged();
 
     var page = e.detail.page;
 
