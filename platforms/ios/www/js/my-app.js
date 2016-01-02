@@ -17,8 +17,7 @@ var myApp = new Framework7({
 var host = 'http://checklist.grupoair.com.br'
 
 myApp.onPageAfterAnimation('login', function (page) {
-    alert('qq');
-    //checkLanguage();
+    checkLanguage();
 }); 
 
 // Export selectors engine
