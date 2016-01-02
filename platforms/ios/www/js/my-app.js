@@ -12,13 +12,13 @@ var myApp = new Framework7({
     pushState: true,
     template7Pages: true
 });
-
+/*
 myApp.onPageBeforeInit('index', function (page) { 
     isLogged(); 
-});
+});*/
 
-myApp.onPageInit('index', function (page) {
-    isLogged();
+myApp.onPageInit('login', function (page) {
+    checkLanguage();
 }); 
 
 var lang;
@@ -44,6 +44,7 @@ $$(document).on('pageshow',function(e) {
 });
 
 $$(document).on('pageInit', function (e) {
+    isLogged();
     checkLanguage();
 
     var page = e.detail.page;
