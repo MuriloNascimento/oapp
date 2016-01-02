@@ -12,17 +12,6 @@ var myApp = new Framework7({
     pushState: true,
     template7Pages: true
 });
-/*
-myApp.onPageBeforeInit('index', function (page) { 
-    isLogged(); 
-});*/
-
-myApp.onPageInit('login', function (page) {
-    checkLanguage();
-}); 
-
-var lang;
-var lang_text = 'en';
 
 //var host = 'http://app.orvipclub.com'
 var host = 'http://checklist.grupoair.com.br'
@@ -37,14 +26,16 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: false
 });
 
+/*var scrollingDiv = document.getElementById('scrollDiv');
+scrollingDiv.addEventListener('touchmove', function(event){
+    event.stopPropagation();
+});*/
 
-$$(document).on('pageshow',function(e) {
-    checkLanguage();
-    isLogged();
-});
+/*$$(document).on('pageshow',function(e) {
+    mainView.router.loadPage("login.html");
+});*/
 
 $$(document).on('pageInit', function (e) {
-    isLogged();
     checkLanguage();
 
     var page = e.detail.page;
@@ -58,6 +49,7 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
+            checkLanguage();
         },
         openNativeAppWindow: function(data) {
             window.open(data, '_system');
@@ -621,6 +613,8 @@ function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
 }
 
+var lang;
+var lang_text = 'en';
 function checkLanguage() {
 
     /*=====DEV=====*/
