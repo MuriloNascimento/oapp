@@ -16,13 +16,13 @@ var myApp = new Framework7({
 //var host = 'http://app.orvipclub.com'
 var host = 'http://checklist.grupoair.com.br'
 
-myApp.onPageBeforeAnimation('login', function (page) {
+myApp.onPageReinit('login', function (page) {
     checkLanguage();
 }); 
 
-/*myApp.onPageAfterAnimation('login', function (page) {
+myApp.onPageAfterAnimation('login', function (page) {
     checkLanguage();
-});*/ 
+}); 
 
 // Export selectors engine
 var $$ = Dom7;
