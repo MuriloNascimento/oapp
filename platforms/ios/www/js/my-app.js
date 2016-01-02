@@ -6,24 +6,24 @@ var myApp = new Framework7({
     // Enabled pages rendering using Template7
     swipeBackPage: false,
     swipeBackPageThreshold: 1,
+    pushStateNoAnimation: true,    
     //swipePanel: "top",
     swipePanelOnlyClose: true,
     swipePanelCloseOpposite: true,
     pushState: true,
-    template7Pages: true,
-    pushStateNoAnimation: true
+    template7Pages: true
 });
 
 //var host = 'http://app.orvipclub.com'
 var host = 'http://checklist.grupoair.com.br'
 
-myApp.onPageAfterAnimation('index', function (page) {
+/*myApp.onPageAfterAnimation('index', function (page) {
     checkLanguage();
 }); 
 
 myApp.onPageInit('index', function (page) {
     checkLanguage();
-}); 
+}); */
 
 myApp.onPageAfterAnimation('login', function (page) {
     checkLanguage();
@@ -554,15 +554,17 @@ function login() {
 
                 insertData();
 
-                mainView.router.loadPage("benefits.html")
+                mainView.router.loadPage("benefits.html");
 
             }
+            $('.load_').css('display', 'none');
+            $('#login').removeAttr("disabled");
 
         }).fail(function() {
             connectionFail();
         }).always(function(){
-            $('#login').removeAttr("disabled");
             $('.load_').css('display', 'none');
+            $('#login').removeAttr("disabled");
         });
         //beforeSend: setHeader
 
