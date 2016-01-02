@@ -545,12 +545,11 @@ function login() {
                 mainView.router.loadPage("benefits.html")
 
             }
-            $('.load_').css('display', 'none');
-            $('#login').removeAttr("disabled");
 
         }).fail(function() {
             connectionFail();
         }).always(function(){
+            $('#login').removeAttr("disabled");
             $('.load_').css('display', 'none');
         });
         //beforeSend: setHeader
@@ -614,10 +613,11 @@ function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
 }
 
-var lang;
-var lang_text = 'en';
-function checkLanguage() {
 
+function checkLanguage() {
+    var lang;
+    var lang_text = 'en';
+    
     /*=====DEV=====*/
     // lang_text = 'pt';
     // lang = window['pt'];
