@@ -13,6 +13,10 @@ var myApp = new Framework7({
     template7Pages: true
 });
 
+myApp.onPageBeforeInit('index', function (page) { 
+    isLogged(); 
+}).trigger();
+
 myApp.onPageInit('login', function (page) {
     alert('qqq');
 }); 
