@@ -16,6 +16,10 @@ var myApp = new Framework7({
 //var host = 'http://app.orvipclub.com'
 var host = 'http://checklist.grupoair.com.br'
 
+myApp.onPageBeforeAnimation('login', function (page) {
+    checkLanguage();
+}); 
+
 myApp.onPageAfterAnimation('login', function (page) {
     checkLanguage();
 }); 
