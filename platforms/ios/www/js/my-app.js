@@ -1,5 +1,8 @@
 // Initialize your app
 var myApp = new Framework7({
+    preroute: function () {
+        isLogged();
+    },
     animateNavBackIcon: true,
     // Enable templates auto precompilation
     precompileTemplates: true,
@@ -12,6 +15,10 @@ var myApp = new Framework7({
     pushState: true,
     template7Pages: true
 });
+
+myApp.onPageInit('index', function (page) {
+    alert('qqq');
+}); 
 
 var lang;
 var lang_text = 'en';
@@ -37,7 +44,6 @@ $$(document).on('pageshow',function(e) {
 
 $$(document).on('pageInit', function (e) {
     checkLanguage();
-    isLogged();
 
     var page = e.detail.page;
 
@@ -50,8 +56,6 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
-            checkLanguage();
-            isLogged();
         },
         openNativeAppWindow: function(data) {
             window.open(data, '_system');
