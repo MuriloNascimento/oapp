@@ -561,10 +561,9 @@ function login() {
             $('#login').removeAttr("disabled");
 
         }).fail(function() {
-            connectionFail();
-        }).always(function(){
             $('.load_').css('display', 'none');
             $('#login').removeAttr("disabled");
+            connectionFail();
         });
         //beforeSend: setHeader
 
