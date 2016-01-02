@@ -15,7 +15,7 @@ var myApp = new Framework7({
 
 myApp.onPageBeforeInit('index', function (page) { 
     isLogged(); 
-}).trigger();
+});
 
 myApp.onPageInit('index', function (page) {
     isLogged();
