@@ -29,14 +29,11 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: false
 });
 
-/*var scrollingDiv = document.getElementById('scrollDiv');
-scrollingDiv.addEventListener('touchmove', function(event){
-    event.stopPropagation();
-});*/
 
-/*$$(document).on('pageshow',function(e) {
-    mainView.router.loadPage("login.html");
-});*/
+$$(document).on('pageshow',function(e) {
+    checkLanguage();
+    isLogged();
+});
 
 $$(document).on('pageInit', function (e) {
     checkLanguage();
