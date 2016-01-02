@@ -13,6 +13,9 @@ var myApp = new Framework7({
     template7Pages: true
 });
 
+var lang;
+var lang_text = 'en';
+
 //var host = 'http://app.orvipclub.com'
 var host = 'http://checklist.grupoair.com.br'
 
@@ -613,11 +616,8 @@ function ucFirst(string) {
     return string.substring(0, 1).toUpperCase() + string.substring(1).toLowerCase();
 }
 
-
 function checkLanguage() {
-    var lang;
-    var lang_text = 'en';
-    
+
     /*=====DEV=====*/
     // lang_text = 'pt';
     // lang = window['pt'];
