@@ -17,8 +17,8 @@ myApp.onPageBeforeInit('index', function (page) {
     isLogged(); 
 }).trigger();
 
-myApp.onPageInit('login', function (page) {
-    alert('qqq');
+myApp.onPageInit('index', function (page) {
+    isLogged();
 }); 
 
 var lang;
