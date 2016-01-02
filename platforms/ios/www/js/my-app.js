@@ -10,13 +10,18 @@ var myApp = new Framework7({
     swipePanelOnlyClose: true,
     swipePanelCloseOpposite: true,
     pushState: true,
-    template7Pages: true
+    template7Pages: true,
+    pushStateNoAnimation: true
 });
 
 //var host = 'http://app.orvipclub.com'
 var host = 'http://checklist.grupoair.com.br'
 
 myApp.onPageAfterAnimation('index', function (page) {
+    checkLanguage();
+}); 
+
+myApp.onPageInit('index', function (page) {
     checkLanguage();
 }); 
 
