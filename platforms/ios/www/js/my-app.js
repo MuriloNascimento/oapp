@@ -1,8 +1,5 @@
 // Initialize your app
 var myApp = new Framework7({
-    preroute: function () {
-        isLogged();
-    },
     animateNavBackIcon: true,
     // Enable templates auto precompilation
     precompileTemplates: true,
@@ -16,7 +13,7 @@ var myApp = new Framework7({
     template7Pages: true
 });
 
-myApp.onPageInit('index', function (page) {
+myApp.onPageInit('login', function (page) {
     alert('qqq');
 }); 
 
