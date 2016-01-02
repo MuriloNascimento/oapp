@@ -53,6 +53,7 @@ $$(document).on('pageInit', function (e) {
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
             checkLanguage();
+            isLogged();
         },
         openNativeAppWindow: function(data) {
             window.open(data, '_system');
