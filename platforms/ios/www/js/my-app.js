@@ -514,7 +514,6 @@ function pageMap (filter) {
 }
 
 function login() {
-    
     /*window.localStorage.clear();
     $.ajax({
         type: 'get',
@@ -580,8 +579,16 @@ function filterCategories(page){
     }).done(function(results) {
 
         $.each(results, function(i, value) {
+            var name;
+            var cI18n = $.each(value.i18n, function(index, v){
+                if (v.lang == lang_text) {
+                    name = v.name;
+                } else {
+                    name = value.name;
+                }
+            });
 
-            var item = '<input type="checkbox" name="category[]" value="'+value.id+'" />'+value.name;
+            var item = '<input type="checkbox" name="category[]" value="'+value.id+'" />'+name;
 
             var li = $("<p />").addClass('categories-li');
 
