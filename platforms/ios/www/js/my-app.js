@@ -514,6 +514,7 @@ function pageMap (filter) {
 }
 
 function login() {
+    
     /*window.localStorage.clear();
     $.ajax({
         type: 'get',
