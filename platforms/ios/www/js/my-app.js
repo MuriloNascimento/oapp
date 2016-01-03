@@ -580,13 +580,16 @@ function filterCategories(page){
             var name;
             var cI18n = $.each(value.i18n, function(index, v){
                 if (v.lang == lang_text) {
-                    name = v.name;
-                } else {
-                    name = value.name;
+                    categoryNameI18n = v.name;
                 }
             });
 
-            var item = '<input type="checkbox" name="category[]" value="'+value.id+'" />'+name;
+            if (categoryNameI18n != undefined) {
+                var item = '<input type="checkbox" name="category[]" value="'+value.id+'" />'+categoryNameI18n;
+            } else {
+                var item = '<input type="checkbox" name="category[]" value="'+value.id+'" />'+value.name;
+            }
+            
 
             var li = $("<p />").addClass('categories-li');
 
@@ -637,12 +640,12 @@ var lang_text = 'en';
 function checkLanguage() {
 
     /*=====DEV=====*/
-    lang_text = 'pt';
+    /*lang_text = 'pt';
     lang = window['pt'];
-    changeText();
+    changeText();*/
     
     /*=====PROD=====*/
-    /*navigator.globalization.getPreferredLanguage(
+    navigator.globalization.getPreferredLanguage(
         function (language) {
             var l_ = language.value;
             var lang_ = l_.split("-");
@@ -655,7 +658,7 @@ function checkLanguage() {
             lang = window[lang_text];
             changeText();
         }
-    );*/
+    );
 }
 function changeText(){
     $.each(lang, function(i, val) {
