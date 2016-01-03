@@ -514,7 +514,7 @@ function pageMap (filter) {
 }
 
 function login() {
-    window.localStorage.clear();
+    /*window.localStorage.clear();
     $.ajax({
         type: 'get',
         data: {'destroy': true},
@@ -525,7 +525,7 @@ function login() {
         success: function(data){
             console.log('logout');
         }
-    });
+    });*/
 
     $('#login').on('click',function(e){
         $('#login').attr("disabled", "disabled");
