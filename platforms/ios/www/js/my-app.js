@@ -514,7 +514,7 @@ function pageMap (filter) {
 }
 
 function login() {
-    /*window.localStorage.clear();
+    window.localStorage.clear();
     $.ajax({
         type: 'get',
         data: {'destroy': true},
@@ -525,10 +525,10 @@ function login() {
         success: function(data){
             console.log('logout');
         }
-    });*/
+    });
 
     $('#login').on('click',function(e){
-        $('#login').attr("disabled", "disabled");
+        /*$('#login').attr("disabled", "disabled");*/
         $('.load_').css('display', 'block');
         e.preventDefault();
         var postData = $('.email-login').serialize();
@@ -558,11 +558,9 @@ function login() {
 
             }
             $('.load_').css('display', 'none');
-            $('#login').removeAttr("disabled");
 
         }).fail(function() {
             $('.load_').css('display', 'none');
-            $('#login').removeAttr("disabled");
             connectionFail();
         });
         //beforeSend: setHeader
@@ -639,9 +637,9 @@ var lang_text = 'en';
 function checkLanguage() {
 
     /*=====DEV=====*/
-    // lang_text = 'pt';
-    // lang = window['pt'];
-    // changeText();
+    /*lang_text = 'pt';
+    lang = window['pt'];
+    changeText();*/
     
     /*=====PROD=====*/
     navigator.globalization.getPreferredLanguage(
