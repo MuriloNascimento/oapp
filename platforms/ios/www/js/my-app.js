@@ -25,9 +25,9 @@ myApp.onPageInit('index', function (page) {
     checkLanguage();
 }); */
 
-myApp.onPageAfterAnimation('login', function (page) {
+/*myApp.onPageAfterAnimation('login', function (page) {
     checkLanguage();
-}); 
+}); */
 
 // Export selectors engine
 var $$ = Dom7;
