@@ -639,12 +639,12 @@ var lang_text = 'en';
 function checkLanguage() {
 
     /*=====DEV=====*/
-    lang_text = 'pt';
+    /*lang_text = 'pt';
     lang = window['pt'];
-    changeText();
+    changeText();*/
     
     /*=====PROD=====*/
-    /*navigator.globalization.getPreferredLanguage(
+    navigator.globalization.getPreferredLanguage(
         function (language) {
             var l_ = language.value;
             var lang_ = l_.split("-");
@@ -657,7 +657,7 @@ function checkLanguage() {
             lang = window[lang_text];
             changeText();
         }
-    );*/
+    );
 }
 function changeText(){
     $.each(lang, function(i, val) {
