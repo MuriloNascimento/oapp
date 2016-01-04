@@ -527,6 +527,7 @@ function login() {
     });
 
     $('#login').on('click',function(e){
+        alert('click-lang: ' + lang_text);
         /*$('#login').attr("disabled", "disabled");*/
         $('.load_').css('display', 'block');
         e.preventDefault();
@@ -576,7 +577,6 @@ function filterCategories(page){
     }).done(function(results) {
 
         $.each(results, function(i, value) {
-            var categoryNameI18n;
             var cI18n = $.each(value.i18n, function(index, v){
                 if (v.lang == lang_text) {
                     categoryNameI18n = v.name;
@@ -666,7 +666,7 @@ function changeText(){
 }
 
 $('body').on('click', function(){
-    //checkConnection();
+    checkConnection();
     isLogged();
 });
 
