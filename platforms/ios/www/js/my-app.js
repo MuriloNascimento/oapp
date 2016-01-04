@@ -49,6 +49,8 @@ scrollingDiv.addEventListener('touchmove', function(event){
 
 $$(document).on('pageInit', function (e) {
     checkLanguage();
+    isLogged();
+
 
     var page = e.detail.page;
 
@@ -527,7 +529,6 @@ function login() {
     });
 
     $('#login').on('click',function(e){
-        alert('click-lang: ' + lang_text);
         /*$('#login').attr("disabled", "disabled");*/
         $('.load_').css('display', 'block');
         e.preventDefault();
