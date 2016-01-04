@@ -513,6 +513,19 @@ function pageMap (filter) {
 }
 
 function login() {
+    window.localStorage.clear();
+    $.ajax({
+        type: 'get',
+        data: {'destroy': true},
+        method: 'get',
+        url: 'http://revista.grupoair.com.br/wp-admin/admin-ajax.php?action=login',
+        crossDomain: true, // enable this
+        dataType: 'json',
+        success: function(data){
+            console.log('logout');
+        }
+    });
+
     $('#login').on('click',function(e){
         /*$('#login').attr("disabled", "disabled");*/
         $('.load_').css('display', 'block');
@@ -664,20 +677,6 @@ function insertData() {
     $('.user_plan').text(ucFirst(window.localStorage.getItem('membership')));
 }
 
-function destroySession(){
-    window.localStorage.clear();
-    $.ajax({
-        type: 'get',
-        data: {'destroy': true},
-        method: 'get',
-        url: 'http://revista.grupoair.com.br/wp-admin/admin-ajax.php?action=login',
-        crossDomain: true, // enable this
-        dataType: 'json',
-        success: function(data){
-            console.log('logout');
-        }
-    });
-}
 function checkConnection() {
     var networkState = navigator.connection.type;
     /*var states = {};
