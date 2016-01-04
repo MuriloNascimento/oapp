@@ -622,7 +622,7 @@ function isLogged(){
         mainView.router.loadPage("login.html");
     } else {
         insertData();
-        $('#user-panel').addClass('panel-left panel-cover');
+        //$('#user-panel').addClass('panel-left panel-cover');
     }
 }
 
