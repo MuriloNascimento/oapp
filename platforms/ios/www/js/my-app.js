@@ -577,6 +577,7 @@ function filterCategories(page){
     }).done(function(results) {
 
         $.each(results, function(i, value) {
+            var categoryNameI18n;
             var cI18n = $.each(value.i18n, function(index, v){
                 if (v.lang == lang_text) {
                     categoryNameI18n = v.name;
