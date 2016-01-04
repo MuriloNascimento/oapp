@@ -95,7 +95,6 @@ $$(document).on('pageInit', function (e) {
             pageHistory();
             break;
         case 'login.html':
-            destroySession();
             login();
             break;
     }
