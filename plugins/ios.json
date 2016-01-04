@@ -27,10 +27,6 @@
                         {
                             "xml": "<preference name=\"StatusBarStyle\" value=\"lightcontent\" />",
                             "count": 1
-                        },
-                        {
-                            "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
-                            "count": 1
                         }
                     ]
                 }
@@ -43,12 +39,7 @@
                             "count": 1
                         }
                     ],
-                    "SystemConfiguration.framework": [
-                        {
-                            "xml": true,
-                            "count": 1
-                        }
-                    ]
+                    "SystemConfiguration.framework": []
                 }
             }
         }
@@ -64,9 +55,6 @@
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.phonegap.helloworld"
-        },
-        "org.apache.cordova.network-information": {
             "PACKAGE_NAME": "com.phonegap.helloworld"
         }
     },

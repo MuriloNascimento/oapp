@@ -28,21 +28,6 @@ module.exports = [
         "clobbers": [
             "window.StatusBar"
         ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.network-information/www/network.js",
-        "id": "org.apache.cordova.network-information.network",
-        "clobbers": [
-            "navigator.connection",
-            "navigator.network.connection"
-        ]
-    },
-    {
-        "file": "plugins/org.apache.cordova.network-information/www/Connection.js",
-        "id": "org.apache.cordova.network-information.Connection",
-        "clobbers": [
-            "Connection"
-        ]
     }
 ];
 module.exports.metadata = 
@@ -51,8 +36,7 @@ module.exports.metadata =
     "cordova-plugin-globalization": "1.0.2",
     "cordova-plugin-inappbrowser": "1.0.2-dev",
     "cordova-plugin-statusbar": "1.0.1",
-    "cordova-plugin-whitelist": "1.0.0",
-    "org.apache.cordova.network-information": "0.2.15"
+    "cordova-plugin-whitelist": "1.0.0"
 }
 // BOTTOM OF METADATA
 });
