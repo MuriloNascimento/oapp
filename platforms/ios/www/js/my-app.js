@@ -48,7 +48,7 @@ scrollingDiv.addEventListener('touchmove', function(event){
 });*/
 
 $$(document).on('pageInit', function (e) {
-    
+    checkLanguage();
     var page = e.detail.page;
 
     var app = {
@@ -552,7 +552,6 @@ function login() {
 
                 insertData();
 
-                checkLanguage();
                 mainView.router.loadPage("benefits.html");
 
             }
