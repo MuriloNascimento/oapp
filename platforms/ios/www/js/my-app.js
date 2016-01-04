@@ -512,7 +512,7 @@ function pageMap (filter) {
 }
 
 function login() {
-    window.localStorage.clear();
+    /*window.localStorage.clear();
     $.ajax({
         type: 'get',
         data: {'destroy': true},
@@ -523,12 +523,12 @@ function login() {
         success: function(data){
             console.log('logout');
         }
-    });
+    });*/
 
     $('#login').on('click',function(e){
         /*$('#login').attr("disabled", "disabled");*/
         $('.load_').css('display', 'block');
-        e.preventDefault();
+        //e.preventDefault();
         var postData = $('.email-login').serialize();
 
         $.ajax({
@@ -563,7 +563,7 @@ function login() {
         });
         //beforeSend: setHeader
 
-        return false;
+        //return false;
     });
 }
 
