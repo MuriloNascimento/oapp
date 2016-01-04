@@ -48,6 +48,7 @@ scrollingDiv.addEventListener('touchmove', function(event){
 });*/
 
 $$(document).on('pageInit', function (e) {
+    checkLanguage();
 
     var page = e.detail.page;
 
@@ -84,16 +85,13 @@ $$(document).on('pageInit', function (e) {
     switch(file){
         case 'benefits.html':
             filterCategories('benefits');
-            checkLanguage();
             pageEvents();
             break;
         case 'map.html':
             filterCategories('map');
-            checkLanguage();
             pageMap();
             break;
         case 'history.html':
-            checkLanguage();
             pageHistory();
             break;
         case 'login.html':
@@ -529,7 +527,6 @@ function login() {
     });
 
     $('#login').on('click',function(e){
-        alert('click-lang: ' + lang_text);
         /*$('#login').attr("disabled", "disabled");*/
         $('.load_').css('display', 'block');
         e.preventDefault();
