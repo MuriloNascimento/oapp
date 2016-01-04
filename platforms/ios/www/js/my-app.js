@@ -552,6 +552,7 @@ function login() {
 
                 insertData();
 
+                checkLanguage();
                 mainView.router.loadPage("benefits.html");
 
             }
@@ -665,7 +666,7 @@ function changeText(){
 }
 
 $('body').on('click', function(){
-    checkConnection();
+    //checkConnection();
     isLogged();
 });
 
