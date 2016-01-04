@@ -25,9 +25,9 @@ myApp.onPageInit('index', function (page) {
     checkLanguage();
 }); */
 
-/*myApp.onPageAfterAnimation('login', function (page) {
+myApp.onPageAfterAnimation('login', function (page) {
     checkLanguage();
-}); */
+}); 
 
 // Export selectors engine
 var $$ = Dom7;
@@ -48,7 +48,6 @@ scrollingDiv.addEventListener('touchmove', function(event){
 });*/
 
 $$(document).on('pageInit', function (e) {
-    checkLanguage();
 
     var page = e.detail.page;
 
@@ -85,13 +84,16 @@ $$(document).on('pageInit', function (e) {
     switch(file){
         case 'benefits.html':
             filterCategories('benefits');
+            checkLanguage();
             pageEvents();
             break;
         case 'map.html':
             filterCategories('map');
+            checkLanguage();
             pageMap();
             break;
         case 'history.html':
+            checkLanguage();
             pageHistory();
             break;
         case 'login.html':
@@ -577,6 +579,7 @@ function filterCategories(page){
     }).done(function(results) {
 
         $.each(results, function(i, value) {
+            var categoryNameI18n;
             var cI18n = $.each(value.i18n, function(index, v){
                 if (v.lang == lang_text) {
                     categoryNameI18n = v.name;
@@ -639,12 +642,12 @@ var lang_text = 'en';
 function checkLanguage() {
 
     /*=====DEV=====*/
-    /*lang_text = 'pt';
+    lang_text = 'pt';
     lang = window['pt'];
-    changeText();*/
+    changeText();
     
     /*=====PROD=====*/
-    navigator.globalization.getPreferredLanguage(
+    /*navigator.globalization.getPreferredLanguage(
         function (language) {
             var l_ = language.value;
             var lang_ = l_.split("-");
@@ -657,7 +660,7 @@ function checkLanguage() {
             lang = window[lang_text];
             changeText();
         }
-    );
+    );*/
 }
 function changeText(){
     $.each(lang, function(i, val) {
@@ -666,7 +669,7 @@ function changeText(){
 }
 
 $('body').on('click', function(){
-    checkConnection();
+    //checkConnection();
     isLogged();
 });
 
