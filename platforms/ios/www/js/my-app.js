@@ -48,10 +48,7 @@ scrollingDiv.addEventListener('touchmove', function(event){
 });*/
 
 $$(document).on('pageInit', function (e) {
-    checkLanguage();
-    isLogged();
-
-
+    
     var page = e.detail.page;
 
     var app = {
@@ -63,6 +60,8 @@ $$(document).on('pageInit', function (e) {
         },
         onDeviceReady: function() {
             app.receivedEvent('deviceready');
+            checkLanguage();
+            isLogged();
         },
         openNativeAppWindow: function(data) {
             window.open(data, '_system');
