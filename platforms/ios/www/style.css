@@ -1878,9 +1878,11 @@ ul.events li img{
 }
 
 #login{
-  cursor: pointer;
+  cursor: pointer !important;
   border-radius: 10px;
   font-size: 130%;
+  z-index: 5000;
+  position: relative;
 }
 
 #register{
