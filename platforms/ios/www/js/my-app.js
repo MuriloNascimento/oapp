@@ -644,21 +644,21 @@ function checkLanguage() {
     changeText();*/
     
     /*=====PROD=====*/
-    navigator.globalization.getPreferredLanguage(
-        function (language) {
-            console.log(language.value);
-            var l_ = language.value;
-            var lang_ = l_.split("-");
-
-            lang_text = lang_[0];
-            lang = window[lang_text];
-            changeText();
-        },
-        function () {
-            lang = window[lang_text];
-            changeText();
-        }
-    );
+    //navigator.globalization.getPreferredLanguage(
+    //    function (language) {
+    //        console.log(language.value);
+    //        var l_ = language.value;
+    //        var lang_ = l_.split("-");
+    //
+    //        lang_text = lang_[0];
+    //        lang = window[lang_text];
+    //        changeText();
+    //    },
+    //    function () {
+    //        lang = window[lang_text];
+    //        changeText();
+    //    }
+    //);
 }
 function changeText(){
     $.each(lang, function(i, val) {
