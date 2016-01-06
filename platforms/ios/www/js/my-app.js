@@ -642,6 +642,7 @@ function checkLanguage() {
     /*lang_text = 'pt';
     lang = window['pt'];
     changeText();*/
+    lang = window['pt'];
     
     /*=====PROD=====*/
     navigator.globalization.getPreferredLanguage(
@@ -651,15 +652,15 @@ function checkLanguage() {
 
             lang_text = lang_[0];
             lang = window[lang_text];
-            changeText(lang);
+            changeText();
         },
         function () {
             lang = window[lang_text];
-            changeText(lang);
+            changeText();
         }
     );
 }
-function changeText(lang){
+function changeText(){
     $.each(lang, function(i, val) {
         $('.lang_-'+i).text(val);
     });
