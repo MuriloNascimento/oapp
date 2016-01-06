@@ -639,35 +639,29 @@ var lang_text = 'en';
 function checkLanguage() {
 
     /*=====DEV=====*/
-    //lang_text = 'pt';
-    //lang = window['pt'];
-    //changeText();
+    lang_text = 'en';
+    lang = window['en'];
+    changeText();
     
     /*=====PROD=====*/
-    navigator.globalization.getPreferredLanguage(
-        function (language) {
-            var l_ = language.value;
-            var lang_ = l_.split("-");
-
-            //lang_text = lang_[0];
-            //console.log(lang_);
-            //console.log(lang_text);
-            //lang = window[lang_text];
-            //changeText();
-
-            lang_text = 'pt';
-            lang = window['pt'];
-            changeText();
-        },
-        function () {
-            lang = window[lang_text];
-            changeText();
-        }
-    );
+    //navigator.globalization.getPreferredLanguage(
+    //    function (language) {
+    //        var l_ = language.value;
+    //        var lang_ = l_.split("-");
+    //
+    //        lang_text = lang_[0];
+    //        lang = window[lang_text];
+    //        changeText();
+    //    },
+    //    function () {
+    //        lang = window[lang_text];
+    //        changeText();
+    //    }
+    //);
 }
 function changeText(){
     $.each(lang, function(i, val) {
-        $('.lang_-'+i).text(val);
+       $('.lang_-'+i).text(val);
     });
 }
 
