@@ -646,6 +646,7 @@ function checkLanguage() {
     /*=====PROD=====*/
     navigator.globalization.getPreferredLanguage(
         function (language) {
+            console.log(language.value);
             var l_ = language.value;
             var lang_ = l_.split("-");
 
