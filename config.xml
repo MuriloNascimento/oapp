@@ -25,25 +25,25 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="14" />
     <preference name="android-installLocation" value="auto" />
-    <plugin name="org.apache.cordova.battery-status" />
-    <plugin name="org.apache.cordova.camera" />
-    <plugin name="org.apache.cordova.media-capture" />
-    <plugin name="org.apache.cordova.console" />
-    <plugin name="org.apache.cordova.contacts" />
-    <plugin name="org.apache.cordova.device" />
-    <plugin name="org.apache.cordova.device-motion" />
-    <plugin name="org.apache.cordova.device-orientation" />
-    <plugin name="org.apache.cordova.dialogs" />
-    <plugin name="org.apache.cordova.file" />
-    <plugin name="org.apache.cordova.file-transfer" />
-    <plugin name="org.apache.cordova.geolocation" />
-    <plugin name="org.apache.cordova.globalization" />
-    <plugin name="org.apache.cordova.media" />
-    <plugin name="org.apache.cordova.network-information" />
-    <plugin name="org.apache.cordova.splashscreen" />
-    <plugin name="org.apache.cordova.vibration" />
-    <plugin name="org.apache.cordova.inappbrowser" />
-    <plugin name="org.apache.cordova.statusbar" />
+    <plugin name="org.apache.cordova.battery-status"  source="npm" />
+    <plugin name="org.apache.cordova.camera" source="npm" />
+    <plugin name="org.apache.cordova.media-capture" source="npm" />
+    <plugin name="org.apache.cordova.console" source="npm"  />
+    <plugin name="org.apache.cordova.contacts" source="npm" />
+    <plugin name="org.apache.cordova.device" source="npm" />
+    <plugin name="org.apache.cordova.device-motion" source="npm" />
+    <plugin name="org.apache.cordova.device-orientation" source="npm" />
+    <plugin name="org.apache.cordova.dialogs" source="npm" />
+    <plugin name="org.apache.cordova.file" source="npm" />
+    <plugin name="org.apache.cordova.file-transfer" source="npm" />
+    <plugin name="org.apache.cordova.geolocation" source="npm" />
+    <plugin name="org.apache.cordova.globalization" source="npm" />
+    <plugin name="org.apache.cordova.media" source="npm" />
+    <plugin name="org.apache.cordova.network-information" source="npm" />
+    <plugin name="org.apache.cordova.splashscreen" source="npm" />
+    <plugin name="org.apache.cordova.vibration" source="npm" />
+    <plugin name="org.apache.cordova.inappbrowser" source="npm" />
+    <plugin name="org.apache.cordova.statusbar" source="npm" />
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>
