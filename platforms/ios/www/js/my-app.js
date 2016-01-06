@@ -660,7 +660,6 @@ function checkLanguage() {
     );
 }
 function changeText(lang){
-    console.log(lang);
     $.each(lang, function(i, val) {
         $('.lang_-'+i).text(val);
     });
