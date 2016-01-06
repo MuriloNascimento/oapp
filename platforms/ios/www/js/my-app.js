@@ -649,10 +649,14 @@ function checkLanguage() {
             var l_ = language.value;
             var lang_ = l_.split("-");
 
-            lang_text = lang_[0];
-            console.log(lang_);
-            console.log(lang_text);
-            lang = window[lang_text];
+            //lang_text = lang_[0];
+            //console.log(lang_);
+            //console.log(lang_text);
+            //lang = window[lang_text];
+            //changeText();
+
+            lang_text = 'pt';
+            lang = window['pt'];
             changeText();
         },
         function () {
