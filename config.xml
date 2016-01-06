@@ -93,7 +93,6 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <allow-navigation href="http://*/*" />
     <access origin="http://www.google.com/" />
     <access origin="http://maps.google.com/" />
     <access origin="*" />
